@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Püsü IPTV - Windows için Yeni Nesil Medya & IPTV Oynatıcı</title>
+    <meta name="description"
+        content="Püsü IPTV; LibVLC donanım hızlandırması, akıllı 4 aşamalı kanal filtreleme, IMDb entegrasyonu ve modern glassmorphism arayüzü ile Windows için geliştirilmiş üstün IPTV oynatıcı.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="main-header" id="header">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <img src="images/pusu_logo.png" alt="Püsü IPTV Logo" class="brand-icon">
+                <div class="brand-text">
+                    <span class="brand-title">Püsü<span class="accent-orange">IPTV</span></span>
+                    <span class="brand-sub">by Okan707</span>
+                </div>
+            </a>
+
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#ozellikler">Özellikler</a></li>
+                    <li><a href="#moduller">Modüller</a></li>
+                    <li><a href="#filtreleme">Akıllı Filtreleme</a></li>
+                    <li><a href="#teknoloji">Teknoloji</a></li>
+                    <li><a href="#hikaye">Hikaye</a></li>
+                    <li><a href="#diger-projeler">Diğer Projeler</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="https://github.com/Okan707/pusu.iptv/releases/download/18.3.0/Pusu_IPTV_Setup.exe" class="btn btn-header-download">
+                    <i class="fab fa-windows"></i>
+                    <span>İndir <small>v18.3.0</small></span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Menüyü Aç/Kapat">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Flagship Showcase) -->
+    <section class="hero" id="hero">
+        <div class="hero-ambient hero-ambient-orange"></div>
+        <div class="hero-ambient hero-ambient-cyan"></div>
+
+        <div class="container hero-layout">
+            <div class="hero-content">
+                <div class="hero-badge animate-fade-in">
+                    <span class="badge-dot"></span>
+                    <span>2026 EDITION • WINDOWS 10 / 11 İÇİN GELİŞTİRİLDİ</span>
+                </div>
+
+                <h1 class="hero-title animate-fade-in">
+                    Televizyon ve Medya Deneyiminizi <span class="text-gradient-cyan">Yeniden</span> <span
+                        class="text-gradient-orange">Tanımlayın</span>
+                </h1>
+
+                <p class="hero-desc animate-fade-in">
+                    Püsü IPTV, sıradan medya oynatıcılarının karmaşasından uzak; <strong>LibVLC GPU donanım hızlandırması</strong>,
+                    <strong>pati izinde akıllı kanal filtreleme</strong> ve <strong>IMDb entegrasyonu</strong> ile donatılmış,
+                    Windows platformu için optimize edilmiş yeni nesil eğlence merkezidir.
+                </p>
+
+                <div class="hero-cta-group animate-fade-in">
+                    <a href="https://github.com/Okan707/pusu.iptv/releases/download/18.3.0/Pusu_IPTV_Setup.exe"
+                        class="btn btn-primary-glow btn-lg">
+                        <i class="fab fa-windows"></i>
+                        <div class="btn-text-block">
+                            <span class="btn-caption">Windows için Hemen İndir</span>
+                            <span class="btn-subtext">v18.3.0 Kurulum Dosyası (.exe)</span>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/Okan707/pusu.iptv" target="_blank" class="btn btn-glass btn-lg">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub Kaynak Kodu</span>
+                    </a>
+                </div>
+
+                <div class="hero-stats animate-fade-in">
+                    <div class="stat-item">
+                        <span class="stat-value">50.000+</span>
+                        <span class="stat-label">Kanal Kapasitesi</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-value">&lt; 100ms</span>
+                        <span class="stat-label">Hızlı Zapping</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-value">4K & 8K</span>
+                        <span class="stat-label">GPU Hızlandırma</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-value">.NET 8</span>
+                        <span class="stat-label">WPF & LibVLC</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Mascot Visual Showcase -->
+            <div class="hero-visual animate-scale-in">
+                <div class="mascot-showcase-card">
+                    <div class="mascot-glow-ring"></div>
+                    <div class="mascot-halo"></div>
+                    <img src="images/pusu_logo.png" alt="Püskül Siber Kedi Maskotu - Püsü IPTV" class="mascot-img">
+
+                    <!-- Floating Tech Pills -->
+                    <div class="floating-badge badge-top-left">
+                        <i class="fas fa-microchip"></i>
+                        <span>GPU Donanım Çözücü</span>
+                    </div>
+
+                    <div class="floating-badge badge-top-right">
+                        <i class="fas fa-paw"></i>
+                        <span>Pati İzinde Arama</span>
+                    </div>
+
+                    <div class="floating-badge badge-bottom-left">
+                        <i class="fas fa-film"></i>
+                        <span>IMDb Meta & Poster</span>
+                    </div>
+
+                    <div class="floating-badge badge-bottom-right">
+                        <i class="fas fa-bolt"></i>
+                        <span>Ultra Düşük Gecikme</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 Main Modules Showcase Section -->
+    <section class="section-modules" id="moduller">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">ZENGİN İÇERİK MİMARİSİ</span>
+                <h2 class="section-title">Dört Güçlü Modül, Tek Kusursuz Arayüz</h2>
+                <p class="section-subtitle">
+                    Püsü IPTV, tüm dijital medya arşivinizi 4 temel ana başlık altında sınıflandırarak saniyeler içinde
+                    erişmenizi sağlar.
+                </p>
+            </div>
+
+            <div class="modules-grid">
+                <!-- Canlı TV -->
+                <div class="module-card card-cyan">
+                    <div class="module-icon-wrap">
+                        <img src="images/module_tv.png" alt="Canlı TV Modülü" class="module-icon">
+                    </div>
+                    <div class="module-body">
+                        <div class="module-header-row">
+                            <h3>Canlı TV</h3>
+                            <span class="badge-module">50K+ Kanal</span>
+                        </div>
+                        <p>
+                            Yerel, uluslararası, spor, haber ve belgesel kanalları arasında takılmadan gezinin. Dinamik
+                            ülke bayrakları ve anlık EPG rehber desteğiyle televizyonun keyfini çıkarın.
+                        </p>
+                        <ul class="module-feature-list">
+                            <li><i class="fas fa-check"></i> Milisaniyelik kanal geçişi (Zapping)</li>
+                            <li><i class="fas fa-check"></i> Ülke ve kategori bazlı filtreleme</li>
+                            <li><i class="fas fa-check"></i> Anlık yayın bilgisi & OSD paneli</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Filmler -->
+                <div class="module-card card-orange">
+                    <div class="module-icon-wrap">
+                        <img src="images/module_movies.png" alt="Filmler Modülü" class="module-icon">
+                    </div>
+                    <div class="module-body">
+                        <div class="module-header-row">
+                            <h3>Sinema & Filmler</h3>
+                            <span class="badge-module">VOD Kütüphanesi</span>
+                        </div>
+                        <p>
+                            Zengin sinema arşivi parmaklarınızın ucunda. Otomatik IMDb puanlama ve afiş önbellekleme
+                            sayesinde ne izleyeceğinize saniyeler içinde karar verin.
+                        </p>
+                        <ul class="module-feature-list">
+                            <li><i class="fas fa-check"></i> Otomatik IMDb afiş & puan servisi</li>
+                            <li><i class="fas fa-check"></i> Çoklu seslendirme & altyazı desteği</li>
+                            <li><i class="fas fa-check"></i> 4K UHD & HDR akış uyumluluğu</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Diziler -->
+                <div class="module-card card-purple">
+                    <div class="module-icon-wrap">
+                        <img src="images/module_series.png" alt="Diziler Modülü" class="module-icon">
+                    </div>
+                    <div class="module-body">
+                        <div class="module-header-row">
+                            <h3>Diziler & Sezonlar</h3>
+                            <span class="badge-module">Akıllı Takip</span>
+                        </div>
+                        <p>
+                            Sezon ve bölüm hiyerarşisiyle derli toplu dizi deneyimi. Hangi bölümde kaldığınızı hatırlayan
+                            akıllı geçmiş motoruyla kesintisiz maratonlar yaşayın.
+                        </p>
+                        <ul class="module-feature-list">
+                            <li><i class="fas fa-check"></i> Sezon & Bölüm hiyerarşik seçimi</li>
+                            <li><i class="fas fa-check"></i> Otomatik "Kaldığın Yerden Devam Et"</li>
+                            <li><i class="fas fa-check"></i> Bölüm özetleri ve çıkış tarihleri</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Favoriler -->
+                <div class="module-card card-yellow">
+                    <div class="module-icon-wrap">
+                        <img src="images/module_favorites.png" alt="Favoriler Modülü" class="module-icon">
+                    </div>
+                    <div class="module-body">
+                        <div class="module-header-row">
+                            <h3>Favoriler & Geçmiş</h3>
+                            <span class="badge-module">Kişisel Arşiv</span>
+                        </div>
+                        <p>
+                            En çok izlediğiniz içerikleri tek dokunuşla favorilerinize ekleyin. Bulut senkronizasyonu ve
+                            yerel yedekleme ile tercihlerinizi asla kaybetmeyin.
+                        </p>
+                        <ul class="module-feature-list">
+                            <li><i class="fas fa-check"></i> Tek tıkla favoriye ekleme & çıkarma</li>
+                            <li><i class="fas fa-check"></i> Son izlenenler geçmişi (Watch History)</li>
+                            <li><i class="fas fa-check"></i> Firebase & Yerel JSON yedekleme</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Spotlight Section -->
+    <section class="section-features" id="ozellikler">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">YENİLİKÇİ TEKNOLOJİLER</span>
+                <h2 class="section-title">Püsü IPTV’yi Özel Kılan Ayrıcalıklar</h2>
+                <p class="section-subtitle">
+                    Standart oynatıcıların yetersiz kaldığı noktalarda devreye giren yüksek mühendislik çözümleri.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-box">
+                    <div class="feature-icon feature-icon-cyan">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <h4>Pati İzinde Akıllı Filtreleme</h4>
+                    <p>
+                        Regex tabanlı 4 aşamalı arama motoruyla binlerce kanal arasından Spor, Çocuk, Dizi, Film, Belgesel ve
+                        Haber kategorilerini anında ayırt eder; aradığınız yayına saniyeler içinde zıplarsınız.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-box">
+                    <div class="feature-icon feature-icon-orange">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>LibVLC Donanım Hızlandırma</h4>
+                    <p>
+                        Gücünü modern C# ve .NET 8.0 mimarisinden alan oynatıcı, ekran kartınızın GPU gücünü kullanarak 4K ve
+                        8K yayınlarda bile CPU kullanımını minimumda tutar.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-box">
+                    <div class="feature-icon feature-icon-purple">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h4>Glassmorphism Bilgi Paneli (OSD)</h4>
+                    <p>
+                        Şık ve şeffaf bilgi bandı ile anlık çözünürlük, bit hızı (bitrate), ses kodekleri ve kare hızını
+                        yayını bölmeden estetik bir grafik arayüzle sunar.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-box">
+                    <div class="feature-icon feature-icon-green">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h4>Yayın Kaydı & Ekran Yakalama</h4>
+                    <p>
+                        Dahili video işleme servisi ile sevdiğiniz canlı yayınları kaydedebilir, deklanşör sesi eşliğinde
+                        yüksek çözünürlüklü ekran yakalama özelliğiyle anı ölümsüzleştirebilirsiniz.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-box">
+                    <div class="feature-icon feature-icon-red">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h4>IMDb Afiş & Metadata Motoru</h4>
+                    <p>
+                        İzlemek istediğiniz film ve dizilerin IMDb puanları, afişleri, oyuncu kadroları ve açıklamaları
+                        otomatik taranır ve yerel önbelleğe kaydedilerek anında gösterilir.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-box">
+                    <div class="feature-icon feature-icon-blue">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h4>Bulut & Çoklu Profil Senkronizasyonu</h4>
+                    <p>
+                        M3U ve Xtream Codes API hesaplarınızı kolayca yönetin. İzleme geçmişiniz ve favorileriniz yerel
+                        JSON ve Firebase entegrasyonuyla güvende kalır.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Channel Categorization Section -->
+    <section class="section-categories" id="filtreleme">
+        <div class="container">
+            <div class="categories-banner">
+                <div class="categories-text">
+                    <span class="section-tag">GELİŞMİŞ KANAL ZEKA SİSTEMİ</span>
+                    <h2>10 Temel Kategori ile Sıfır Karmaşa</h2>
+                    <p>
+                        51.000'den fazla kanalı başlıklarındaki özel regex kalıplarıyla süzüp kusursuz bir kütüphaneye
+                        dönüştürdük. Kanal çöplüğü yerine ne izlemek istediğinizi bilen akıllı bir düzen.
+                    </p>
+
+                    <div class="category-pills">
+                        <span class="cat-pill"><i class="fas fa-futbol"></i> Spor (255+ Kanal)</span>
+                        <span class="cat-pill"><i class="fas fa-flag"></i> Türkiye (195+ Kanal)</span>
+                        <span class="cat-pill"><i class="fas fa-child"></i> Çocuk (340+ Kanal)</span>
+                        <span class="cat-pill"><i class="fas fa-tv"></i> Dizi (120+ Kanal)</span>
+                        <span class="cat-pill"><i class="fas fa-film"></i> Film (105+ Kanal)</span>
+                        <span class="cat-pill"><i class="fas fa-book-open"></i> Belgesel (65+ Kanal)</span>
+                        <span class="cat-pill"><i class="fas fa-newspaper"></i> Haber (50+ Kanal)</span>
+                        <span class="cat-pill"><i class="fas fa-music"></i> Müzik (20+ Kanal)</span>
+                    </div>
+                </div>
+
+                <div class="categories-stat-box">
+                    <div class="stat-highlight">
+                        <span class="num">%99.8</span>
+                        <span class="desc">Akıllı Filtreleme Doğruluğu</span>
+                    </div>
+                    <div class="stat-highlight">
+                        <span class="num">51K+</span>
+                        <span class="desc">Dinamik İndekslenen Yayın</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Mascot Story / Inspiration Section -->
+    <section class="section-story" id="hikaye">
+        <div class="container">
+            <div class="story-card">
+                <div class="story-image-wrap">
+                    <img src="images/puskul_waiting.png" alt="Püskül Bekleme Ekranı" class="story-img">
+                </div>
+                <div class="story-content">
+                    <span class="section-tag">BİR DOSTLUK HİKAYESİ</span>
+                    <h2>Püskül'ün İzinde: Meraklı, Çevik ve Sıcak</h2>
+                    <p>
+                        Püsü IPTV, sıradan bir medya oynatıcının çok ötesinde; adını ve sıcak ruhunu evimizin neşesi, sarı
+                        sarman dostumuz <strong>Püskül</strong>'den alıyor.
+                    </p>
+                    <p>
+                        Bir kedinin meraklı gözleri gibi en ince ayrıntıyı yakalayan, bir pati hamlesi kadar hızlı kanallar
+                        arasında zıplayan ve göz yormayan sıcacık bakır-turuncu çizgileriyle ev konforu sunan bir arayüz hayal
+                        ettik.
+                    </p>
+                    <div class="story-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <em>"Bu uygulama, karmaşık kanal listelerini düzenli bir kütüphaneye dönüştürerek televizyon izleme
+                            alışkanlığınızı yeniden tanımlamak için geliştirilmiştir."</em>
+                        <span class="quote-author">— Okan Bayındır, 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specs & Download Box Section -->
+    <section class="section-download" id="indir">
+        <div class="container">
+            <div class="download-card" id="teknoloji">
+                <div class="download-info">
+                    <span class="section-tag">RESMİ SÜRÜM DAĞITIMI</span>
+                    <h2>Püsü IPTV’yi Şimdi Windows’a Yükleyin</h2>
+                    <p>
+                        En yeni <strong>v18.3.0</strong> sürümü; Inno Setup tek tıkla kurulum, modern otomatik güncelleme
+                        altyapısı ve sıfır ek yapılandırma ile hemen çalışmaya hazır.
+                    </p>
+
+                    <div class="specs-table">
+                        <div class="spec-row">
+                            <span class="spec-name"><i class="fab fa-windows"></i> İşletim Sistemi</span>
+                            <span class="spec-val">Windows 10 / Windows 11 (64-bit)</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-name"><i class="fas fa-code"></i> Çerçeve (Framework)</span>
+                            <span class="spec-val">.NET 8.0 Windows Desktop Runtime</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-name"><i class="fas fa-play-circle"></i> Oynatıcı Çekirdeği</span>
+                            <span class="spec-val">LibVLCSharp 3.9 & VideoLAN Engine</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-name"><i class="fas fa-list"></i> Desteklenen Formatlar</span>
+                            <span class="spec-val">M3U, M3U8, Xtream Codes API, TS, MP4, MKV</span>
+                        </div>
+                    </div>
+
+                    <div class="download-buttons">
+                        <a href="https://github.com/Okan707/pusu.iptv/releases/download/18.3.0/Pusu_IPTV_Setup.exe"
+                            class="btn btn-primary-glow btn-xl">
+                            <i class="fab fa-windows"></i>
+                            <div class="btn-text-block">
+                                <span class="btn-caption">Pusu_IPTV_Setup.exe İndir</span>
+                                <span class="btn-subtext">Sürüm 18.3.0 • 64-Bit Installer</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/Okan707/pusu.iptv" target="_blank" class="btn btn-glass btn-xl">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub Sürüm Notları</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="download-visual">
+                    <div class="app-window-mockup">
+                        <div class="mockup-header">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                            <span class="mockup-title">Püsü IPTV v18.3.0 - 2026 Edition</span>
+                        </div>
+                        <div class="mockup-body">
+                            <img src="images/pusu_logo.png" alt="Püsü IPTV" class="mockup-logo">
+                            <div class="mockup-details">
+                                <span class="mockup-badge">Kuruluma Hazır</span>
+                                <p class="mockup-text">Yüksek performanslı 4K video oynatıcı masaüstünüzde.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer's Other Projects Section (Preserved & Modernized) -->
+    <section class="section-other-apps" id="diger-projeler">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">OKAN707 PORTFÖYÜ</span>
+                <h2 class="section-title">Geliştiricinin Diğer Projeleri</h2>
+                <p class="section-subtitle">
+                    Dijital Deneyim Tasarımı felsefesiyle hayata geçirilen diğer Windows ve mobil uygulamalar.
+                </p>
+            </div>
+
+            <div class="other-apps-grid">
+                <!-- Kelime Avcısı -->
+                <article class="other-app-card" id="kelime-avcisi">
+                    <div class="other-app-icon-wrap">
+                        <img src="images/kelime_avcisi_icon_final.svg" alt="Kelime Avcısı">
+                    </div>
+                    <div class="other-app-content">
+                        <div class="other-app-header">
+                            <h3>Kelime Avcısı</h3>
+                            <span class="app-ver-badge">v1.6</span>
+                        </div>
+                        <p>
+                            Dilin zenginliğini keşfetmeniz için tasarlanmış, strateji ve bilgiyi buluşturan etkileşimli sözcük oyunu.
+                            1000+ seviye ve çevrimdışı mod.
+                        </p>
+                        <div class="other-app-footer">
+                            <a href="https://github.com/Okan707/Kelime_Avcisi/releases/download/1.6/Kelime_Avcisi_Setup.exe"
+                                class="btn btn-glass-sm">
+                                <i class="fas fa-download"></i> İndir
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Dil Hazinesi -->
+                <article class="other-app-card" id="dil-hazinesi">
+                    <div class="other-app-icon-wrap">
+                        <img src="images/dil_hazinesi_icon_final.svg" alt="Dil Hazinesi">
+                    </div>
+                    <div class="other-app-content">
+                        <div class="other-app-header">
+                            <h3>Dil Hazinesi</h3>
+                            <span class="app-ver-badge">v1.0</span>
+                        </div>
+                        <p>
+                            Türkçenin köklü geçmişinden süzülen sözcük, atasözü ve deyim hazinesini modern kart tasarımıyla buluşturan
+                            kapsamlı dijital kültür projesi.
+                        </p>
+                        <div class="other-app-footer">
+                            <a href="https://github.com/Okan707/Dil_Hazinesi/releases/download/1.0/Dil_Hazinesi.exe"
+                                class="btn btn-glass-sm">
+                                <i class="fas fa-download"></i> İndir
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Okul707 -->
+                <article class="other-app-card" id="okul707">
+                    <div class="other-app-icon-wrap">
+                        <img src="images/okul707_icon.svg" alt="Okul707">
+                    </div>
+                    <div class="other-app-content">
+                        <div class="other-app-header">
+                            <h3>Okul707</h3>
+                            <span class="app-ver-badge">v1.0</span>
+                        </div>
+                        <p>
+                            Eğitim kurumlarının yönetim süreçlerini tek bir merkezden, kullanıcı dostu arayüzle sadeleştiren
+                            kurumsal takip ve veri analiz sistemi.
+                        </p>
+                        <div class="other-app-footer">
+                            <a href="https://github.com/Okan707/Okul707/releases/download/1.0/Okul707_Setup.exe"
+                                class="btn btn-glass-sm">
+                                <i class="fas fa-download"></i> İndir
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="images/pusu_logo.png" alt="Püsü IPTV" class="footer-logo-img">
+                    <span>Püsü<strong>IPTV</strong></span>
+                </div>
+                <p>2026 Edition • Dijital Deneyim Tasarımı & Modern Medya Teknolojileri</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Hızlı Bağlantılar</h4>
+                <ul>
+                    <li><a href="#hero">Ana Sayfa</a></li>
+                    <li><a href="#moduller">Modüller</a></li>
+                    <li><a href="#ozellikler">Özellikler</a></li>
+                    <li><a href="#indir">İndir</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Geliştirici İletişim</h4>
+                <div class="social-icons">
+                    <a href="https://github.com/okan707" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.x.com/okan707" target="_blank" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/okan707" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="copyright">&copy; 2026 Okan Bayındır. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
