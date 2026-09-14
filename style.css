@@ -1524,3 +1524,227 @@ body {
         padding: 0.55rem;
     }
 }
+
+
+/* ==========================================================================
+   Android Version & QR Code Section
+   ========================================================================== */
+
+.section-android {
+    padding: 7rem 0;
+    position: relative;
+    background: radial-gradient(circle at 80% 40%, rgba(61, 220, 132, 0.08) 0%, transparent 60%),
+                linear-gradient(180deg, var(--bg-base) 0%, #0c141d 50%, var(--bg-base) 100%);
+    border-top: 1px solid var(--border-subtle);
+}
+
+.android-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.android-info h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin: 0.5rem 0 1.25rem;
+    line-height: 1.2;
+}
+
+.android-info p.lead {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.android-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.android-highlight-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: var(--transition-smooth);
+}
+
+.android-highlight-item:hover {
+    border-color: rgba(61, 220, 132, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.android-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(61, 220, 132, 0.12);
+    color: #3ddc84;
+    border: 1px solid rgba(61, 220, 132, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.android-item-text h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.android-item-text p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.android-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.btn-play-store {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #fff;
+    padding: 0.95rem 1.8rem;
+    border-radius: 14px;
+    font-size: 1.05rem;
+    gap: 0.85rem;
+    box-shadow: 0 8px 25px -4px rgba(16, 185, 129, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-play-store:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.6);
+    background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+}
+
+.btn-play-store i {
+    font-size: 1.4rem;
+}
+
+/* QR Code Card */
+.android-qr-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.android-qr-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(61, 220, 132, 0.3);
+    border-radius: 28px;
+    padding: 2.75rem 2.25rem;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-card), 0 0 35px rgba(61, 220, 132, 0.15);
+    max-width: 380px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.android-qr-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #3ddc84, #00e5ff);
+}
+
+.qr-code-frame {
+    background: #ffffff;
+    padding: 14px;
+    border-radius: 20px;
+    display: inline-block;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.qr-code-frame img {
+    width: 210px;
+    height: 210px;
+    display: block;
+    border-radius: 8px;
+}
+
+.qr-badge-scan {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(61, 220, 132, 0.15);
+    color: #3ddc84;
+    border: 1px solid rgba(61, 220, 132, 0.3);
+    padding: 0.35rem 0.95rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0.85rem;
+}
+
+.android-qr-card h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.45rem;
+}
+
+.android-qr-card p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+.app-id-pill {
+    display: inline-block;
+    font-family: monospace;
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-top: 1rem;
+    border: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 950px) {
+    .android-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .android-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .android-cta-row {
+        justify-content: center;
+    }
+
+    .android-qr-wrapper {
+        order: -1;
+    }
+}
