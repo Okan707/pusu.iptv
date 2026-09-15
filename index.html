@@ -24,10 +24,24 @@
         }, true);
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" href="Canada.otf" as="font" type="font/otf" crossorigin>
+    <style>
+        @font-face {
+            font-family: 'Canada';
+            src: url('Canada.otf') format('opentype'),
+                 url('fonts/Canada.otf') format('opentype');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+        }
+        *, body, button, input, select, textarea, h1, h2, h3, h4, h5, h6, p, a, span:not([class*="fa"]), small, strong, em, li, label, div {
+            font-family: 'Canada', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        i.fa, i.fab, i.fas, i.far, [class*="fa-"] {
+            font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+        }
+    </style>
 </head>
 
 <body>
