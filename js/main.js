@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Püsü IPTV - Interactive Scripts
+   Püsü IPTV - Interactive Scripts & Modal Controller
    Author: Okan Bayındır
    ========================================================================== */
 
@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Sticky Header Scroll Effect
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 40) {
+        if (window.scrollY > 30) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-    });
+    }, { passive: true });
 
     // 2. Mobile Menu Toggle
     if (mobileMenuBtn && mainNav) {
@@ -39,12 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (targetId === '#' || !targetId) return;
 
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 e.preventDefault();
-                const headerOffset = 80;
+                const headerOffset = 76;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -56,11 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Scroll Reveal Animations (Intersection Observer)
+    // 4. Scroll Reveal Animations (Intersection Observer with Stagger)
     const observerOptions = {
         root: null,
-        rootMargin: '0px 0px -50px 0px',
-        threshold: 0.12
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.1
     };
 
     const animateOnScroll = new IntersectionObserver((entries, observer) => {
@@ -72,9 +72,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Observe animate-fade-in & animate-scale-in elements
-    document.querySelectorAll('.animate-fade-in, .animate-scale-in, .module-card, .feature-box, .story-card, .download-card, .other-app-card').forEach(el => {
-        el.classList.add('animate-fade-in');
+    // Apply staggered reveals to grid cards
+    document.querySelectorAll('.features-grid, .modules-grid, .android-sharp-features, .other-apps-grid').forEach(grid => {
+        const cards = grid.children;
+        Array.from(cards).forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.08}s`;
+        });
+    });
+
+    // Observe animatable elements
+    const elementsToAnimate = document.querySelectorAll(
+        '.reveal-fade-up, .reveal-scale-in, .feature-box, .module-card, .sharp-feature-card, .other-app-card, .download-card, .story-card'
+    );
+    elementsToAnimate.forEach(el => {
+        if (!el.classList.contains('reveal-scale-in')) {
+            el.classList.add('reveal-fade-up');
+        }
         animateOnScroll.observe(el);
     });
 
@@ -98,6 +111,55 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.add('active');
             }
         });
+    }, { passive: true });
+
+    // 6. Privacy Policy Modal Controller (No External Redirects)
+    const privacyModal = document.getElementById('privacyModal');
+    const openPrivacyBtns = document.querySelectorAll('.open-privacy-modal');
+    const closePrivacyBtns = document.querySelectorAll('.close-privacy-modal');
+
+    function openModal() {
+        if (privacyModal) {
+            privacyModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeModal() {
+        if (privacyModal) {
+            privacyModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    openPrivacyBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+        });
+    });
+
+    closePrivacyBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal();
+        });
+    });
+
+    // Close when clicking on backdrop
+    if (privacyModal) {
+        privacyModal.addEventListener('click', (e) => {
+            if (e.target === privacyModal) {
+                closeModal();
+            }
+        });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && privacyModal && privacyModal.classList.contains('active')) {
+            closeModal();
+        }
     });
 
 });
