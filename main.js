@@ -210,4 +210,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 7. Instant Release Download Redirect for Setup
+    document.querySelectorAll('a[href*="Pusu_IPTV_Setup.exe"]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = 'https://github.com/Okan707/pusu.iptv/releases/download/18.4.0/Pusu_IPTV_Setup.exe';
+        });
+    });
+
 });
