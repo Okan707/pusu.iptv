@@ -913,6 +913,38 @@ section {
     color: var(--text-primary);
 }
 
+.windows-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.win-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    background: #f8fafc;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-subtle);
+    transition: var(--transition-smooth);
+}
+
+.win-pill:hover {
+    color: var(--cyan-main);
+    border-color: var(--border-cyan);
+    background: #ffffff;
+    transform: translateY(-2px);
+}
+
+.win-pill i {
+    color: var(--cyan-main);
+}
+
 /* Windows In-App Window Mockup */
 .windows-app-mockup {
     background: #0f172a;
