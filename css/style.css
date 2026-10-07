@@ -1176,6 +1176,39 @@ section {
     line-height: 1.55;
 }
 
+.android-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    grid-column: 1 / -1;
+}
+
+.android-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    background: #f8fafc;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-subtle);
+    transition: var(--transition-smooth);
+}
+
+.android-pill:hover {
+    color: var(--green-main);
+    border-color: rgba(5, 150, 105, 0.3);
+    background: #ffffff;
+    transform: translateY(-2px);
+}
+
+.android-pill i {
+    color: var(--green-main);
+}
+
 /* White Theme QR Card */
 .android-white-qr-card {
     background: #ffffff;
