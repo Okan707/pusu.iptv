@@ -211,10 +211,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 7. Instant Release Download Redirect for Setup
-    document.querySelectorAll('a[href*="Pusu_IPTV_Setup.exe"]').forEach(btn => {
+    document.querySelectorAll('a[href*="Pusu_IPTV_Setup.exe"], .btn-header-download').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = 'https://github.com/Okan707/pusu.iptv/releases/download/18.5.0/Pusu_IPTV_Setup.exe';
+            window.location.href = 'https://github.com/Okan707/pusu.iptv/releases/download/18.6.0/Pusu_IPTV_Setup.exe';
         });
     });
 
