@@ -477,6 +477,41 @@
             return await res.json();
         }
 
+        function extractCredentialsFromUrl(rawUrl) {
+            const s = (rawUrl || "").trim();
+            if (!s) return null;
+            const m1 = s.match(/^(https?:\/\/[^/?#]+).*?[?&]username=([^&]+)&password=([^&]+)/i);
+            if (m1) {
+                return {
+                    serverUrl: m1[1].replace(/\/+$/, ""),
+                    username: decodeURIComponent(m1[2]),
+                    password: decodeURIComponent(m1[3])
+                };
+            }
+            const m2 = s.match(/^(https?:\/\/[^/?#]+)\/playlist\/([^/]+)\/([^/?#]+)/i);
+            if (m2) {
+                return {
+                    serverUrl: m2[1].replace(/\/+$/, ""),
+                    username: decodeURIComponent(m2[2]),
+                    password: decodeURIComponent(m2[3])
+                };
+            }
+            return null;
+        }
+
+        document.getElementById("serverUrl").addEventListener("input", function(e) {
+            if (activeTab === "xtream") {
+                const extracted = extractCredentialsFromUrl(e.target.value);
+                if (extracted) {
+                    e.target.value = extracted.serverUrl;
+                    const uEl = document.getElementById("username");
+                    const pEl = document.getElementById("password");
+                    if (!uEl.value.trim()) uEl.value = extracted.username;
+                    if (!pEl.value.trim()) pEl.value = extracted.password;
+                }
+            }
+        });
+
         async function handleSend(e) {
             e.preventDefault();
             hideStatus();
@@ -493,11 +528,17 @@
                 return;
             }
 
-            const url = document.getElementById("serverUrl").value.trim();
-            const username = document.getElementById("username").value.trim();
-            const password = document.getElementById("password").value.trim();
+            let url = document.getElementById("serverUrl").value.trim();
+            let username = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value.trim();
+            const extracted = extractCredentialsFromUrl(url);
 
             if (activeTab === "xtream") {
+                if (extracted) {
+                    url = extracted.serverUrl;
+                    if (!username) username = extracted.username;
+                    if (!password) password = extracted.password;
+                }
                 if (!url || !username || !password) {
                     showStatus("error", '<i class="fas fa-exclamation-circle"></i><span>Xtream bağlantısı için Sunucu URL, Kullanıcı Adı ve Şifre alanlarını doldurun.</span>');
                     return;
@@ -506,6 +547,10 @@
                 if (!url) {
                     showStatus("error", '<i class="fas fa-exclamation-circle"></i><span>Lütfen geçerli bir M3U URL adresi girin.</span>');
                     return;
+                }
+                if (extracted) {
+                    username = extracted.username;
+                    password = extracted.password;
                 }
             } else if (activeTab === "m3u_file") {
                 if (!loadedM3uContent || (!loadedM3uContent.includes("#EXTM3U") && !loadedM3uContent.includes("#EXTINF") && !loadedM3uContent.includes("http"))) {
@@ -526,8 +571,8 @@
                     type: activeTab,
                     name: name,
                     url: activeTab === "m3u_file" ? "" : url,
-                    username: activeTab === "xtream" ? username : "",
-                    password: activeTab === "xtream" ? password : "",
+                    username: activeTab === "m3u_file" ? "" : username,
+                    password: activeTab === "m3u_file" ? "" : password,
                     m3uContent: activeTab === "m3u_file" ? loadedM3uContent : "",
                     timestamp: Date.now()
                 };
