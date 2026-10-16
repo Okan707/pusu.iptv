@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/style.css">
     <script>
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            if (params.get('code')) {
+                window.location.replace('qr.html' + window.location.search + window.location.hash);
+            }
+        })();
         // Görsel ve kaynak yolu otomatik bağdaştırıcı (Kök dizin veya images/ klasörü tam uyumluluğu)
         document.addEventListener('error', function(e) {
             if (e.target.tagName === 'IMG') {
@@ -61,6 +67,7 @@
                 <ul>
                     <li><a href="#indir">Windows</a></li>
                     <li><a href="#android">Android</a></li>
+                    <li><a href="qr.html"><i class="fas fa-qrcode"></i> QR Giriş</a></li>
                     <li><a href="#ozellikler">Özellikler</a></li>
                     <li><a href="#moduller">Modüller</a></li>
                     <li><a href="#hikaye">Hikaye</a></li>
@@ -69,9 +76,13 @@
             </nav>
 
             <div class="header-actions">
-                <a href="https://github.com/Okan707/pusu.iptv/releases/download/18.6.0/Pusu_IPTV_Setup.exe" class="btn-header-download">
+                <a href="qr.html" class="btn-header-download" style="background: rgba(37, 99, 235, 0.18); border-color: rgba(37, 99, 235, 0.5); margin-right: 8px;">
+                    <i class="fas fa-qrcode"></i>
+                    <span>QR Giriş</span>
+                </a>
+                <a href="https://github.com/Okan707/pusu.iptv/releases/download/18.9.0/Pusu_IPTV_Setup.exe" class="btn-header-download">
                     <i class="fab fa-windows"></i>
-                    <span>İndir <small>v18.6</small></span>
+                    <span>İndir <small>v18.9</small></span>
                 </a>
                 <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Menüyü Aç/Kapat">
                     <span></span>
@@ -104,12 +115,12 @@
                 </p>
 
                 <div class="hero-cta-group reveal-fade-up">
-                    <a href="https://github.com/Okan707/pusu.iptv/releases/download/18.6.0/Pusu_IPTV_Setup.exe"
+                    <a href="https://github.com/Okan707/pusu.iptv/releases/download/18.9.0/Pusu_IPTV_Setup.exe"
                         class="btn btn-primary-glow btn-lg">
                         <i class="fab fa-windows"></i>
                         <div class="btn-text-block">
                             <span class="btn-caption">Windows için İndir</span>
-                            <span class="btn-subtext">v18.6 Kurulum (.exe)</span>
+                            <span class="btn-subtext">v18.9 Kurulum (.exe)</span>
                         </div>
                     </a>
 
@@ -122,6 +133,15 @@
                                 <i class="fab fa-google-play"></i> Android İçin Okutun
                             </div>
                             <span class="hero-qr-sub">Google Play Store</span>
+                        </div>
+                    </a>
+
+                    <a href="qr.html" class="hero-qr-btn" style="border-color: rgba(37, 99, 235, 0.45);">
+                        <div class="hero-qr-info" style="padding-left: 4px;">
+                            <div class="hero-qr-title">
+                                <i class="fas fa-qrcode" style="color: #60A5FA;"></i> QR ile Liste Gönder
+                            </div>
+                            <span class="hero-qr-sub">TV &amp; PC'ye Uzaktan Giriş</span>
                         </div>
                     </a>
                 </div>

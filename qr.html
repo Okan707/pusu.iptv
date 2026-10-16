@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Püsü IPTV - QR ile Hızlı Liste &amp; Xtream Gönder</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" href="Canada.otf" as="font" type="font/otf" crossorigin>
+    <style>
+        @font-face {
+            font-family: 'Canada';
+            src: url('Canada.otf') format('opentype'),
+                 url('fonts/Canada.otf') format('opentype');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+        }
+        :root {
+            --bg-dark: #090D16;
+            --card-bg: #111827;
+            --input-bg: #1E293B;
+            --border-col: rgba(255, 255, 255, 0.12);
+            --accent-blue: #2563EB;
+            --accent-orange: #F97316;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --success: #10B981;
+            --danger: #EF4444;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Canada', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        i.fa, i.fab, i.fas, i.far, [class*="fa-"] {
+            font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+        }
+        body {
+            background: radial-gradient(circle at top right, #1e293b 0%, #090d16 65%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 16px 40px;
+        }
+        .top-bar {
+            width: 100%;
+            max-width: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+        .brand img {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+        .brand-title {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+        }
+        .brand-title span {
+            color: var(--accent-orange);
+        }
+        .back-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-col);
+            background: rgba(255,255,255,0.03);
+        }
+        .card {
+            width: 100%;
+            max-width: 520px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-col);
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        .card-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .card-header h1 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+        .card-header p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+        .code-box {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1.5px solid rgba(37, 99, 235, 0.45);
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .code-box label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #93C5FD;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .code-box span {
+            font-size: 11.5px;
+            color: var(--text-muted);
+        }
+        .code-input {
+            width: 150px;
+            background: var(--bg-dark);
+            border: 1.5px solid var(--accent-blue);
+            color: #FFFFFF;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 5px;
+            text-align: center;
+            padding: 10px 8px;
+            border-radius: 10px;
+            outline: none;
+        }
+        .tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+            background: var(--bg-dark);
+            padding: 6px;
+            border-radius: 12px;
+            border: 1px solid var(--border-col);
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 11px 6px;
+            font-size: 12.5px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            background: var(--accent-blue);
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+        }
+        .form-group {
+            margin-bottom: 14px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #CBD5E1;
+            margin-bottom: 6px;
+        }
+        .input-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .input-wrap i.prefix {
+            position: absolute;
+            left: 14px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        .form-control {
+            width: 100%;
+            background: var(--input-bg);
+            border: 1px solid var(--border-col);
+            color: var(--text-main);
+            padding: 13px 14px 13px 40px;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-control:focus {
+            border-color: var(--accent-blue);
+        }
+        .file-drop {
+            border: 2px dashed rgba(37, 99, 235, 0.5);
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 12px;
+            padding: 22px 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .file-drop:hover {
+            border-color: var(--accent-blue);
+            background: rgba(37, 99, 235, 0.08);
+        }
+        .file-drop i {
+            font-size: 28px;
+            color: #60A5FA;
+            margin-bottom: 8px;
+        }
+        .file-drop p {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        .file-drop small {
+            display: block;
+            margin-top: 4px;
+            font-size: 11.5px;
+            color: var(--text-muted);
+        }
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.6px;
+            cursor: pointer;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+            transition: opacity 0.2s, transform 0.1s;
+        }
+        .submit-btn:active {
+            transform: scale(0.99);
+        }
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .status-msg {
+            margin-top: 14px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            line-height: 1.4;
+        }
+        .status-msg.error {
+            display: flex;
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #FCA5A5;
+        }
+        .status-msg.success {
+            display: flex;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #6EE7B7;
+        }
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="index.html" class="brand">
+            <img src="pusu_logo.png" alt="Püsü IPTV" onerror="this.src='images/pusu_logo.png'">
+            <div class="brand-title">Püsü<span>IPTV</span></div>
+        </a>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Ana Sayfa</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h1><i class="fas fa-qrcode" style="color:#60A5FA;margin-right:6px;"></i> Cihaza Uzaktan Giriş Gönder</h1>
+            <p>TV, Android veya Bilgisayar ekranındaki 6 haneli QR kodunu girip IPTV bilgilerinizi tek tıkla aktarın.</p>
+        </div>
+
+        <div class="code-box">
+            <div>
+                <label for="pairCode">Eşleşme Kodu</label>
+                <span>TV / PC ekranında görünen 6 haneli kod</span>
+            </div>
+            <input type="text" id="pairCode" class="code-input" maxlength="6" inputmode="numeric" placeholder="000000">
+        </div>
+
+        <div class="tabs">
+            <button type="button" class="tab-btn active" onclick="switchTab('xtream')" id="tabBtnXtream">
+                <i class="fas fa-server"></i> Xtream Kod
+            </button>
+            <button type="button" class="tab-btn" onclick="switchTab('m3u_url')" id="tabBtnM3uUrl">
+                <i class="fas fa-link"></i> M3U Linki
+            </button>
+            <button type="button" class="tab-btn" onclick="switchTab('m3u_file')" id="tabBtnM3uFile">
+                <i class="fas fa-file-upload"></i> M3U Dosya
+            </button>
+        </div>
+
+        <form id="qrForm" onsubmit="handleSend(event)">
+            <div class="form-group">
+                <label for="sourceName">Kaynak / Liste İsmi</label>
+                <div class="input-wrap">
+                    <i class="fas fa-tag prefix"></i>
+                    <input type="text" id="sourceName" class="form-control" placeholder="Örn: Ev IPTV" required>
+                </div>
+            </div>
+
+            <!-- XTREAM & M3U URL ALANI -->
+            <div class="form-group" id="urlGroup">
+                <label for="serverUrl" id="urlLabel">Sunucu URL Adresi</label>
+                <div class="input-wrap">
+                    <i class="fas fa-globe prefix"></i>
+                    <input type="text" id="serverUrl" class="form-control" placeholder="http://ornekportal.com:8080">
+                </div>
+            </div>
+
+            <!-- XTREAM KULLANICI ADI & ŞİFRE -->
+            <div id="xtreamFields">
+                <div class="form-group">
+                    <label for="username">Kullanıcı Adı</label>
+                    <div class="input-wrap">
+                        <i class="fas fa-user prefix"></i>
+                        <input type="text" id="username" class="form-control" placeholder="Kullanıcı adınız">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Şifre</label>
+                    <div class="input-wrap">
+                        <i class="fas fa-lock prefix"></i>
+                        <input type="password" id="password" class="form-control" placeholder="Şifreniz">
+                    </div>
+                </div>
+            </div>
+
+            <!-- M3U DOSYA SEÇİCİ -->
+            <div id="fileFields" class="hidden">
+                <div class="form-group">
+                    <label>M3U / M3U8 Dosyası Seçin</label>
+                    <div class="file-drop" onclick="document.getElementById('m3uFileInput').click()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p id="fileNameText">Dosya seçmek için dokunun</p>
+                        <small>.m3u veya .m3u8 uzantılı kanal listesi</small>
+                    </div>
+                    <input type="file" id="m3uFileInput" accept=".m3u,.m3u8,audio/x-mpegurl,application/vnd.apple.mpegurl,text/plain" class="hidden" onchange="onFileSelected(event)">
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                <i class="fas fa-paper-plane"></i>
+                <span id="submitBtnText">CİHAZA GÖNDER VE BAĞLAN</span>
+            </button>
+        </form>
+
+        <div id="statusMsg" class="status-msg"></div>
+    </div>
+
+    <script>
+        const FIREBASE_DB_URL = "https://pusu-iptv-default-rtdb.europe-west1.firebasedatabase.app";
+        const FIREBASE_API_KEY = "AIzaSyCas4TV9AjWerqK3_Qrs6tGONd82ggjwEw";
+        const RELAY_EMAIL = "qr_relay@pusuiptv.app";
+        const RELAY_PASS = "PusuQrRelay2026!";
+
+        let activeTab = "xtream";
+        let loadedM3uContent = "";
+
+        (function initFromQuery() {
+            const params = new URLSearchParams(window.location.search);
+            const code = (params.get("code") || "").replace(/\D/g, "").slice(0, 6);
+            if (code) {
+                document.getElementById("pairCode").value = code;
+            }
+        })();
+
+        function switchTab(tab) {
+            activeTab = tab;
+            document.getElementById("tabBtnXtream").classList.toggle("active", tab === "xtream");
+            document.getElementById("tabBtnM3uUrl").classList.toggle("active", tab === "m3u_url");
+            document.getElementById("tabBtnM3uFile").classList.toggle("active", tab === "m3u_file");
+
+            const urlGroup = document.getElementById("urlGroup");
+            const xtreamFields = document.getElementById("xtreamFields");
+            const fileFields = document.getElementById("fileFields");
+            const urlLabel = document.getElementById("urlLabel");
+            const serverUrl = document.getElementById("serverUrl");
+
+            if (tab === "xtream") {
+                urlGroup.classList.remove("hidden");
+                xtreamFields.classList.remove("hidden");
+                fileFields.classList.add("hidden");
+                urlLabel.textContent = "Sunucu URL Adresi";
+                serverUrl.placeholder = "http://ornekportal.com:8080";
+            } else if (tab === "m3u_url") {
+                urlGroup.classList.remove("hidden");
+                xtreamFields.classList.add("hidden");
+                fileFields.classList.add("hidden");
+                urlLabel.textContent = "M3U Playlist URL Adresi";
+                serverUrl.placeholder = "http://ornekportal.com/get.php?username=...&type=m3u_plus";
+            } else {
+                urlGroup.classList.add("hidden");
+                xtreamFields.classList.add("hidden");
+                fileFields.classList.remove("hidden");
+            }
+            hideStatus();
+        }
+
+        function onFileSelected(e) {
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            document.getElementById("fileNameText").textContent = file.name + " (" + Math.round(file.size / 1024) + " KB)";
+            const nameInput = document.getElementById("sourceName");
+            if (!nameInput.value.trim()) {
+                nameInput.value = file.name.replace(/\.(m3u8|m3u)$/i, "");
+            }
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                loadedM3uContent = String(evt.target.result || "");
+            };
+            reader.readAsText(file, "UTF-8");
+        }
+
+        function showStatus(type, html) {
+            const el = document.getElementById("statusMsg");
+            el.className = "status-msg " + type;
+            el.innerHTML = html;
+        }
+
+        function hideStatus() {
+            const el = document.getElementById("statusMsg");
+            el.className = "status-msg";
+            el.innerHTML = "";
+        }
+
+        async function getRelayAuth() {
+            const res = await fetch("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + FIREBASE_API_KEY, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    email: RELAY_EMAIL,
+                    password: RELAY_PASS,
+                    returnSecureToken: true
+                })
+            });
+            if (!res.ok) throw new Error("Sunucu kimlik doğrulaması başarısız oldu.");
+            return await res.json();
+        }
+
+        async function handleSend(e) {
+            e.preventDefault();
+            hideStatus();
+
+            const code = document.getElementById("pairCode").value.replace(/\D/g, "").trim();
+            if (code.length !== 6) {
+                showStatus("error", '<i class="fas fa-exclamation-circle"></i><span>Lütfen TV veya bilgisayar ekranındaki 6 haneli eşleşme kodunu girin.</span>');
+                return;
+            }
+
+            const name = document.getElementById("sourceName").value.trim();
+            if (!name) {
+                showStatus("error", '<i class="fas fa-exclamation-circle"></i><span>Lütfen bir kaynak/liste ismi girin.</span>');
+                return;
+            }
+
+            const url = document.getElementById("serverUrl").value.trim();
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (activeTab === "xtream") {
+                if (!url || !username || !password) {
+                    showStatus("error", '<i class="fas fa-exclamation-circle"></i><span>Xtream bağlantısı için Sunucu URL, Kullanıcı Adı ve Şifre alanlarını doldurun.</span>');
+                    return;
+                }
+            } else if (activeTab === "m3u_url") {
+                if (!url) {
+                    showStatus("error", '<i class="fas fa-exclamation-circle"></i><span>Lütfen geçerli bir M3U URL adresi girin.</span>');
+                    return;
+                }
+            } else if (activeTab === "m3u_file") {
+                if (!loadedM3uContent || (!loadedM3uContent.includes("#EXTM3U") && !loadedM3uContent.includes("#EXTINF") && !loadedM3uContent.includes("http"))) {
+                    showStatus("error", '<i class="fas fa-exclamation-circle"></i><span>Lütfen geçerli bir .m3u veya .m3u8 dosyası seçin.</span>');
+                    return;
+                }
+            }
+
+            const btn = document.getElementById("submitBtn");
+            const btnText = document.getElementById("submitBtnText");
+            btn.disabled = true;
+            btnText.textContent = "CİHAZA AKTARILIYOR...";
+
+            try {
+                const auth = await getRelayAuth();
+                const payload = {
+                    status: "ready",
+                    type: activeTab,
+                    name: name,
+                    url: activeTab === "m3u_file" ? "" : url,
+                    username: activeTab === "xtream" ? username : "",
+                    password: activeTab === "xtream" ? password : "",
+                    m3uContent: activeTab === "m3u_file" ? loadedM3uContent : "",
+                    timestamp: Date.now()
+                };
+
+                const targetUrl = `${FIREBASE_DB_URL}/users/${auth.localId}/qr_sessions/${code}.json?auth=${auth.idToken}`;
+                const putRes = await fetch(targetUrl, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!putRes.ok) {
+                    throw new Error("Veri cihaza yazılamadı (HTTP " + putRes.status + ").");
+                }
+
+                showStatus("success", '<i class="fas fa-check-circle"></i><span><b>Başarıyla Gönderildi!</b><br>Cihazınız bilgileri aldı ve otomatik olarak bağlanıyor.</span>');
+            } catch (err) {
+                showStatus("error", '<i class="fas fa-exclamation-triangle"></i><span>Gönderim hatası: ' + (err.message || err) + '</span>');
+            } finally {
+                btn.disabled = false;
+                btnText.textContent = "CİHAZA GÖNDER VE BAĞLAN";
+            }
+        }
+    </script>
+</body>
+</html>
