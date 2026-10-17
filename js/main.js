@@ -8,30 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mainNav = document.getElementById('mainNav');
     const navLinks = document.querySelectorAll('.main-nav a');
-    const themeToggleBtn = document.getElementById('themeToggleBtn');
-    const themeToggleLabel = document.getElementById('themeToggleLabel');
-
-    // 0. Apple Light & Dark Theme Controller (Beyaz / Siyah)
-    function applyTheme(theme) {
-        const normalized = theme === 'dark' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', normalized);
-        if (themeToggleLabel) {
-            themeToggleLabel.textContent = normalized === 'dark' ? 'Beyaz' : 'Siyah';
-        }
-        try {
-            localStorage.setItem('pusu_theme', normalized);
-        } catch (e) {}
-    }
-
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-    applyTheme(currentTheme);
-
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            const active = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-            applyTheme(active === 'dark' ? 'light' : 'dark');
-        });
-    }
 
     // 1. Auto-Hiding Navbar on Scroll Down & Show on Scroll Up
     let lastScrollTop = 0;

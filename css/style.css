@@ -1,7 +1,7 @@
 /* ==========================================================================
-   Püsü IPTV — Apple Design Language Stylesheet (Light & Dark Themes)
+   Püsü IPTV — Apple Design Language Stylesheet
    Author: Okan Bayındır
-   Aesthetic: Apple Product Showcase & Bento Architecture (Beyaz & Siyah)
+   Aesthetic: Apple Product Showcase & Bento Architecture (Pure White)
    ========================================================================== */
 
 @font-face {
@@ -16,8 +16,7 @@
     font-display: swap;
 }
 
-:root,
-[data-theme="light"] {
+:root {
     /* Apple Light (Beyaz / Angora) Surfaces */
     --bg-base: #F5F5F7;
     --bg-alt: #FFFFFF;
@@ -63,49 +62,6 @@
     /* Transitions */
     --transition-smooth: all 0.28s cubic-bezier(0.25, 1, 0.5, 1);
     --transition-spring: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-[data-theme="dark"] {
-    /* Apple Dark (Siyah / Smokin) Surfaces */
-    --bg-base: #000000;
-    --bg-alt: #0A0A0C;
-    --bg-card: #1C1C1E;
-    --bg-surface: #2C2C2E;
-    --bg-surface-hover: #3A3A3C;
-    --header-bg: rgba(28, 28, 30, 0.78);
-    --header-bg-scrolled: rgba(28, 28, 30, 0.88);
-
-    /* Typography Colors */
-    --text-primary: #F5F5F7;
-    --text-secondary: #A1A1A6;
-    --text-muted: #86868B;
-
-    /* Apple System Accents (Dark Mode Tuned) */
-    --apple-blue: #0A84FF;
-    --apple-blue-hover: #409CFF;
-    --apple-blue-active: #0071E3;
-    --apple-blue-soft: rgba(10, 132, 255, 0.16);
-    --apple-green: #30D158;
-    --apple-green-soft: rgba(48, 209, 88, 0.16);
-    --apple-indigo: #5E5CE6;
-    --apple-indigo-soft: rgba(94, 92, 230, 0.16);
-    --apple-purple: #BF5AF2;
-    --apple-purple-soft: rgba(191, 90, 242, 0.16);
-    --apple-pink: #FF375F;
-    --apple-pink-soft: rgba(255, 55, 95, 0.16);
-    --apple-orange: #FF9F0A;
-    --apple-orange-soft: rgba(255, 159, 10, 0.16);
-    --apple-teal: #64D2FF;
-    --apple-teal-soft: rgba(100, 210, 255, 0.16);
-
-    /* Borders & Shadows */
-    --border-color: #2C2C2E;
-    --border-subtle: rgba(255, 255, 255, 0.10);
-    --border-strong: #3A3A3C;
-    --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.35);
-    --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-card-hover: 0 22px 55px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.4);
-    --shadow-window: 0 30px 80px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
 /* ==========================================================================
@@ -299,42 +255,6 @@ body {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-}
-
-/* Theme Toggle Pill Button */
-.theme-toggle-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    padding: 0.45rem 0.9rem;
-    background: var(--bg-surface);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-    border-radius: 980px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition-smooth);
-}
-
-.theme-toggle-btn:hover {
-    background: var(--bg-surface-hover);
-}
-
-[data-theme="light"] .theme-icon-light {
-    display: none;
-}
-[data-theme="light"] .theme-icon-dark {
-    display: inline-block;
-    color: var(--text-primary);
-}
-
-[data-theme="dark"] .theme-icon-dark {
-    display: none;
-}
-[data-theme="dark"] .theme-icon-light {
-    display: inline-block;
-    color: #FFD60A;
 }
 
 /* Header QR Secondary Pill */
@@ -538,6 +458,29 @@ body {
 }
 
 .btn-apple-primary:active {
+    transform: scale(0.985);
+}
+
+.btn-apple-secondary {
+    background: var(--bg-card);
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+}
+
+.btn-apple-secondary i {
+    font-size: 1.35rem;
+    color: var(--apple-green);
+}
+
+.btn-apple-secondary:hover {
+    background: var(--bg-surface);
+    border-color: var(--apple-green);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.btn-apple-secondary:active {
     transform: scale(0.985);
 }
 
@@ -1101,17 +1044,16 @@ section {
     color: var(--apple-green);
 }
 
-/* Android Bento Features & QR */
+/* Android Bento Features & Visual Presentation */
 .android-white-bottom {
-    display: grid;
-    grid-template-columns: 1.32fr 0.68fr;
-    gap: 2rem;
-    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
 }
 
 .android-sharp-features {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
 }
 
@@ -1119,27 +1061,45 @@ section {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 20px;
-    padding: 1.5rem;
+    padding: 1.75rem 1.4rem;
     transition: var(--transition-spring);
     box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
 }
 
 .sharp-feature-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     box-shadow: var(--shadow-card-hover);
+    border-color: var(--apple-green);
 }
 
 .sharp-icon-wrap {
-    width: 42px;
-    height: 42px;
+    width: 46px;
+    height: 46px;
     background: var(--apple-green-soft);
     color: var(--apple-green);
-    border-radius: 12px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.15rem;
-    margin-bottom: 0.9rem;
+    font-size: 1.25rem;
+    margin-bottom: 1.15rem;
+}
+
+.sharp-icon-wrap.icon-red {
+    background: var(--apple-pink-soft);
+    color: var(--apple-pink);
+}
+
+.sharp-icon-wrap.icon-blue {
+    background: var(--apple-blue-soft);
+    color: var(--apple-blue);
+}
+
+.sharp-icon-wrap.icon-purple {
+    background: var(--apple-purple-soft);
+    color: var(--apple-purple);
 }
 
 .sharp-feature-card h4 {
@@ -1147,21 +1107,35 @@ section {
     font-weight: 600;
     letter-spacing: -0.015em;
     color: var(--text-primary);
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.5rem;
 }
 
 .sharp-feature-card p {
     font-size: 0.88rem;
     color: var(--text-secondary);
     line-height: 1.55;
+    flex-grow: 1;
+}
+
+.android-cta-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 1.75rem 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    box-shadow: var(--shadow-card);
+    text-align: center;
 }
 
 .android-badge-row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 0.5rem;
-    margin-top: 0.25rem;
-    grid-column: 1 / -1;
 }
 
 .android-pill {
@@ -1171,7 +1145,7 @@ section {
     font-size: 0.76rem;
     font-weight: 600;
     color: var(--text-secondary);
-    background: var(--bg-card);
+    background: var(--bg-surface);
     padding: 0.4rem 0.85rem;
     border-radius: 980px;
     border: 1px solid var(--border-color);
@@ -1181,95 +1155,46 @@ section {
     color: var(--apple-green);
 }
 
-/* Apple QR Bento Card */
-.android-white-qr-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 24px;
-    padding: 2.25rem 1.75rem;
-    text-align: center;
-    box-shadow: var(--shadow-card);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition-smooth);
-}
-
-.android-white-qr-card:hover {
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-4px);
-}
-
-.light-qr-frame {
-    width: 148px;
-    height: 148px;
-    margin: 0 auto 1.25rem;
-    padding: 10px;
-    background: #FFFFFF;
-    border: 1px solid #E5E5EA;
-    border-radius: 18px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+.android-btn-wrap {
     display: flex;
     align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
-.light-qr-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.android-white-qr-card h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--text-primary);
-    margin-bottom: 0.35rem;
-}
-
-.android-white-qr-card p {
-    font-size: 0.86rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin-bottom: 1.35rem;
-}
-
-.btn-play-store-white {
+.btn-play-store-pill {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 0.65rem;
     background: var(--apple-blue);
     color: #FFFFFF !important;
-    padding: 0.85rem 1.5rem;
-    border-radius: 14px;
+    padding: 0.75rem 1.6rem;
+    border-radius: 980px;
     font-weight: 600;
     font-size: 0.92rem;
     text-decoration: none;
     transition: var(--transition-smooth);
-    width: 100%;
+    box-shadow: 0 4px 14px rgba(0, 113, 227, 0.25);
 }
 
-.btn-play-store-white:hover {
+.btn-play-store-pill:hover {
     background: var(--apple-blue-hover);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 113, 227, 0.35);
 }
 
-.qr-package-meta {
-    margin-top: 0.95rem;
-    font-size: 0.78rem;
+.android-pkg-tag {
+    font-size: 0.82rem;
     color: var(--text-muted);
 }
 
-.qr-package-meta i {
-    color: var(--apple-green);
-}
-
-.qr-package-meta code {
+.android-pkg-tag code {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     color: var(--text-secondary);
+    background: var(--bg-surface);
+    padding: 2px 6px;
+    border-radius: 6px;
 }
 
 /* ==========================================================================
@@ -1983,7 +1908,7 @@ section {
     .features-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-title { font-size: 2.75rem; }
     .download-card, .story-card { grid-template-columns: 1fr; padding: 2.25rem; gap: 2.25rem; }
-    .android-white-bottom { grid-template-columns: 1fr; }
+    .android-sharp-features { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 860px) {
@@ -2019,9 +1944,7 @@ section {
     .modules-grid { grid-template-columns: 1fr; }
     .floating-badge { display: none; }
     .btn-header-download span,
-    .btn-header-secondary span,
-    .theme-toggle-label { display: none; }
+    .btn-header-secondary span { display: none; }
     .btn-header-download,
-    .btn-header-secondary,
-    .theme-toggle-btn { padding: 0.5rem 0.65rem; }
+    .btn-header-secondary { padding: 0.5rem 0.65rem; }
 }

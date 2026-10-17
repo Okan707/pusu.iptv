@@ -1,26 +1,13 @@
 <!DOCTYPE html>
-<html lang="tr" data-theme="light">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Püsü IPTV — QR ile Cihaza Gönder</title>
-    <link rel="icon" type="image/png" href="logo.png">
-    <script>
-        (function() {
-            try {
-                var savedTheme = localStorage.getItem('pusu_theme');
-                if (savedTheme === 'dark' || savedTheme === 'light') {
-                    document.documentElement.setAttribute('data-theme', savedTheme);
-                } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                }
-            } catch (e) {}
-        })();
-    </script>
+    <link rel="icon" type="image/png" href="pusu_logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root,
-        [data-theme="light"] {
+        :root {
             --bg-page: #F5F5F7;
             --bg-card: #FFFFFF;
             --bg-input: #F5F5F7;
@@ -42,30 +29,6 @@
             --status-ok-fg: #1D7A42;
             --status-err-bg: #FFECEB;
             --status-err-fg: #D70015;
-        }
-
-        [data-theme="dark"] {
-            --bg-page: #000000;
-            --bg-card: #1C1C1E;
-            --bg-input: #2C2C2E;
-            --bg-input-focus: #1C1C1E;
-            --bg-tabs: #2C2C2E;
-            --bg-tab-active: #3A3A3C;
-            --text-primary: #F5F5F7;
-            --text-secondary: #A1A1A6;
-            --text-muted: #86868B;
-            --text-placeholder: #636366;
-            --border-card: rgba(255, 255, 255, 0.10);
-            --border-dashed: #48484A;
-            --apple-blue: #0A84FF;
-            --apple-blue-hover: #409CFF;
-            --apple-blue-active: #0071E3;
-            --shadow-card: 0 16px 48px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
-            --shadow-tab: 0 2px 8px rgba(0, 0, 0, 0.35);
-            --status-ok-bg: rgba(48, 209, 88, 0.16);
-            --status-ok-fg: #30D158;
-            --status-err-bg: rgba(255, 69, 58, 0.16);
-            --status-err-fg: #FF453A;
         }
 
         * {
@@ -116,8 +79,7 @@
             transition: all 0.2s ease;
         }
 
-        .pill-link:hover,
-        .theme-btn:hover {
+        .pill-link:hover {
             color: var(--text-primary);
         }
 
@@ -337,15 +299,11 @@
 
     <div class="top-bar">
         <a href="index.html" class="pill-link">‹ Ana Sayfa</a>
-        <button type="button" class="theme-btn" id="qrThemeBtn" onclick="toggleQrTheme()">
-            <span id="qrThemeIcon">☾</span>
-            <span id="qrThemeText">Siyah Tema</span>
-        </button>
     </div>
 
     <div class="card">
         <div class="header">
-            <img src="logo.png" alt="Püsü IPTV">
+            <img src="pusu_logo.png" alt="Püsü IPTV">
             <h1>Püsü IPTV</h1>
         </div>
 
@@ -417,26 +375,7 @@
         let selectedFileContent = '';
         let selectedFileName = '';
 
-        function syncQrThemeUI() {
-            const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-            const icon = document.getElementById('qrThemeIcon');
-            const text = document.getElementById('qrThemeText');
-            if (icon) icon.textContent = current === 'dark' ? '☀' : '☾';
-            if (text) text.textContent = current === 'dark' ? 'Beyaz Tema' : 'Siyah Tema';
-        }
-
-        function toggleQrTheme() {
-            const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-            const next = current === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', next);
-            try {
-                localStorage.setItem('pusu_theme', next);
-            } catch (e) {}
-            syncQrThemeUI();
-        }
-
         (function initFromQuery() {
-            syncQrThemeUI();
             const params = new URLSearchParams(window.location.search);
             const code = (params.get('code') || '').replace(/[^0-9A-Za-z]/g, '').toUpperCase();
             if (code) {

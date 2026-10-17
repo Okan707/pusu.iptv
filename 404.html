@@ -1,20 +1,11 @@
 <!DOCTYPE html>
-<html lang="tr" data-theme="light">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Püsü IPTV — İndiriliyor</title>
     <script>
         (function() {
-            try {
-                var savedTheme = localStorage.getItem('pusu_theme');
-                if (savedTheme === 'dark' || savedTheme === 'light') {
-                    document.documentElement.setAttribute('data-theme', savedTheme);
-                } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                }
-            } catch (e) {}
-
             var downloadUrl = 'https://github.com/Okan707/pusu.iptv/releases/download/19.0.0/Pusu_IPTV_Setup.exe';
             var currentUrl = window.location.href;
             if (currentUrl.indexOf('Pusu_IPTV_Setup.exe') !== -1) {
@@ -26,8 +17,7 @@
     </script>
     <meta http-equiv="refresh" content="0; url=https://github.com/Okan707/pusu.iptv/releases/download/19.0.0/Pusu_IPTV_Setup.exe">
     <style>
-        :root,
-        [data-theme="light"] {
+        :root {
             --bg-page: #F5F5F7;
             --bg-card: #FFFFFF;
             --text-primary: #1D1D1F;
@@ -36,17 +26,6 @@
             --apple-blue: #0071E3;
             --apple-blue-hover: #0077ED;
             --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
-        }
-
-        [data-theme="dark"] {
-            --bg-page: #000000;
-            --bg-card: #1C1C1E;
-            --text-primary: #F5F5F7;
-            --text-secondary: #A1A1A6;
-            --border-card: rgba(255, 255, 255, 0.10);
-            --apple-blue: #0A84FF;
-            --apple-blue-hover: #409CFF;
-            --shadow-card: 0 16px 48px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
         }
 
         body {
