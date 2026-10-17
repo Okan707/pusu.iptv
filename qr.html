@@ -1,12 +1,73 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Püsü IPTV</title>
+    <title>Püsü IPTV — QR ile Cihaza Gönder</title>
     <link rel="icon" type="image/png" href="logo.png">
+    <script>
+        (function() {
+            try {
+                var savedTheme = localStorage.getItem('pusu_theme');
+                if (savedTheme === 'dark' || savedTheme === 'light') {
+                    document.documentElement.setAttribute('data-theme', savedTheme);
+                } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root,
+        [data-theme="light"] {
+            --bg-page: #F5F5F7;
+            --bg-card: #FFFFFF;
+            --bg-input: #F5F5F7;
+            --bg-input-focus: #FFFFFF;
+            --bg-tabs: #F2F2F7;
+            --bg-tab-active: #FFFFFF;
+            --text-primary: #1D1D1F;
+            --text-secondary: #6E6E73;
+            --text-muted: #86868B;
+            --text-placeholder: #AEAEB2;
+            --border-card: rgba(0, 0, 0, 0.06);
+            --border-dashed: #C7C7CC;
+            --apple-blue: #0071E3;
+            --apple-blue-hover: #0077ED;
+            --apple-blue-active: #0068D1;
+            --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-tab: 0 2px 6px rgba(0, 0, 0, 0.08), 0 1px 1px rgba(0, 0, 0, 0.04);
+            --status-ok-bg: #E8F8EE;
+            --status-ok-fg: #1D7A42;
+            --status-err-bg: #FFECEB;
+            --status-err-fg: #D70015;
+        }
+
+        [data-theme="dark"] {
+            --bg-page: #000000;
+            --bg-card: #1C1C1E;
+            --bg-input: #2C2C2E;
+            --bg-input-focus: #1C1C1E;
+            --bg-tabs: #2C2C2E;
+            --bg-tab-active: #3A3A3C;
+            --text-primary: #F5F5F7;
+            --text-secondary: #A1A1A6;
+            --text-muted: #86868B;
+            --text-placeholder: #636366;
+            --border-card: rgba(255, 255, 255, 0.10);
+            --border-dashed: #48484A;
+            --apple-blue: #0A84FF;
+            --apple-blue-hover: #409CFF;
+            --apple-blue-active: #0071E3;
+            --shadow-card: 0 16px 48px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
+            --shadow-tab: 0 2px 8px rgba(0, 0, 0, 0.35);
+            --status-ok-bg: rgba(48, 209, 88, 0.16);
+            --status-ok-fg: #30D158;
+            --status-err-bg: rgba(255, 69, 58, 0.16);
+            --status-err-fg: #FF453A;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -16,8 +77,8 @@
         }
 
         body {
-            background-color: #F5F5F7;
-            color: #1D1D1F;
+            background-color: var(--bg-page);
+            color: var(--text-primary);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -25,15 +86,50 @@
             justify-content: center;
             padding: 20px 16px;
             -webkit-font-smoothing: antialiased;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .top-bar {
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .pill-link,
+        .theme-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 13px;
+            border-radius: 980px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            color: var(--text-secondary);
+            font-size: 12.5px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
+        }
+
+        .pill-link:hover,
+        .theme-btn:hover {
+            color: var(--text-primary);
         }
 
         .card {
             width: 100%;
             max-width: 420px;
-            background: #FFFFFF;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
             border-radius: 24px;
             padding: 32px 24px 28px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+            box-shadow: var(--shadow-card);
+            transition: background-color 0.25s ease, border-color 0.25s ease;
         }
 
         .header {
@@ -48,14 +144,14 @@
             height: 52px;
             border-radius: 14px;
             margin-bottom: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
         }
 
         .header h1 {
             font-size: 21px;
             font-weight: 700;
             letter-spacing: -0.4px;
-            color: #1D1D1F;
+            color: var(--text-primary);
         }
 
         .code-wrap {
@@ -64,11 +160,11 @@
 
         .code-input {
             width: 100%;
-            background: #F5F5F7;
+            background: var(--bg-input);
             border: 1.5px solid transparent;
             border-radius: 14px;
             padding: 14px 16px;
-            color: #0071E3;
+            color: var(--apple-blue);
             font-size: 24px;
             font-weight: 700;
             text-align: center;
@@ -78,16 +174,16 @@
         }
 
         .code-input::placeholder {
-            color: #AEAEB2;
+            color: var(--text-placeholder);
             font-size: 15px;
             font-weight: 500;
             letter-spacing: 0px;
         }
 
         .code-input:focus {
-            background: #FFFFFF;
-            border-color: #0071E3;
-            box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.12);
+            background: var(--bg-input-focus);
+            border-color: var(--apple-blue);
+            box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.16);
         }
 
         /* Apple Segmented Control */
@@ -95,7 +191,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 4px;
-            background: #F2F2F7;
+            background: var(--bg-tabs);
             padding: 4px;
             border-radius: 12px;
             margin-bottom: 20px;
@@ -105,7 +201,7 @@
             padding: 9px 4px;
             border: none;
             background: transparent;
-            color: #6E6E73;
+            color: var(--text-secondary);
             font-size: 12.5px;
             font-weight: 600;
             border-radius: 9px;
@@ -115,9 +211,9 @@
         }
 
         .tab-btn.active {
-            background: #FFFFFF;
-            color: #1D1D1F;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08), 0 1px 1px rgba(0, 0, 0, 0.04);
+            background: var(--bg-tab-active);
+            color: var(--text-primary);
+            box-shadow: var(--shadow-tab);
         }
 
         .field {
@@ -126,11 +222,11 @@
 
         .input {
             width: 100%;
-            background: #F5F5F7;
+            background: var(--bg-input);
             border: 1.5px solid transparent;
             border-radius: 14px;
             padding: 15px 16px;
-            color: #1D1D1F;
+            color: var(--text-primary);
             font-size: 15px;
             font-weight: 500;
             outline: none;
@@ -138,14 +234,14 @@
         }
 
         .input::placeholder {
-            color: #86868B;
+            color: var(--text-muted);
             font-weight: 400;
         }
 
         .input:focus {
-            background: #FFFFFF;
-            border-color: #0071E3;
-            box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.12);
+            background: var(--bg-input-focus);
+            border-color: var(--apple-blue);
+            box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.16);
         }
 
         .file-box {
@@ -153,8 +249,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: #F5F5F7;
-            border: 1.5px dashed #C7C7CC;
+            background: var(--bg-input);
+            border: 1.5px dashed var(--border-dashed);
             border-radius: 14px;
             padding: 24px 16px;
             text-align: center;
@@ -164,18 +260,18 @@
         }
 
         .file-box:hover {
-            border-color: #0071E3;
-            background: rgba(0, 113, 227, 0.04);
+            border-color: var(--apple-blue);
+            background: rgba(0, 113, 227, 0.06);
         }
 
         .file-box span {
             font-size: 14px;
-            color: #6E6E73;
+            color: var(--text-secondary);
             font-weight: 500;
         }
 
         .file-box strong {
-            color: #0071E3;
+            color: var(--apple-blue);
             font-weight: 600;
         }
 
@@ -184,7 +280,7 @@
             padding: 16px;
             border: none;
             border-radius: 14px;
-            background: #0071E3;
+            background: var(--apple-blue);
             color: #FFFFFF;
             font-size: 16px;
             font-weight: 600;
@@ -195,12 +291,12 @@
         }
 
         .submit-btn:hover {
-            background: #0077ED;
+            background: var(--apple-blue-hover);
         }
 
         .submit-btn:active {
             transform: scale(0.985);
-            background: #0068D1;
+            background: var(--apple-blue-active);
         }
 
         .submit-btn:disabled {
@@ -222,14 +318,14 @@
 
         .status-box.success {
             display: block;
-            background: #E8F8EE;
-            color: #1D7A42;
+            background: var(--status-ok-bg);
+            color: var(--status-ok-fg);
         }
 
         .status-box.error {
             display: block;
-            background: #FFECEB;
-            color: #D70015;
+            background: var(--status-err-bg);
+            color: var(--status-err-fg);
         }
 
         .hidden {
@@ -238,6 +334,14 @@
     </style>
 </head>
 <body>
+
+    <div class="top-bar">
+        <a href="index.html" class="pill-link">‹ Ana Sayfa</a>
+        <button type="button" class="theme-btn" id="qrThemeBtn" onclick="toggleQrTheme()">
+            <span id="qrThemeIcon">☾</span>
+            <span id="qrThemeText">Siyah Tema</span>
+        </button>
+    </div>
 
     <div class="card">
         <div class="header">
@@ -313,7 +417,26 @@
         let selectedFileContent = '';
         let selectedFileName = '';
 
+        function syncQrThemeUI() {
+            const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            const icon = document.getElementById('qrThemeIcon');
+            const text = document.getElementById('qrThemeText');
+            if (icon) icon.textContent = current === 'dark' ? '☀' : '☾';
+            if (text) text.textContent = current === 'dark' ? 'Beyaz Tema' : 'Siyah Tema';
+        }
+
+        function toggleQrTheme() {
+            const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try {
+                localStorage.setItem('pusu_theme', next);
+            } catch (e) {}
+            syncQrThemeUI();
+        }
+
         (function initFromQuery() {
+            syncQrThemeUI();
             const params = new URLSearchParams(window.location.search);
             const code = (params.get('code') || '').replace(/[^0-9A-Za-z]/g, '').toUpperCase();
             if (code) {

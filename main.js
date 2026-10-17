@@ -1,37 +1,57 @@
 /* ==========================================================================
-   Püsü IPTV - Interactive Scripts & Modal Controller
+   Püsü IPTV — Interactive Scripts, Theme Controller & Modal Controller
    Author: Okan Bayındır
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    
     const header = document.getElementById('header');
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mainNav = document.getElementById('mainNav');
     const navLinks = document.querySelectorAll('.main-nav a');
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeToggleLabel = document.getElementById('themeToggleLabel');
+
+    // 0. Apple Light & Dark Theme Controller (Beyaz / Siyah)
+    function applyTheme(theme) {
+        const normalized = theme === 'dark' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', normalized);
+        if (themeToggleLabel) {
+            themeToggleLabel.textContent = normalized === 'dark' ? 'Beyaz' : 'Siyah';
+        }
+        try {
+            localStorage.setItem('pusu_theme', normalized);
+        } catch (e) {}
+    }
+
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    applyTheme(currentTheme);
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const active = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            applyTheme(active === 'dark' ? 'light' : 'dark');
+        });
+    }
 
     // 1. Auto-Hiding Navbar on Scroll Down & Show on Scroll Up
     let lastScrollTop = 0;
     const scrollThreshold = 10;
 
     window.addEventListener('scroll', () => {
+        if (!header) return;
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-        // Sticky Header Shadow Effect
-        if (currentScroll > 30) {
+        if (currentScroll > 20) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
 
-        // Hide on scroll DOWN, show on scroll UP
         const isMobileMenuOpen = mainNav && mainNav.classList.contains('active');
         if (!isMobileMenuOpen && Math.abs(currentScroll - lastScrollTop) > scrollThreshold) {
             if (currentScroll > lastScrollTop && currentScroll > 80) {
-                // Scrolling down -> hide navbar
                 header.classList.add('header-hidden');
             } else {
-                // Scrolling up -> reveal navbar
                 header.classList.remove('header-hidden');
             }
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
@@ -43,12 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenuBtn.addEventListener('click', () => {
             mainNav.classList.toggle('active');
             mobileMenuBtn.classList.toggle('active');
-            if (mainNav.classList.contains('active')) {
+            if (mainNav.classList.contains('active') && header) {
                 header.classList.remove('header-hidden');
             }
         });
 
-        // Close menu when clicking nav link
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mainNav.classList.remove('active');
@@ -66,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 e.preventDefault();
-                const headerOffset = 76;
+                const headerOffset = 72;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -94,15 +113,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Apply staggered reveals to grid cards
     document.querySelectorAll('.features-grid, .modules-grid, .android-sharp-features, .other-apps-grid').forEach(grid => {
         const cards = grid.children;
         Array.from(cards).forEach((card, index) => {
-            card.style.transitionDelay = `${index * 0.08}s`;
+            card.style.transitionDelay = `${index * 0.06}s`;
         });
     });
 
-    // Observe animatable elements
     const elementsToAnimate = document.querySelectorAll(
         '.reveal-fade-up, .reveal-scale-in, .feature-box, .module-card, .sharp-feature-card, .other-app-card, .download-card, .story-card'
     );
@@ -174,7 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close when clicking on backdrop
     if (privacyModal) {
         privacyModal.addEventListener('click', (e) => {
             if (e.target === privacyModal) {
@@ -183,19 +199,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close on Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && privacyModal && privacyModal.classList.contains('active')) {
             closeModal(true);
         }
     });
 
-    // Auto-open modal if URL already has #gizlilik-politikasi on page load
     if (window.location.hash === '#gizlilik-politikasi' || window.location.hash === '#gizlilik') {
         openModal(false);
     }
 
-    // Listen to hash changes and browser Back/Forward navigation
     window.addEventListener('hashchange', () => {
         if (window.location.hash === '#gizlilik-politikasi' || window.location.hash === '#gizlilik') {
             openModal(false);
@@ -210,12 +223,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 7. Instant Release Download Redirect for Setup
+    // 7. Release Download Redirect for Windows Setup (v19.0.0)
     document.querySelectorAll('a[href*="Pusu_IPTV_Setup.exe"], .btn-header-download').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = 'https://github.com/Okan707/pusu.iptv/releases/download/18.6.0/Pusu_IPTV_Setup.exe';
+            window.location.href = 'https://github.com/Okan707/pusu.iptv/releases/download/19.0.0/Pusu_IPTV_Setup.exe';
         });
     });
-
 });
