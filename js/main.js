@@ -1,6 +1,5 @@
 /* ==========================================================================
-   Püsü IPTV — Interactive Scripts, Theme Controller & Modal Controller
-   Author: Okan Bayındır
+   Püsü IPTV — Interactive Visual & Animation Controller (v19.0.0)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 e.preventDefault();
-                const headerOffset = 72;
+                const headerOffset = 76;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -73,11 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Scroll Reveal Animations (Intersection Observer with Stagger)
+    // 4. Scroll Reveal Animations with Stagger
     const observerOptions = {
         root: null,
         rootMargin: '0px 0px -40px 0px',
-        threshold: 0.1
+        threshold: 0.08
     };
 
     const animateOnScroll = new IntersectionObserver((entries, observer) => {
@@ -89,15 +88,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.features-grid, .modules-grid, .android-sharp-features, .other-apps-grid').forEach(grid => {
-        const cards = grid.children;
-        Array.from(cards).forEach((card, index) => {
-            card.style.transitionDelay = `${index * 0.06}s`;
+    document.querySelectorAll('.bento-simulation-grid, .visual-modules-grid, .other-apps-grid').forEach(grid => {
+        Array.from(grid.children).forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.08}s`;
         });
     });
 
     const elementsToAnimate = document.querySelectorAll(
-        '.reveal-fade-up, .reveal-scale-in, .feature-box, .module-card, .sharp-feature-card, .other-app-card, .download-card, .story-card'
+        '.reveal-fade-up, .reveal-scale-in, .sim-card, .v-module-card, .other-app-card, .device-showcase-box, .puskul-showcase-card, .qr-bridge-showcase'
     );
     elementsToAnimate.forEach(el => {
         if (!el.classList.contains('reveal-scale-in')) {
@@ -106,11 +104,38 @@ document.addEventListener('DOMContentLoaded', () => {
         animateOnScroll.observe(el);
     });
 
-    // 5. Active Nav Link on Scroll
-    const sections = document.querySelectorAll('section[id]');
+    // 5. Live Recording Timer Simulation in Visual Bento
+    const recTimerEl = document.querySelector('.rec-timer');
+    if (recTimerEl) {
+        let totalSeconds = 14 * 60 + 28;
+        setInterval(() => {
+            totalSeconds++;
+            const mins = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+            const secs = String(totalSeconds % 60).padStart(2, '0');
+            recTimerEl.textContent = `00:${mins}:${secs}`;
+        }, 1000);
+    }
+
+    // 6. Quick QR Pairing Form Handler
+    const quickQrForm = document.getElementById('quickQrForm');
+    const quickPairCode = document.getElementById('quickPairCode');
+    if (quickQrForm && quickPairCode) {
+        quickQrForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const cleanCode = (quickPairCode.value || '').replace(/[^0-9A-Za-z]/g, '').toUpperCase().slice(0, 6);
+            if (cleanCode) {
+                window.location.href = `qr.html?code=${encodeURIComponent(cleanCode)}`;
+            } else {
+                window.location.href = 'qr.html';
+            }
+        });
+    }
+
+    // 7. Active Nav Link on Scroll
+    const sections = document.querySelectorAll('section[id], div[id="qr-giris"]');
     window.addEventListener('scroll', () => {
         let currentSection = '';
-        const scrollPosition = window.pageYOffset + 120;
+        const scrollPosition = window.pageYOffset + 140;
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -128,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { passive: true });
 
-    // 6. Privacy Policy Modal Controller with URL Hash Support (#gizlilik-politikasi)
+    // 8. Privacy Policy Modal Controller
     const privacyModal = document.getElementById('privacyModal');
     const openPrivacyBtns = document.querySelectorAll('.open-privacy-modal, a[href="#gizlilik-politikasi"], a[href="#gizlilik"]');
     const closePrivacyBtns = document.querySelectorAll('.close-privacy-modal');
@@ -199,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 7. Release Download Redirect for Windows Setup (v19.0.0)
+    // 9. Release Download Redirect for Windows Setup (v19.0.0)
     document.querySelectorAll('a[href*="Pusu_IPTV_Setup.exe"], .btn-header-download').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
