@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası — Püsü IPTV</title>
+    <meta name="description" content="Püsü IPTV uygulaması Gizlilik Politikası. Kişisel verilerin korunması, üçüncü taraf hizmetler ve kullanıcı güvenliği hakkında bilgilendirme.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="pusu_logo.png">
+    <style>
+        @font-face {
+            font-family: 'Canada';
+            src: url('Canada.otf') format('opentype'),
+                 url('fonts/Canada.otf') format('opentype');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --bg-page: #F4F6FA;
+            --bg-card: #FFFFFF;
+            --bg-subtle: #EEF2F8;
+            --text-primary: #0F172A;
+            --text-secondary: #334155;
+            --text-muted: #64748B;
+            --accent-blue: #0071E3;
+            --accent-green: #10B981;
+            --border-light: rgba(15, 23, 42, 0.08);
+            --shadow-card: 0 16px 45px -10px rgba(15, 23, 42, 0.07), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Canada', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-primary);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            padding: 1.5rem 1rem 3.5rem;
+        }
+
+        .policy-wrapper {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        /* Compact Top Navigation Bar */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            gap: 1rem;
+        }
+
+        .brand-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 800;
+            font-size: 1.15rem;
+        }
+
+        .brand-link img {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.15);
+        }
+
+        .brand-link span strong {
+            color: var(--accent-blue);
+        }
+
+        .back-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            color: var(--accent-blue);
+            border: 1px solid var(--border-light);
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            transition: all 0.2s ease;
+        }
+
+        .back-home-btn:hover {
+            background: var(--accent-blue);
+            color: #FFFFFF;
+        }
+
+        /* Main Policy Card - Immediately visible without scrolling */
+        .policy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 2.25rem 2.5rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .policy-header {
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .policy-badge {
+            display: inline-block;
+            background: rgba(0, 113, 227, 0.1);
+            color: var(--accent-blue);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.3rem 0.85rem;
+            border-radius: 999px;
+            margin-bottom: 0.65rem;
+        }
+
+        .policy-header h1 {
+            font-size: 1.85rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .policy-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .policy-content p {
+            color: var(--text-secondary);
+            font-size: 0.96rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-content h2 {
+            font-size: 1.18rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 1.6rem 0 0.6rem;
+        }
+
+        .policy-content ul {
+            margin: 0.5rem 0 1.1rem 1.4rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .policy-content li {
+            margin-bottom: 0.35rem;
+        }
+
+        .store-compliance-box {
+            margin-top: 1.75rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            color: #065F46;
+            padding: 1rem 1.25rem;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .policy-footer {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.84rem;
+            color: var(--text-muted);
+        }
+
+        .policy-footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.75rem 2.5rem;
+            }
+            .policy-card {
+                padding: 1.5rem 1.2rem;
+                border-radius: 20px;
+            }
+            .policy-header h1 {
+                font-size: 1.45rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="policy-wrapper">
+        <nav class="top-nav">
+            <a href="index.html" class="brand-link">
+                <img src="pusu_logo.png" alt="Püsü IPTV Logo">
+                <span>Püsü <strong>IPTV</strong></span>
+            </a>
+            <a href="index.html" class="back-home-btn">
+                &#8592; Ana Sayfaya Dön
+            </a>
+        </nav>
+
+        <main class="policy-card">
+            <header class="policy-header">
+                <span class="policy-badge">RESMİ GİZLİLİK POLİTİKASI</span>
+                <h1>Gizlilik Politikası — Püsü IPTV</h1>
+                <p class="policy-meta">Son güncellenme tarihi: 31 Temmuz 2026 • Geliştirici: Okan Bayındır (com.pusu.iptv)</p>
+            </header>
+
+            <div class="policy-content">
+                <p>
+                    Okan Bayındır, <strong>Püsü IPTV</strong> uygulamasını <strong>Ücretsiz ve reklam destekli</strong> bir medya oynatıcı uygulaması olarak geliştirmiştir. Bu HİZMET, Okan Bayındır tarafından ücretsiz olarak sağlanmaktadır ve olduğu gibi kullanılması amaçlanmıştır.
+                </p>
+
+                <p>
+                    Bu sayfa, Hizmetimizi kullanmaya karar veren ziyaretçileri ve kullanıcıları, kişisel bilgilerin toplanması, kullanılması ve korunmasıyla ilgili politikalarımız hakkında bilgilendirmek için hazırlanmıştır.
+                </p>
+
+                <h2>1. Bilgi Toplama ve Kullanım</h2>
+                <p>
+                    Püsü IPTV uygulaması, doğası gereği kullanıcılarından doğrudan isim, telefon numarası veya e-posta adresi gibi hassas kişisel veriler talep etmez veya toplamaz. Eklediğiniz M3U, Xtream Codes veya yerel oynatma listeleri ve içerikler tamamen sizin cihazınızda yerel olarak işlenir.
+                </p>
+                <p>
+                    Ancak uygulama, temel işlevlerini yerine getirebilmek ve ücretsiz yapısını koruyabilmek için sizi tanımlamakta kullanılabilecek cihaz bilgilerini toplayabilen üçüncü taraf hizmetleri (Google Play Hizmetleri ve Google AdMob) kullanmaktadır. Bu veriler, reklamların size uygun şekilde gösterilebilmesi amacıyla Reklam Kimliği (Advertising ID) gibi anonimleştirilmiş cihaz tanımlayıcılarını içerebilir.
+                </p>
+                <p><strong>Uygulama tarafından kullanılan üçüncü taraf hizmet sağlayıcılar:</strong></p>
+                <ul>
+                    <li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Hizmetleri (Google Play Services)</a></li>
+                    <li><a href="https://support.google.com/admob/answer/6128543?hl=tr" target="_blank" rel="noopener noreferrer">Google AdMob</a></li>
+                </ul>
+
+                <h2>2. Günlük Verileri (Log Data)</h2>
+                <p>
+                    Hizmetimizi her kullandığınızda, uygulamada bir çökme veya hata olması durumunda cihazınızda Günlük Verileri (Log Data) adı verilen teknik tanı bilgilerini (üçüncü taraf ürünler aracılığıyla) topladığımızı bildirmek isteriz. Bu veriler; cihazınızın İnternet Protokolü ("IP") adresi, cihaz adı, işletim sistemi sürümü, uygulama yapılandırması, çökme saati ve tarihi gibi teknik istatistikleri içerebilir. Bu veriler yalnızca uygulamanın hatalarını gidermek ve performansını artırmak amacıyla kullanılır.
+                </p>
+
+                <h2>3. Çerezler (Cookies)</h2>
+                <p>
+                    Püsü IPTV, standart web çerezlerini doğrudan kullanmaz. Ancak uygulama, bilgi toplamak ve hizmetlerini iyileştirmek için "çerezler" veya benzer izleme teknolojileri kullanan üçüncü taraf SDK'lar ve kütüphaneler barındırabilir. Cihaz ayarlarınız üzerinden reklam kimliğinizi sıfırlayabilir veya kişiselleştirilmiş reklamları kapatabilirsiniz.
+                </p>
+
+                <h2>4. Güvenlik ve Veri Koruma</h2>
+                <p>
+                    Cihazınızdaki verilerin ve uygulamanın güvenliğine değer veriyoruz. Bu nedenle bilgilerinizi korumak için ticari olarak kabul edilebilir yöntemler ve güvenli iletişim protokolleri (HTTPS) kullanıyoruz. Ancak internet üzerinden hiçbir aktarım yönteminin veya elektronik depolama yönteminin %100 güvenli olmadığını ve mutlak güvenliğini garanti edemediğimizi hatırlatırız.
+                </p>
+
+                <h2>5. Diğer Sitelere Bağlantılar</h2>
+                <p>
+                    Bu Hizmet, diğer sitelere bağlantılar içerebilir. Uygulama içerisinden üçüncü taraf bir bağlantıya tıklarsanız, o siteye yönlendirilirsiniz. Bu harici sitelerin bizim tarafımızdan işletilmediğini unutmayın. Bu nedenle, ziyaret ettiğiniz web sitelerinin Gizlilik Politikalarını gözden geçirmenizi tavsiye ederiz.
+                </p>
+
+                <h2>6. Çocukların Gizliliği</h2>
+                <p>
+                    Bu Hizmetler 13 yaşın altındaki çocuklara doğrudan hitap etmemektedir. 13 yaşın altındaki çocuklardan bilerek kişisel olarak tanımlanabilir bilgiler toplamıyoruz.
+                </p>
+
+                <h2>7. Gizlilik Politikasındaki Değişiklikler</h2>
+                <p>
+                    Gizlilik Politikamızı zaman zaman güncelleyebiliriz. Herhangi bir değişiklik olması durumunda bu sayfayı güncelleyerek yeni Gizlilik Politikasını burada yayınlayacağız. Değişiklikler, bu sayfada yayınlandıktan hemen sonra yürürlüğe girer.
+                </p>
+
+                <h2>8. İletişim</h2>
+                <p>
+                    Gizlilik Politikamız hakkında herhangi bir sorunuz veya öneriniz varsa, geliştirici iletişim kanallarımız (<a href="https://github.com/Okan707/pusu.iptv" target="_blank" rel="noopener noreferrer">GitHub @Okan707</a>) üzerinden bizimle iletişime geçebilirsiniz.
+                </p>
+
+                <div class="store-compliance-box">
+                    ✓ Bu sayfa, Google Play Store Geliştirici Programı Politikaları ve Kullanıcı Verileri gereksinimlerine uygun olarak bağımsız, doğrudan erişilebilir standart web sayfası formatında yayınlanmıştır.
+                </div>
+            </div>
+        </main>
+
+        <footer class="policy-footer">
+            <p>&copy; 2026 Okan Bayındır • <a href="index.html">Püsü IPTV Ana Sayfa</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>

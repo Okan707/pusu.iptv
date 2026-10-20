@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (window.location.hash === '#gizlilik-politikasi' || window.location.hash === '#gizlilik') {
-        openModal(false);
+        window.location.replace('gizlilik.html');
     }
 
     window.addEventListener('hashchange', () => {
