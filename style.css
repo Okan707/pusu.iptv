@@ -3203,6 +3203,381 @@ body {
     }
 }
 
+/* ==========================================================================
+   Animated Social Media & Community Hub (#topluluk & Hero Social Bar)
+   ========================================================================== */
+
+.hero-social-quickbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 0.15rem;
+}
+
+.btn-hero-social {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.72rem 1rem;
+    border-radius: 14px;
+    font-size: 0.84rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: var(--transition-spring);
+    border: 1.5px solid transparent;
+}
+
+.social-tg {
+    background: linear-gradient(135deg, rgba(0, 136, 204, 0.12), rgba(34, 158, 217, 0.18));
+    color: #0077B5;
+    border-color: rgba(0, 136, 204, 0.28);
+}
+
+.social-tg:hover {
+    background: linear-gradient(135deg, #0088CC, #229ED9);
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(0, 136, 204, 0.32);
+}
+
+.social-fb {
+    background: linear-gradient(135deg, rgba(24, 119, 242, 0.12), rgba(13, 101, 217, 0.18));
+    color: #1877F2;
+    border-color: rgba(24, 119, 242, 0.28);
+}
+
+.social-fb:hover {
+    background: linear-gradient(135deg, #1877F2, #0D65D9);
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(24, 119, 242, 0.32);
+}
+
+.btn-hero-social i {
+    font-size: 1.15rem;
+}
+
+.social-live-ping {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: blinkRec 1.4s infinite;
+}
+
+/* Top Section: Animated Social Community Grid */
+.section-social-community {
+    padding: 1.5rem 0 3.5rem;
+}
+
+.social-community-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+}
+
+.social-hub-card {
+    background: #FFFFFF;
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 1.4rem;
+    box-shadow: var(--shadow-soft);
+    text-decoration: none;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: var(--transition-spring);
+    position: relative;
+    overflow: hidden;
+}
+
+.hub-telegram:hover {
+    transform: translateY(-7px);
+    border-color: rgba(0, 136, 204, 0.45);
+    box-shadow: 0 26px 60px -12px rgba(0, 136, 204, 0.22);
+}
+
+.hub-facebook:hover {
+    transform: translateY(-7px);
+    border-color: rgba(24, 119, 242, 0.45);
+    box-shadow: 0 26px 60px -12px rgba(24, 119, 242, 0.22);
+}
+
+/* Visual Stage Inside Social Cards */
+.social-visual-stage {
+    position: relative;
+    height: 220px;
+    border-radius: 22px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stage-telegram {
+    background: radial-gradient(circle at 50% 50%, #0EA5E9 0%, #0284C7 48%, #0F172A 100%);
+}
+
+.stage-facebook {
+    background: radial-gradient(circle at 50% 50%, #3B82F6 0%, #1D4ED8 50%, #0F172A 100%);
+}
+
+/* Animated Sonar Radar Waves */
+.social-radar-wave {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    animation: sonarWave 3.2s linear infinite;
+    pointer-events: none;
+}
+
+.sw-2, .sw-fb-2 {
+    animation-delay: 1.6s;
+}
+
+/* 3D Glowing Center Social Orb */
+.social-center-orb {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.96);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35), 0 0 0 6px rgba(255, 255, 255, 0.16);
+    z-index: 2;
+    animation: floatCore 4.2s ease-in-out infinite;
+}
+
+.orb-tg {
+    color: #0088CC;
+}
+
+.orb-fb {
+    color: #1877F2;
+}
+
+.orb-brand-mini {
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 9px;
+    background: #FFFFFF;
+    padding: 2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.orb-brand-mini img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 7px;
+}
+
+/* Floating Animated Chat & Community Bubbles */
+.social-float-bubble {
+    position: absolute;
+    z-index: 3;
+    background: rgba(15, 23, 42, 0.84);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 99px;
+    font-size: 0.73rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    animation: floatWidget 4s ease-in-out infinite;
+}
+
+.social-float-bubble i {
+    color: #38BDF8;
+}
+
+.sfb-fb-3 i {
+    color: #F43F5E;
+}
+
+.bubble-dot-live {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #34D399;
+    animation: pulseGreen 1.8s infinite;
+}
+
+.sfb-tg-1, .sfb-fb-1 {
+    top: 16px;
+    left: 16px;
+}
+
+.sfb-tg-2, .sfb-fb-2 {
+    top: 18px;
+    right: 16px;
+    animation-delay: -1.4s;
+}
+
+.sfb-tg-3, .sfb-fb-3 {
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: floatMobNode 4.2s ease-in-out infinite;
+    white-space: nowrap;
+}
+
+/* Social Card Body & Footer CTA */
+.social-card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0 0.25rem;
+}
+
+.social-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+}
+
+.social-live-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+}
+
+.pill-tg {
+    background: linear-gradient(135deg, #0088CC, #229ED9);
+}
+
+.pill-fb {
+    background: linear-gradient(135deg, #1877F2, #0D65D9);
+}
+
+.pulse-dot-white {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    animation: blinkRec 1.2s infinite;
+}
+
+.social-handle {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.social-card-info h3 {
+    font-size: 1.22rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+    letter-spacing: -0.02em;
+}
+
+.social-card-info p {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+}
+
+.social-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.85rem 1.25rem;
+    border-radius: 16px;
+    color: #FFFFFF;
+    font-size: 0.86rem;
+    font-weight: 800;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: var(--transition-spring);
+}
+
+.cta-tg {
+    background: linear-gradient(135deg, #0088CC, #229ED9);
+    box-shadow: 0 10px 24px rgba(0, 136, 204, 0.3);
+}
+
+.cta-fb {
+    background: linear-gradient(135deg, #1877F2, #0D65D9);
+    box-shadow: 0 10px 24px rgba(24, 119, 242, 0.3);
+}
+
+.social-hub-card:hover .social-cta-btn {
+    transform: scale(1.04);
+}
+
+@media (max-width: 960px) {
+    .social-community-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .section-social-community {
+        padding: 1rem 0 2.5rem;
+    }
+    .social-hub-card {
+        padding: 1rem;
+        border-radius: 22px;
+        gap: 1rem;
+    }
+    .social-visual-stage {
+        height: 195px;
+        border-radius: 16px;
+    }
+    .social-center-orb {
+        width: 68px;
+        height: 68px;
+        border-radius: 22px;
+        font-size: 2rem;
+    }
+    .social-float-bubble {
+        font-size: 0.64rem;
+        padding: 5px 9px;
+    }
+    .sfb-tg-1, .sfb-fb-1 {
+        top: 10px;
+        left: 10px;
+    }
+    .sfb-tg-2, .sfb-fb-2 {
+        top: 10px;
+        right: 10px;
+    }
+    .sfb-tg-3, .sfb-fb-3 {
+        bottom: 10px;
+    }
+    .social-card-body {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .social-cta-btn {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
 @media (max-width: 390px) {
     .btn-header-qr span:not(.qr-pulse-ring),
     .btn-header-download span {
@@ -3423,5 +3798,380 @@ body {
     }
     .coffee-tier-action {
         font-size: 0.62rem;
+    }
+}
+
+/* ==========================================================================
+   Animated Social Media & Community Hub (#topluluk & Hero Social Bar)
+   ========================================================================== */
+
+.hero-social-quickbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 0.15rem;
+}
+
+.btn-hero-social {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.72rem 1rem;
+    border-radius: 14px;
+    font-size: 0.84rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: var(--transition-spring);
+    border: 1.5px solid transparent;
+}
+
+.social-tg {
+    background: linear-gradient(135deg, rgba(0, 136, 204, 0.12), rgba(34, 158, 217, 0.18));
+    color: #0077B5;
+    border-color: rgba(0, 136, 204, 0.28);
+}
+
+.social-tg:hover {
+    background: linear-gradient(135deg, #0088CC, #229ED9);
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(0, 136, 204, 0.32);
+}
+
+.social-fb {
+    background: linear-gradient(135deg, rgba(24, 119, 242, 0.12), rgba(13, 101, 217, 0.18));
+    color: #1877F2;
+    border-color: rgba(24, 119, 242, 0.28);
+}
+
+.social-fb:hover {
+    background: linear-gradient(135deg, #1877F2, #0D65D9);
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(24, 119, 242, 0.32);
+}
+
+.btn-hero-social i {
+    font-size: 1.15rem;
+}
+
+.social-live-ping {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: blinkRec 1.4s infinite;
+}
+
+/* Top Section: Animated Social Community Grid */
+.section-social-community {
+    padding: 1.5rem 0 3.5rem;
+}
+
+.social-community-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+}
+
+.social-hub-card {
+    background: #FFFFFF;
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 1.4rem;
+    box-shadow: var(--shadow-soft);
+    text-decoration: none;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: var(--transition-spring);
+    position: relative;
+    overflow: hidden;
+}
+
+.hub-telegram:hover {
+    transform: translateY(-7px);
+    border-color: rgba(0, 136, 204, 0.45);
+    box-shadow: 0 26px 60px -12px rgba(0, 136, 204, 0.22);
+}
+
+.hub-facebook:hover {
+    transform: translateY(-7px);
+    border-color: rgba(24, 119, 242, 0.45);
+    box-shadow: 0 26px 60px -12px rgba(24, 119, 242, 0.22);
+}
+
+/* Visual Stage Inside Social Cards */
+.social-visual-stage {
+    position: relative;
+    height: 220px;
+    border-radius: 22px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stage-telegram {
+    background: radial-gradient(circle at 50% 50%, #0EA5E9 0%, #0284C7 48%, #0F172A 100%);
+}
+
+.stage-facebook {
+    background: radial-gradient(circle at 50% 50%, #3B82F6 0%, #1D4ED8 50%, #0F172A 100%);
+}
+
+/* Animated Sonar Radar Waves */
+.social-radar-wave {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    animation: sonarWave 3.2s linear infinite;
+    pointer-events: none;
+}
+
+.sw-2, .sw-fb-2 {
+    animation-delay: 1.6s;
+}
+
+/* 3D Glowing Center Social Orb */
+.social-center-orb {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.96);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35), 0 0 0 6px rgba(255, 255, 255, 0.16);
+    z-index: 2;
+    animation: floatCore 4.2s ease-in-out infinite;
+}
+
+.orb-tg {
+    color: #0088CC;
+}
+
+.orb-fb {
+    color: #1877F2;
+}
+
+.orb-brand-mini {
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 9px;
+    background: #FFFFFF;
+    padding: 2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.orb-brand-mini img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 7px;
+}
+
+/* Floating Animated Chat & Community Bubbles */
+.social-float-bubble {
+    position: absolute;
+    z-index: 3;
+    background: rgba(15, 23, 42, 0.84);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 99px;
+    font-size: 0.73rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    animation: floatWidget 4s ease-in-out infinite;
+}
+
+.social-float-bubble i {
+    color: #38BDF8;
+}
+
+.sfb-fb-3 i {
+    color: #F43F5E;
+}
+
+.bubble-dot-live {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #34D399;
+    animation: pulseGreen 1.8s infinite;
+}
+
+.sfb-tg-1, .sfb-fb-1 {
+    top: 16px;
+    left: 16px;
+}
+
+.sfb-tg-2, .sfb-fb-2 {
+    top: 18px;
+    right: 16px;
+    animation-delay: -1.4s;
+}
+
+.sfb-tg-3, .sfb-fb-3 {
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: floatMobNode 4.2s ease-in-out infinite;
+    white-space: nowrap;
+}
+
+/* Social Card Body & Footer CTA */
+.social-card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0 0.25rem;
+}
+
+.social-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+}
+
+.social-live-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+}
+
+.pill-tg {
+    background: linear-gradient(135deg, #0088CC, #229ED9);
+}
+
+.pill-fb {
+    background: linear-gradient(135deg, #1877F2, #0D65D9);
+}
+
+.pulse-dot-white {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    animation: blinkRec 1.2s infinite;
+}
+
+.social-handle {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.social-card-info h3 {
+    font-size: 1.22rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+    letter-spacing: -0.02em;
+}
+
+.social-card-info p {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+}
+
+.social-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.85rem 1.25rem;
+    border-radius: 16px;
+    color: #FFFFFF;
+    font-size: 0.86rem;
+    font-weight: 800;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: var(--transition-spring);
+}
+
+.cta-tg {
+    background: linear-gradient(135deg, #0088CC, #229ED9);
+    box-shadow: 0 10px 24px rgba(0, 136, 204, 0.3);
+}
+
+.cta-fb {
+    background: linear-gradient(135deg, #1877F2, #0D65D9);
+    box-shadow: 0 10px 24px rgba(24, 119, 242, 0.3);
+}
+
+.social-hub-card:hover .social-cta-btn {
+    transform: scale(1.04);
+}
+
+@media (max-width: 960px) {
+    .social-community-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .section-social-community {
+        padding: 1rem 0 2.5rem;
+    }
+    .social-hub-card {
+        padding: 1rem;
+        border-radius: 22px;
+        gap: 1rem;
+    }
+    .social-visual-stage {
+        height: 195px;
+        border-radius: 16px;
+    }
+    .social-center-orb {
+        width: 68px;
+        height: 68px;
+        border-radius: 22px;
+        font-size: 2rem;
+    }
+    .social-float-bubble {
+        font-size: 0.64rem;
+        padding: 5px 9px;
+    }
+    .sfb-tg-1, .sfb-fb-1 {
+        top: 10px;
+        left: 10px;
+    }
+    .sfb-tg-2, .sfb-fb-2 {
+        top: 10px;
+        right: 10px;
+    }
+    .sfb-tg-3, .sfb-fb-3 {
+        bottom: 10px;
+    }
+    .social-card-body {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .social-cta-btn {
+        justify-content: center;
+        width: 100%;
     }
 }
