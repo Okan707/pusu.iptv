@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Püsü IPTV — Interactive Visual & Animation Controller (v19.2.0)
+   Püsü IPTV — Interactive Visual & Animation Controller (v19.3.0)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -224,11 +224,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 9. Release Download Redirect for Windows Setup (v19.2.0)
+    // 9. Release Download Redirect for Windows Setup (v19.3.0)
     document.querySelectorAll('a[href*="Pusu_IPTV_Setup.exe"], .btn-header-download').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = 'https://github.com/Okan707/pusu.iptv/releases/download/19.2.0/Pusu_IPTV_Setup.exe';
+            window.location.href = 'https://github.com/Okan707/pusu.iptv/releases/download/19.3.0/Pusu_IPTV_Setup.exe';
         });
     });
 });
