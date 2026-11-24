@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,9 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>PÜSÜ IPTV — 4K Medya Stüdyosu • Windows 19.3.0 &amp; Android TV</title>
-    <meta name="description" content="Püsü IPTV — QR kodla anında eşleşme, 4K medya oynatıcı. Windows 19.3.0 ve Android TV.">
-    <link rel="icon" type="image/png" href="pusu_logo.png?v=19.5.0">
+    <title>PÜSÜ IPTV — 4K Medya Stüdyosu • Windows &amp; Android TV</title>
+    <meta name="description" content="Püsü IPTV — QR kodla anında eşleşme, 4K medya oynatıcı. Windows ve Android TV.">
+    <link rel="icon" type="image/png" href="pusu_logo.png?v=19.6.0">
     <script>
         (function () {
             var params = new URLSearchParams(window.location.search);
@@ -17,6 +17,8 @@
                 window.location.replace('qr.html' + window.location.search + window.location.hash);
                 return;
             }
+            var savedTheme = localStorage.getItem('pusu_theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
         })();
         document.addEventListener('error', function (e) {
             if (e.target.tagName === 'IMG') {
@@ -34,8 +36,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preload" href="Canada.otf" as="font" type="font/otf" crossorigin>
-    <link rel="stylesheet" href="style.css?v=19.5.0">
-    <link rel="stylesheet" href="css/style.css?v=19.5.0">
+    <link rel="stylesheet" href="style.css?v=19.6.0">
+    <link rel="stylesheet" href="css/style.css?v=19.6.0">
 </head>
 
 <body>
@@ -49,25 +51,30 @@
         <div class="container nav-container">
             <a href="#" class="brand-logo">
                 <div class="brand-emblem">
-                    <img src="pusu_logo.png?v=19.5.0" alt="Püsü IPTV" class="brand-icon">
+                    <img src="pusu_logo.png?v=19.6.0" alt="Püsü IPTV" class="brand-icon">
                 </div>
                 <div class="brand-meta">
                     <span class="brand-name">PÜSÜ<span class="brand-dot">.</span>IPTV</span>
-                    <span class="brand-ver">v19.3.0</span>
                 </div>
             </a>
 
             <nav class="main-nav" id="mainNav">
                 <ul>
-                    <li><a href="#qr-giris">QR Giriş</a></li>
                     <li><a href="#arayuz">Arayüz</a></li>
-                    <li><a href="#moduller">Modüller</a></li>
                     <li><a href="#studyo">Stüdyo</a></li>
                     <li><a href="#topluluk">Topluluk</a></li>
+                    <li><a href="kahve.html">Kahve</a></li>
                 </ul>
             </nav>
 
             <div class="header-actions">
+                <!-- Karanlık / Aydınlık Tema Değiştirici -->
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Temayı Değiştir" title="Karanlık / Aydınlık Tema">
+                    <i class="fas fa-sun theme-icon-light"></i>
+                    <i class="fas fa-moon theme-icon-dark"></i>
+                    <span class="theme-label" id="themeToggleLabel">Aydınlık</span>
+                </button>
+
                 <a href="qr.html" class="btn-ds-outline">
                     <span class="qr-live-dot"></span>
                     <i class="fas fa-qrcode"></i>
@@ -75,7 +82,7 @@
                 </a>
                 <a href="https://github.com/Okan707/pusu.iptv/releases/download/19.3.0/Pusu_IPTV_Setup.exe" class="btn-ds-primary btn-header-download">
                     <i class="fab fa-windows"></i>
-                    <span>Win 19.3.0</span>
+                    <span>Windows İndir</span>
                 </a>
                 <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Menü">
                     <span></span>
@@ -87,18 +94,11 @@
     </header>
 
     <!-- ==========================================================================
-         01 // VİTRİN & ANINDA QR GİRİŞ (GÖRSEL ODAKLI HERO)
+         01 // VİTRİN & İNDİRME (GÖRSEL ODAKLI HERO)
          ========================================================================== -->
     <section class="ds-hero" id="hero">
         <div class="container">
             <div class="hero-top-center reveal-fade-up">
-                <div class="ds-eyebrow">
-                    <span class="status-led"></span>
-                    <span class="eyebrow-index">WIN 19.3.0 &amp; ANDROID TV</span>
-                    <span class="eyebrow-divider"></span>
-                    <span class="eyebrow-badge">4K 60FPS GPU</span>
-                </div>
-
                 <h1 class="ds-hero-title">
                     4K Medya Stüdyosu.<br>
                     <span class="text-gradient-titanium">QR ile Anında Yayında.</span>
@@ -108,7 +108,7 @@
                 <div class="hero-action-dock">
                     <a href="https://github.com/Okan707/pusu.iptv/releases/download/19.3.0/Pusu_IPTV_Setup.exe" class="btn-dock btn-dock-win">
                         <i class="fab fa-windows"></i>
-                        <span>Windows 19.3.0 İndir</span>
+                        <span>Windows İndir</span>
                         <small>.EXE</small>
                     </a>
 
@@ -139,10 +139,10 @@
                         <div class="image-vignette"></div>
 
                         <div class="hud-chip hud-top-right">
-                            <img src="pusu_logo.png?v=19.5.0" alt="Püsü" class="hud-cat-icon">
+                            <img src="pusu_logo.png?v=19.6.0" alt="Püsü" class="hud-cat-icon">
                             <div>
-                                <span class="hud-chip-label">ENGINE</span>
-                                <strong class="hud-chip-value">v19.3.0 Titanium</strong>
+                                <span class="hud-chip-label">PÜSÜ STUDIO</span>
+                                <strong class="hud-chip-value">4K Donanım Motoru</strong>
                             </div>
                         </div>
 
@@ -154,27 +154,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Kompakt QR Kod Eşleştirme Barı -->
-            <div class="qr-compact-dock reveal-fade-up" id="qr-giris">
-                <form class="qr-quick-bar" id="quickQrForm" action="qr.html" method="get">
-                    <div class="quick-input-wrap">
-                        <span class="input-prefix"><i class="fas fa-qrcode"></i> TV / PC KODU</span>
-                        <input type="text" name="code" id="quickPairCode" placeholder="6 Haneli Kod (Örn: 742910)" maxlength="6" autocomplete="off">
-                    </div>
-                    <button type="submit" class="btn-ds-primary btn-terminal-submit">
-                        <i class="fas fa-paper-plane"></i>
-                        <span>Cihaza Gönder</span>
-                    </button>
-                </form>
-
-                <div class="qr-format-pills">
-                    <a href="qr.html?tab=xtream" class="qf-pill"><i class="fas fa-server"></i> Xtream API</a>
-                    <a href="qr.html?tab=m3u" class="qf-pill"><i class="fas fa-link"></i> M3U URL</a>
-                    <a href="qr.html?tab=file" class="qf-pill"><i class="fas fa-file-arrow-up"></i> .M3U Dosya</a>
-                    <a href="qr.html?tab=profile" class="qf-pill"><i class="fas fa-cloud-arrow-up"></i> .pusu Profil</a>
                 </div>
             </div>
         </div>
@@ -194,7 +173,7 @@
                 <div class="screen-card-large reveal-fade-up">
                     <div class="screen-bar">
                         <div class="frame-dots"><span></span><span></span><span></span></div>
-                        <span class="mono-xs">MAT SİYAH // STÜDYO TEMA</span>
+                        <span class="mono-xs">MAT SİYAH // KARANLIK TEMA</span>
                         <span class="screen-tag">WINDOWS &amp; TV</span>
                     </div>
                     <div class="screen-img-wrap">
@@ -205,7 +184,7 @@
                 <div class="screen-card-large reveal-fade-up">
                     <div class="screen-bar">
                         <div class="frame-dots"><span></span><span></span><span></span></div>
-                        <span class="mono-xs">MAT BEYAZ // MİNİMAL TEMA</span>
+                        <span class="mono-xs">MAT BEYAZ // AYDINLIK TEMA</span>
                         <span class="screen-tag">WINDOWS &amp; MOBİL</span>
                     </div>
                     <div class="screen-img-wrap">
@@ -217,70 +196,12 @@
     </section>
 
     <!-- ==========================================================================
-         03 // 4 ANA MODÜL (GÖRSEL KARTLAR, SIFIR AÇIKLAMA)
-         ========================================================================== -->
-    <section class="ds-section" id="moduller">
-        <div class="container">
-            <div class="ds-section-head-compact reveal-fade-up">
-                <span class="ds-index">02 // MODÜLLER</span>
-                <h2 class="ds-title">4 Çekirdek Modül.</h2>
-            </div>
-
-            <div class="ds-modules-grid">
-                <div class="ds-module-card reveal-fade-up">
-                    <div class="mod-top">
-                        <span class="mod-num">01</span>
-                        <span class="mod-pill">&lt;100ms Zapping</span>
-                    </div>
-                    <div class="mod-art">
-                        <img src="module_tv.png" alt="Canlı TV">
-                    </div>
-                    <h3>Canlı TV</h3>
-                </div>
-
-                <div class="ds-module-card reveal-fade-up">
-                    <div class="mod-top">
-                        <span class="mod-num">02</span>
-                        <span class="mod-pill">IMDb &amp; 4K VOD</span>
-                    </div>
-                    <div class="mod-art">
-                        <img src="module_movies.png" alt="Sinema">
-                    </div>
-                    <h3>Sinema</h3>
-                </div>
-
-                <div class="ds-module-card reveal-fade-up">
-                    <div class="mod-top">
-                        <span class="mod-num">03</span>
-                        <span class="mod-pill">Sezon &amp; Oto-Bölüm</span>
-                    </div>
-                    <div class="mod-art">
-                        <img src="module_series.png" alt="Diziler">
-                    </div>
-                    <h3>Diziler</h3>
-                </div>
-
-                <div class="ds-module-card reveal-fade-up">
-                    <div class="mod-top">
-                        <span class="mod-num">04</span>
-                        <span class="mod-pill">PIN &amp; .pusu Yedek</span>
-                    </div>
-                    <div class="mod-art">
-                        <img src="module_favorites.png" alt="Favori ve Kasa">
-                    </div>
-                    <h3>Favori &amp; Kasa</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================================================
-         04 // STÜDYO GÜCÜ (GÖRSEL BENTO VİTRİNİ)
+         03 // STÜDYO GÜCÜ (GÖRSEL BENTO VİTRİNİ)
          ========================================================================== -->
     <section class="ds-section" id="studyo">
         <div class="container">
             <div class="ds-section-head-compact reveal-fade-up">
-                <span class="ds-index">03 // DONANIM</span>
+                <span class="ds-index">02 // DONANIM</span>
                 <h2 class="ds-title">4K Kayıt. Canlı EPG. Bulut Senkron.</h2>
             </div>
 
@@ -306,7 +227,7 @@
                     </div>
                 </div>
 
-                <!-- Canlı EPG & Google Play QR -->
+                <!-- Canlı EPG Akışı -->
                 <div class="bento-box bento-span-4 reveal-fade-up">
                     <div class="bento-epg-stage">
                         <div class="epg-header-bar">
@@ -329,20 +250,18 @@
                             <strong>Oppenheimer (IMAX 4K)</strong>
                             <span class="epg-remind-badge"><i class="fas fa-bell"></i> Hatırlatıcı Aktif</span>
                         </div>
-                    </div>
-
-                    <div class="bento-qr-mini">
-                        <div class="play-qr-img-wrap">
-                            <img src="android_qr.png" alt="Google Play QR">
-                        </div>
-                        <div class="play-qr-text">
-                            <span class="mono-xs">ANDROID TV &amp; MOBİL</span>
-                            <strong>Kamerayla Okut &amp; Yükle</strong>
+                        <div class="epg-track-card">
+                            <div class="epg-track-top">
+                                <span class="ch-tag">BELGESEL</span>
+                                <span class="ch-time">Dolby 4K</span>
+                            </div>
+                            <strong>Kozmik Harikalar</strong>
+                            <div class="epg-progress"><div class="epg-bar" style="width: 45%;"></div></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Alt Özellik Barı: Tek Satır Net Başlıklar -->
+                <!-- Alt Özellik Barı: 3 Net Başlık -->
                 <div class="bento-box bento-span-12 reveal-fade-up">
                     <div class="studio-specs-strip">
                         <div class="spec-pill-item">
@@ -357,10 +276,6 @@
                             <i class="fas fa-gamepad"></i>
                             <strong>Android TV Kumanda Odak Hafızası</strong>
                         </div>
-                        <div class="spec-pill-item">
-                            <i class="fas fa-gauge-high"></i>
-                            <strong>Dahili Yayın Hız Testi &amp; PIN Kilidi</strong>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -368,19 +283,19 @@
     </section>
 
     <!-- ==========================================================================
-         05 // TOPLULUK, PÜSKÜL & DESTEK (KOMPAKT GÖRSEL KARTLAR)
+         04 // TOPLULUK, PÜSKÜL & DESTEK (KOMPAKT GÖRSEL KARTLAR)
          ========================================================================== -->
     <section class="ds-section" id="topluluk">
         <div class="container">
             <div class="ds-section-head-compact reveal-fade-up">
-                <span class="ds-index">04 // EKOSİSTEM</span>
+                <span class="ds-index">03 // EKOSİSTEM</span>
                 <h2 class="ds-title">Topluluk &amp; Destek.</h2>
             </div>
 
             <div class="ecosystem-grid">
                 <!-- Püskül Görsel Kartı -->
                 <div class="eco-mascot-card reveal-fade-up">
-                    <img src="puskul_waiting.png?v=19.5.0" alt="Püskül" class="eco-mascot-img">
+                    <img src="puskul_waiting.png?v=19.6.0" alt="Püskül" class="eco-mascot-img">
                     <div class="eco-mascot-overlay">
                         <span class="mono-xs"><i class="fas fa-paw"></i> MASKOTUMUZ</span>
                         <h3>Püskül</h3>
@@ -467,7 +382,7 @@
     <footer class="ds-footer-minimal">
         <div class="container ds-footer-bar">
             <div class="footer-brand-inline">
-                <img src="pusu_logo.png?v=19.5.0" alt="Püsü IPTV">
+                <img src="pusu_logo.png?v=19.6.0" alt="Püsü IPTV">
                 <strong>PÜSÜ.IPTV</strong>
                 <span>&copy; 2026 Okan Bayındır</span>
             </div>
@@ -483,7 +398,7 @@
         </div>
     </footer>
 
-    <script src="main.js?v=19.5.0"></script>
+    <script src="main.js?v=19.6.0"></script>
 </body>
 
 </html>

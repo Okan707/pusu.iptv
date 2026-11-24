@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PÜSÜ IPTV — Dark Architectural Studio Controller (v19.4.0)
+   PÜSÜ IPTV — Dual-Theme Studio Controller (v19.6.0)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -7,6 +7,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mainNav = document.getElementById('mainNav');
     const navLinks = document.querySelectorAll('.main-nav a');
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeToggleLabel = document.getElementById('themeToggleLabel');
+
+    // 0. Dark / Light Theme Switcher
+    const applyTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('pusu_theme', theme);
+        if (themeToggleLabel) {
+            themeToggleLabel.textContent = theme === 'dark' ? 'Aydınlık' : 'Karanlık';
+        }
+    };
+
+    const currentTheme = document.documentElement.getAttribute('data-theme') || localStorage.getItem('pusu_theme') || 'dark';
+    applyTheme(currentTheme);
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const active = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+            applyTheme(active === 'dark' ? 'light' : 'dark');
+        });
+    }
 
     // 1. Auto-Hiding Navbar on Scroll Down & Show on Scroll Up
     let lastScrollTop = 0;
@@ -88,14 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.ds-bento-grid, .ds-modules-grid, .qr-formats-grid, .ds-community-grid').forEach(grid => {
+    document.querySelectorAll('.ds-bento-grid, .showcase-screens-grid').forEach(grid => {
         Array.from(grid.children).forEach((card, index) => {
             card.style.transitionDelay = `${index * 0.06}s`;
         });
     });
 
     const elementsToAnimate = document.querySelectorAll(
-        '.reveal-fade-up, .reveal-scale-in, .bento-box, .ds-module-card, .ds-project-row, .ds-social-card'
+        '.reveal-fade-up, .reveal-scale-in, .bento-box'
     );
     elementsToAnimate.forEach(el => {
         if (!el.classList.contains('reveal-scale-in')) {
@@ -116,22 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-    // 6. Quick QR Pairing Form Handler
-    const quickQrForm = document.getElementById('quickQrForm');
-    const quickPairCode = document.getElementById('quickPairCode');
-    if (quickQrForm && quickPairCode) {
-        quickQrForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const cleanCode = (quickPairCode.value || '').replace(/[^0-9A-Za-z]/g, '').toUpperCase().slice(0, 6);
-            if (cleanCode) {
-                window.location.href = `qr.html?code=${encodeURIComponent(cleanCode)}`;
-            } else {
-                window.location.href = 'qr.html';
-            }
-        });
-    }
-
-    // 7. Active Nav Link on Scroll
+    // 6. Active Nav Link on Scroll
     const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', () => {
         let currentSection = '';
@@ -153,12 +159,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { passive: true });
 
-    // 8. Privacy Policy Hash Redirect Support
+    // 7. Privacy Policy Hash Redirect Support
     if (window.location.hash === '#gizlilik-politikasi' || window.location.hash === '#gizlilik') {
         window.location.replace('gizlilik.html');
     }
 
-    // 9. Release Download Redirect for Windows Setup (v19.3.0)
+    // 8. Release Download Redirect for Windows Setup
     document.querySelectorAll('a[href*="Pusu_IPTV_Setup.exe"], .btn-header-download').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
