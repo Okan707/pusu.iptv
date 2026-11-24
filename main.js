@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Püsü IPTV — Interactive Visual & Animation Controller (v19.3.0)
+   PÜSÜ IPTV — Dark Architectural Studio Controller (v19.4.0)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const isMobileMenuOpen = mainNav && mainNav.classList.contains('active');
         if (!isMobileMenuOpen && Math.abs(currentScroll - lastScrollTop) > scrollThreshold) {
-            if (currentScroll > lastScrollTop && currentScroll > 80) {
+            if (currentScroll > lastScrollTop && currentScroll > 90) {
                 header.classList.add('header-hidden');
             } else {
                 header.classList.remove('header-hidden');
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 e.preventDefault();
-                const headerOffset = 76;
+                const headerOffset = 80;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Scroll Reveal Animations with Stagger
     const observerOptions = {
         root: null,
-        rootMargin: '0px 0px -40px 0px',
-        threshold: 0.08
+        rootMargin: '0px 0px -30px 0px',
+        threshold: 0.06
     };
 
     const animateOnScroll = new IntersectionObserver((entries, observer) => {
@@ -88,14 +88,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.bento-simulation-grid, .visual-modules-grid, .other-apps-grid, .social-community-grid').forEach(grid => {
+    document.querySelectorAll('.ds-bento-grid, .ds-modules-grid, .qr-formats-grid, .ds-community-grid').forEach(grid => {
         Array.from(grid.children).forEach((card, index) => {
-            card.style.transitionDelay = `${index * 0.08}s`;
+            card.style.transitionDelay = `${index * 0.06}s`;
         });
     });
 
     const elementsToAnimate = document.querySelectorAll(
-        '.reveal-fade-up, .reveal-scale-in, .sim-card, .v-module-card, .other-app-card, .device-showcase-box, .puskul-showcase-card, .qr-bridge-showcase'
+        '.reveal-fade-up, .reveal-scale-in, .bento-box, .ds-module-card, .ds-project-row, .ds-social-card'
     );
     elementsToAnimate.forEach(el => {
         if (!el.classList.contains('reveal-scale-in')) {
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animateOnScroll.observe(el);
     });
 
-    // 5. Live Recording Timer Simulation in Visual Bento
+    // 5. Live Recording Timer Simulation
     const recTimerEl = document.querySelector('.rec-timer');
     if (recTimerEl) {
         let totalSeconds = 14 * 60 + 28;
@@ -132,10 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 7. Active Nav Link on Scroll
-    const sections = document.querySelectorAll('section[id], div[id="qr-giris"]');
+    const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', () => {
         let currentSection = '';
-        const scrollPosition = window.pageYOffset + 140;
+        const scrollPosition = window.pageYOffset + 150;
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -153,76 +153,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { passive: true });
 
-    // 8. Privacy Policy Modal Controller
-    const privacyModal = document.getElementById('privacyModal');
-    const openPrivacyBtns = document.querySelectorAll('.open-privacy-modal, a[href="#gizlilik-politikasi"], a[href="#gizlilik"]');
-    const closePrivacyBtns = document.querySelectorAll('.close-privacy-modal');
-
-    function openModal(updateHistory = true) {
-        if (privacyModal) {
-            privacyModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            if (updateHistory && window.location.hash !== '#gizlilik-politikasi') {
-                history.pushState({ modal: 'privacy' }, '', '#gizlilik-politikasi');
-            }
-        }
-    }
-
-    function closeModal(updateHistory = true) {
-        if (privacyModal) {
-            privacyModal.classList.remove('active');
-            document.body.style.overflow = '';
-            if (updateHistory && (window.location.hash === '#gizlilik-politikasi' || window.location.hash === '#gizlilik')) {
-                history.pushState(null, '', window.location.pathname + window.location.search);
-            }
-        }
-    }
-
-    openPrivacyBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openModal(true);
-        });
-    });
-
-    closePrivacyBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            closeModal(true);
-        });
-    });
-
-    if (privacyModal) {
-        privacyModal.addEventListener('click', (e) => {
-            if (e.target === privacyModal) {
-                closeModal(true);
-            }
-        });
-    }
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && privacyModal && privacyModal.classList.contains('active')) {
-            closeModal(true);
-        }
-    });
-
+    // 8. Privacy Policy Hash Redirect Support
     if (window.location.hash === '#gizlilik-politikasi' || window.location.hash === '#gizlilik') {
         window.location.replace('gizlilik.html');
     }
-
-    window.addEventListener('hashchange', () => {
-        if (window.location.hash === '#gizlilik-politikasi' || window.location.hash === '#gizlilik') {
-            openModal(false);
-        } else if (privacyModal && privacyModal.classList.contains('active')) {
-            closeModal(false);
-        }
-    });
-
-    window.addEventListener('popstate', () => {
-        if (window.location.hash !== '#gizlilik-politikasi' && window.location.hash !== '#gizlilik' && privacyModal && privacyModal.classList.contains('active')) {
-            closeModal(false);
-        }
-    });
 
     // 9. Release Download Redirect for Windows Setup (v19.3.0)
     document.querySelectorAll('a[href*="Pusu_IPTV_Setup.exe"], .btn-header-download').forEach(btn => {

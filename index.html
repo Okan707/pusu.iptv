@@ -7,12 +7,12 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Püsü IPTV — Mat Beyaz &amp; Mat Siyah • Windows &amp; Android Medya Oynatıcı</title>
+    <title>PÜSÜ IPTV — Yeni Nesil 4K Medya Stüdyosu • Windows 19.3.0 &amp; Android TV</title>
     <meta name="description"
-        content="Püsü IPTV; mat beyaz ve mat siyah yeni nesil arayüzü, QR kodla tek tıkla giriş, canlı ekran kaydı, EPG, sınırsız hesap ve bulut senkronizasyonuyla Windows ve Android'de.">
-    <link rel="icon" type="image/png" href="pusu_logo.png?v=19.3.0">
+        content="Püsü IPTV; sıfır karmaşa, QR kodla tek tıkla cihaza aktarım, 4K GPU ekran kaydı, canlı EPG, sınırsız hesap ve .pusu bulut senkronizasyonuyla Windows ve Android TV'de.">
+    <link rel="icon" type="image/png" href="pusu_logo.png?v=19.4.0">
     <script>
-        (function() {
+        (function () {
             var params = new URLSearchParams(window.location.search);
             if (params.get('code')) {
                 window.location.replace('qr.html' + window.location.search + window.location.hash);
@@ -20,7 +20,7 @@
             }
         })();
         // Görsel ve kaynak yolu otomatik bağdaştırıcı
-        document.addEventListener('error', function(e) {
+        document.addEventListener('error', function (e) {
             if (e.target.tagName === 'IMG') {
                 var src = e.target.getAttribute('src');
                 if (src && !src.startsWith('images/') && !src.startsWith('http') && !src.startsWith('data:')) {
@@ -31,71 +31,80 @@
             }
         }, true);
     </script>
-    <link rel="stylesheet" href="style.css?v=19.3.0">
-    <link rel="stylesheet" href="css/style.css?v=19.3.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preload" href="Canada.otf" as="font" type="font/otf" crossorigin>
-    <style>
-        @font-face {
-            font-family: 'Canada';
-            src: url('Canada.otf') format('opentype'),
-                 url('fonts/Canada.otf') format('opentype');
-            font-weight: 100 900;
-            font-style: normal;
-            font-display: swap;
-        }
-        *, body, button, input, select, textarea, h1, h2, h3, h4, h5, h6, p, a, span:not([class*="fa"]), small, strong, em, li, label, div {
-            font-family: 'Canada', -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-        }
-        i.fa, i.fab, i.fas, i.far, [class*="fa-"] {
-            font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css?v=19.4.0">
+    <link rel="stylesheet" href="css/style.css?v=19.4.0">
 </head>
 
 <body>
 
-    <!-- Animated Monochrome Mesh Orbs -->
-    <div class="bg-orb orb-1"></div>
-    <div class="bg-orb orb-2"></div>
-    <div class="bg-orb orb-3"></div>
+    <!-- Architectural Subtle Grid Backdrop & Spotlight -->
+    <div class="ds-grid-backdrop" aria-hidden="true"></div>
+    <div class="ds-ambient-glow glow-top" aria-hidden="true"></div>
+    <div class="ds-ambient-glow glow-mid" aria-hidden="true"></div>
 
-    <!-- Sticky Matte White Frosted Header -->
+    <!-- Top Status Ticker Bar (Devon Stank Signature Editorial Detail) -->
+    <div class="ds-topbar">
+        <div class="container ds-topbar-inner">
+            <div class="ds-topbar-left">
+                <span class="status-led"></span>
+                <span class="mono-tag">RELEASE // WIN 19.3.0 &amp; ANDROID TV AKTİF</span>
+            </div>
+            <div class="ds-topbar-right">
+                <a href="https://t.me/pusuiptv" target="_blank" rel="noopener noreferrer" class="topbar-link">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+                <span class="topbar-sep">/</span>
+                <a href="https://www.facebook.com/share/g/18oyWEzKzU/" target="_blank" rel="noopener noreferrer" class="topbar-link">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <span class="topbar-sep">/</span>
+                <a href="qr.html" class="topbar-link highlight-link">
+                    <i class="fas fa-qrcode"></i> QR Eşleştirme Portalı →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Architectural Header -->
     <header class="main-header" id="header">
         <div class="container nav-container">
             <a href="#" class="brand-logo">
-                <div class="brand-icon-wrap">
-                    <img src="pusu_logo.png?v=19.3.0" alt="Püsü IPTV Logo" class="brand-icon">
-                    <span class="brand-live-dot"></span>
+                <div class="brand-emblem">
+                    <img src="pusu_logo.png?v=19.4.0" alt="Püsü IPTV" class="brand-icon">
                 </div>
-                <div class="brand-text">
-                    <span class="brand-title">Püsü <span class="accent-apple">IPTV</span></span>
+                <div class="brand-meta">
+                    <span class="brand-name">PÜSÜ<span class="brand-dot">.</span>IPTV</span>
+                    <span class="brand-ver">STUDIO v19.3.0</span>
                 </div>
             </a>
 
             <nav class="main-nav" id="mainNav">
                 <ul>
-                    <li><a href="#qr-giris"><i class="fas fa-qrcode"></i> QR Giriş</a></li>
-                    <li><a href="#topluluk"><i class="fas fa-users"></i> Topluluk</a></li>
-                    <li><a href="#canli-vitrin">Canlı Vitrin</a></li>
-                    <li><a href="#indir">Windows</a></li>
-                    <li><a href="#android">Android TV</a></li>
-                    <li><a href="#moduller">Modüller</a></li>
-                    <li><a href="#hikaye">Püskül</a></li>
-                    <li><a href="kahve.html"><i class="fas fa-mug-hot"></i> Kahve Ismarla</a></li>
+                    <li><a href="#qr-giris"><span class="nav-num">01</span> QR Köprüsü</a></li>
+                    <li><a href="#mimari"><span class="nav-num">02</span> Mimari</a></li>
+                    <li><a href="#indir"><span class="nav-num">03</span> Windows</a></li>
+                    <li><a href="#android"><span class="nav-num">04</span> Android TV</a></li>
+                    <li><a href="#moduller"><span class="nav-num">05</span> Modüller</a></li>
+                    <li><a href="#topluluk"><span class="nav-num">06</span> Topluluk</a></li>
+                    <li><a href="kahve.html"><i class="fas fa-mug-hot"></i> Kahve</a></li>
                 </ul>
             </nav>
 
             <div class="header-actions">
-                <a href="qr.html" class="btn-header-qr">
-                    <span class="qr-pulse-ring"></span>
+                <a href="qr.html" class="btn-ds-outline">
+                    <span class="qr-live-dot"></span>
                     <i class="fas fa-qrcode"></i>
                     <span>QR Giriş</span>
                 </a>
-                <a href="https://github.com/Okan707/pusu.iptv/releases/download/19.3.0/Pusu_IPTV_Setup.exe" class="btn-header-download">
+                <a href="https://github.com/Okan707/pusu.iptv/releases/download/19.3.0/Pusu_IPTV_Setup.exe" class="btn-ds-primary btn-header-download">
                     <i class="fab fa-windows"></i>
                     <span>Win 19.3.0</span>
+                    <i class="fas fa-arrow-up-right-from-square btn-ext-icon"></i>
                 </a>
                 <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Menüyü Aç/Kapat">
                     <span></span>
@@ -106,898 +115,815 @@
         </div>
     </header>
 
-    <!-- 1. HERO & QR INSTANT LOGIN STAGE (MATTE WHITE & MATTE BLACK) -->
-    <section class="hero-stage" id="hero">
+    <!-- ==========================================================================
+         00 // HERO STAGE — EDITORIAL HIGH-CONTRAST STUDIO SHOWCASE
+         ========================================================================== -->
+    <section class="ds-hero" id="hero">
         <div class="container">
-            <div class="hero-top-grid">
-                <!-- Left: Minimalist Punchy Headline & Direct Actions -->
-                <div class="hero-copy reveal-fade-up">
-                    <div class="hero-pill-badge">
-                        <span class="pulse-dot-blue"></span>
-                        <span>MAT BEYAZ &amp; MAT SİYAH • WIN 19.3.0 &amp; ANDROID</span>
+            <div class="ds-hero-grid">
+                <!-- Left Column: Bold Editorial Statement & Direct Actions -->
+                <div class="ds-hero-content reveal-fade-up">
+                    <div class="ds-eyebrow">
+                        <span class="eyebrow-index">[ 00 // NO-BS MEDIA ARCHITECTURE ]</span>
+                        <span class="eyebrow-divider"></span>
+                        <span class="eyebrow-badge">4K 60FPS GPU</span>
                     </div>
 
-                    <h1 class="hero-headline">
-                        Sade. Keskin.<br>
-                        <span class="gradient-text-animated">QR ile Tek Tıkla.</span>
+                    <h1 class="ds-hero-title">
+                        Karmaşayı Sil.<br>
+                        <span class="text-gradient-titanium">QR ile Saniyede</span><br>
+                        Yayına Geç.
                     </h1>
 
-                    <p class="hero-lead">
-                        Telefonunuzdan okutun, yayın listeniz saniyeler içinde TV ve bilgisayarınıza aksın.
+                    <p class="ds-hero-lead">
+                        Uzaktan kumandayla uzun M3U linkleri veya şifreler yazma devri bitti. Telefonundan QR kodu okut, yayın listen <strong>0.2 saniyede</strong> televizyonuna ve bilgisayarına aksın.
                     </p>
 
-                    <div class="hero-primary-actions">
-                        <a href="qr.html" class="btn-qr-spotlight">
-                            <div class="qr-btn-icon">
+                    <!-- Primary Action Matrix -->
+                    <div class="ds-cta-matrix">
+                        <!-- Spotlight QR Action -->
+                        <a href="qr.html" class="btn-ds-qr-featured">
+                            <div class="qr-feat-icon">
                                 <i class="fas fa-qrcode"></i>
-                                <span class="scan-laser"></span>
+                                <span class="qr-scan-beam"></span>
                             </div>
-                            <div class="btn-text-col">
-                                <span class="btn-main-label">QR Kodla Tek Tıkla Giriş</span>
-                                <span class="btn-sub-label">TV &amp; PC'ye Anında Liste Gönder</span>
+                            <div class="qr-feat-copy">
+                                <span class="qr-feat-tag">SIFIR KLAVYE • ANINDA EŞLEŞME</span>
+                                <span class="qr-feat-title">QR Kodla Tek Tıkla Giriş Yap</span>
                             </div>
-                            <i class="fas fa-arrow-right btn-arrow-anim"></i>
+                            <div class="qr-feat-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
                         </a>
 
-                        <div class="hero-os-buttons">
-                            <a href="https://github.com/Okan707/pusu.iptv/releases/download/19.3.0/Pusu_IPTV_Setup.exe"
-                                class="btn-os btn-os-win">
-                                <i class="fab fa-windows"></i>
-                                <div class="btn-text-col">
-                                    <span class="btn-main-label">Win 19.3.0 İndir</span>
-                                    <span class="btn-sub-label">Kurulum (.exe)</span>
+                        <!-- OS Download Buttons -->
+                        <div class="ds-os-row">
+                            <a href="https://github.com/Okan707/pusu.iptv/releases/download/19.3.0/Pusu_IPTV_Setup.exe" class="btn-ds-os os-windows">
+                                <div class="os-icon-box">
+                                    <i class="fab fa-windows"></i>
                                 </div>
-                            </a>
-
-                            <a href="https://play.google.com/store/apps/details?id=com.pusu.iptv&hl=tr" target="_blank"
-                                class="btn-os btn-os-android">
-                                <i class="fab fa-google-play"></i>
-                                <div class="btn-text-col">
-                                    <span class="btn-main-label">Google Play</span>
-                                    <span class="btn-sub-label">Android TV &amp; Mobil</span>
+                                <div class="os-copy">
+                                    <span class="os-label">WINDOWS 10 / 11 (64-BİT)</span>
+                                    <span class="os-title">Win 19.3.0 İndir (.exe)</span>
                                 </div>
+                                <i class="fas fa-download os-dl-icon"></i>
+                            </a>
+
+                            <a href="https://play.google.com/store/apps/details?id=com.pusu.iptv&hl=tr" target="_blank" rel="noopener noreferrer" class="btn-ds-os os-android">
+                                <div class="os-icon-box">
+                                    <i class="fab fa-google-play"></i>
+                                </div>
+                                <div class="os-copy">
+                                    <span class="os-label">ANDROID TV &amp; MOBİL</span>
+                                    <span class="os-title">Google Play'den Yükle</span>
+                                </div>
+                                <i class="fas fa-arrow-up-right-from-square os-dl-icon"></i>
                             </a>
                         </div>
+                    </div>
 
-                        <!-- Hero Quick Social Community Bar -->
-                        <div class="hero-social-quickbar">
-                            <a href="https://t.me/pusuiptv" target="_blank" rel="noopener noreferrer" class="btn-hero-social social-tg">
-                                <span class="social-live-ping"></span>
-                                <i class="fab fa-telegram"></i>
-                                <span>Telegram Grubu</span>
-                            </a>
-                            <a href="https://www.facebook.com/share/g/18oyWEzKzU/" target="_blank" rel="noopener noreferrer" class="btn-hero-social social-fb">
-                                <span class="social-live-ping"></span>
-                                <i class="fab fa-facebook"></i>
-                                <span>Facebook Grubu</span>
-                            </a>
+                    <!-- Architectural Spec Strip -->
+                    <div class="ds-hero-metrics">
+                        <div class="metric-cell">
+                            <span class="metric-val">0.2<small>sn</small></span>
+                            <span class="metric-lbl">QR Bulut Aktarımı</span>
+                        </div>
+                        <div class="metric-cell">
+                            <span class="metric-val">4K<small>UHD</small></span>
+                            <span class="metric-lbl">Canlı Kayıt &amp; Kare</span>
+                        </div>
+                        <div class="metric-cell">
+                            <span class="metric-val">&infin;<small>HESAP</small></span>
+                            <span class="metric-lbl">Xtream &amp; M3U</span>
+                        </div>
+                        <div class="metric-cell">
+                            <span class="metric-val">.pusu</span>
+                            <span class="metric-lbl">Cihazlar Arası Yedek</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right: Animated Metallic Emblem & Live Kinetic Orbit -->
-                <div class="hero-orbit-stage reveal-scale-in">
-                    <div class="orbit-ring ring-outer"></div>
-                    <div class="orbit-ring ring-inner"></div>
-                    <div class="orbit-pulse-wave"></div>
-
-                    <div class="mascot-glass-core">
-                        <div class="mascot-aura"></div>
-                        <img src="pusu_logo.png?v=19.3.0" alt="Püsü IPTV" class="mascot-hero-img">
-                    </div>
-
-                    <!-- Animated Floating Visual Widgets Around Emblem -->
-                    <div class="orbit-widget widget-rec">
-                        <span class="rec-blinker"></span>
-                        <span class="widget-title">4K Kayıt</span>
-                        <div class="mini-wave">
-                            <span></span><span></span><span></span><span></span>
-                        </div>
-                    </div>
-
-                    <div class="orbit-widget widget-qr">
-                        <div class="mini-qr-Icon"><i class="fas fa-qrcode"></i></div>
-                        <div>
-                            <span class="widget-title">QR Eşleşti ✓</span>
-                            <small class="widget-sub">0.2 sn Aktarım</small>
-                        </div>
-                    </div>
-
-                    <div class="orbit-widget widget-epg">
-                        <i class="fas fa-satellite-dish epg-spin-icon"></i>
-                        <div>
-                            <span class="widget-title">Canlı EPG</span>
-                            <div class="mini-progress"><div class="mini-progress-bar"></div></div>
-                        </div>
-                    </div>
-
-                    <div class="orbit-widget widget-cloud">
-                        <i class="fas fa-cloud-bolt cloud-bounce-icon"></i>
-                        <div>
-                            <span class="widget-title">.pusu Bulut</span>
-                            <small class="widget-sub">Sınırsız Hesap</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TOP SPOTLIGHT: Interactive QR One-Click Bridge -->
-            <div class="qr-bridge-showcase reveal-fade-up" id="qr-giris">
-                <div class="qr-bridge-glow"></div>
-
-                <div class="qr-bridge-header">
-                    <div class="qr-step-pill">
-                        <i class="fas fa-bolt"></i> SIFIR KLAVYE • ANINDA EŞLEŞME
-                    </div>
-                    <h2>QR Kodla Saniyeler İçinde Cihaza Gönder</h2>
-                </div>
-
-                <!-- Animated 3-Step Visual Pipeline -->
-                <div class="qr-visual-pipeline">
-                    <!-- Step 1: Phone / Web -->
-                    <div class="pipeline-node node-phone">
-                        <div class="node-device-Mock">
-                            <div class="phone-notch"></div>
-                            <div class="phone-qr-view">
-                                <i class="fas fa-qrcode"></i>
-                                <div class="laser-line"></div>
-                            </div>
-                            <div class="phone-code-pill">KOD: <span>742 910</span></div>
-                        </div>
-                        <span class="node-caption">1. Kodu Gir / QR Okut</span>
-                    </div>
-
-                    <!-- Animated Energy Beam 1 -->
-                    <div class="pipeline-beam">
-                        <div class="beam-track">
-                            <span class="beam-packet packet-1"></span>
-                            <span class="beam-packet packet-2"></span>
-                            <span class="beam-packet packet-3"></span>
-                        </div>
-                        <span class="beam-badge"><i class="fas fa-wifi"></i> Bulut Köprüsü</span>
-                    </div>
-
-                    <!-- Step 2: Format Selection Visual -->
-                    <div class="pipeline-node node-formats">
-                        <div class="format-cards-stack">
-                            <a href="qr.html?tab=xtream" class="format-mini-card fc-1">
-                                <i class="fas fa-server"></i>
-                                <span>Xtream API</span>
-                            </a>
-                            <a href="qr.html?tab=m3u" class="format-mini-card fc-2">
-                                <i class="fas fa-link"></i>
-                                <span>M3U Link</span>
-                            </a>
-                            <a href="qr.html?tab=file" class="format-mini-card fc-3">
-                                <i class="fas fa-file-arrow-up"></i>
-                                <span>.M3U Dosya</span>
-                            </a>
-                            <a href="qr.html?tab=profile" class="format-mini-card fc-4">
-                                <i class="fas fa-user-check"></i>
-                                <span>Profil Eşle</span>
-                            </a>
-                        </div>
-                        <span class="node-caption">2. Listeni Seç</span>
-                    </div>
-
-                    <!-- Animated Energy Beam 2 -->
-                    <div class="pipeline-beam">
-                        <div class="beam-track">
-                            <span class="beam-packet packet-1"></span>
-                            <span class="beam-packet packet-2"></span>
-                            <span class="beam-packet packet-3"></span>
-                        </div>
-                        <span class="beam-badge"><i class="fas fa-check-double"></i> Anında Aktif</span>
-                    </div>
-
-                    <!-- Step 3: TV & PC Synced -->
-                    <div class="pipeline-node node-tv">
-                        <div class="tv-sync-mock">
-                            <img src="pusu_logo_dark.png?v=19.3.0" alt="Püsü TV" class="tv-sync-logo">
-                            <div class="tv-sync-status">
-                                <i class="fas fa-circle-check"></i>
-                                <span>Yayına Hazır!</span>
-                            </div>
-                            <div class="tv-sync-bars">
+                <!-- Right Column: High-Impact Studio Hardware Visual & Interactive HUD -->
+                <div class="ds-hero-visual reveal-scale-in">
+                    <div class="studio-frame-outer">
+                        <div class="studio-frame-header">
+                            <div class="frame-dots">
                                 <span></span><span></span><span></span>
                             </div>
+                            <span class="frame-url">PUSU-STUDIO // 4K-HARDWARE-SYNC.EXE</span>
+                            <span class="frame-status"><span class="live-dot-green"></span> ONLINE</span>
                         </div>
-                        <span class="node-caption">3. TV &amp; PC'de İzle</span>
+
+                        <div class="studio-image-stage">
+                            <img src="hero_studio_showcase.jpg" alt="Püsü IPTV 4K Stüdyo ve QR Eşleşme" class="hero-main-render">
+                            <div class="image-vignette"></div>
+
+                            <!-- Floating Glass HUD Overlays -->
+                            <div class="hud-chip hud-top-right">
+                                <img src="pusu_logo.png?v=19.4.0" alt="Püsü" class="hud-cat-icon">
+                                <div>
+                                    <span class="hud-chip-label">PÜSÜ ENGINE</span>
+                                    <strong class="hud-chip-value">v19.3.0 Titanium</strong>
+                                </div>
+                            </div>
+
+                            <div class="hud-chip hud-bottom-left">
+                                <div class="hud-qr-badge"><i class="fas fa-qrcode"></i></div>
+                                <div>
+                                    <span class="hud-chip-label">QR BRIDGE SYNC</span>
+                                    <strong class="hud-chip-value">TV &amp; PC Eşleşti ✓</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         01 // QR INSTANT BRIDGE — ZERO-KEYBOARD CLOUD PAIRING
+         ========================================================================== -->
+    <section class="ds-section ds-section-qr" id="qr-giris">
+        <div class="container">
+            <div class="ds-section-head reveal-fade-up">
+                <div class="ds-head-left">
+                    <span class="ds-index">01 // QR BULUT KÖPRÜSÜ</span>
+                    <h2 class="ds-title">Uzaktan Kumandayla Yazma.<br>Kodu Gir, Anında Cihaza Gönder.</h2>
+                </div>
+                <div class="ds-head-right">
+                    <p class="ds-subtitle">
+                        TV veya bilgisayar ekranında beliren <strong>6 haneli kodu</strong> aşağıya girin ya da telefon kameranızla QR kodu okutun. Xtream hesaplarınız, M3U linkleriniz veya <code>.m3u</code> dosyalarınız anında ekrana düşsün.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive QR Terminal Box -->
+            <div class="qr-terminal-card reveal-fade-up">
+                <div class="qr-terminal-top">
+                    <!-- Direct 6-Digit Pairing Form -->
+                    <div class="qr-pair-console">
+                        <div class="console-header">
+                            <span class="console-badge"><i class="fas fa-terminal"></i> HIZLI CİHAZ EŞLEŞTİRME TERMİNALİ</span>
+                            <span class="console-status">ŞİFRELİ BULUT TÜNELİ AKTİF</span>
+                        </div>
+
+                        <form class="qr-quick-bar" id="quickQrForm" action="qr.html" method="get">
+                            <div class="quick-input-wrap">
+                                <span class="input-prefix">KOD //</span>
+                                <input type="text" name="code" id="quickPairCode" placeholder="6 Haneli Kodu Girin (Örn: 742910)" maxlength="6" autocomplete="off">
+                            </div>
+                            <button type="submit" class="btn-ds-primary btn-terminal-submit">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Cihaza Gönder</span>
+                            </button>
+                            <a href="qr.html" class="btn-ds-outline btn-terminal-portal">
+                                <i class="fas fa-expand"></i>
+                                <span>Tam QR Portalı</span>
+                            </a>
+                        </form>
                     </div>
                 </div>
 
-                <!-- Direct Interactive Quick Pairing Bar -->
-                <form class="qr-quick-bar" id="quickQrForm" action="qr.html" method="get">
-                    <div class="quick-input-group">
-                        <i class="fas fa-hashtag"></i>
-                        <input type="text" name="code" id="quickPairCode" placeholder="Ekrandaki 6 Haneli Kodu Girin..." maxlength="6" autocomplete="off">
-                    </div>
-                    <button type="submit" class="btn-quick-send">
-                        <i class="fas fa-paper-plane"></i>
-                        <span>Tek Tıkla Gönder</span>
-                    </button>
-                    <a href="qr.html" class="btn-quick-full">
-                        <i class="fas fa-expand"></i>
-                        <span>QR Portalı</span>
+                <!-- 4 Direct Format Shortcuts Grid -->
+                <div class="qr-formats-grid">
+                    <a href="qr.html?tab=xtream" class="qr-format-item">
+                        <div class="qf-head">
+                            <span class="qf-num">01</span>
+                            <i class="fas fa-server qf-icon"></i>
+                        </div>
+                        <h3>Xtream Codes API</h3>
+                        <p>Sunucu URL, kullanıcı adı ve şifrenizi telefondan yapıştırıp tek tıkla TV'ye aktarın.</p>
+                        <span class="qf-action">Xtream Gönder <i class="fas fa-arrow-right"></i></span>
                     </a>
-                </form>
+
+                    <a href="qr.html?tab=m3u" class="qr-format-item">
+                        <div class="qf-head">
+                            <span class="qf-num">02</span>
+                            <i class="fas fa-link qf-icon"></i>
+                        </div>
+                        <h3>M3U / M3U8 URL</h3>
+                        <p>Uzun yayın listesi linklerini hiç harf hatası yapmadan saniyeler içinde cihaza yollayın.</p>
+                        <span class="qf-action">M3U Link Gönder <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="qr.html?tab=file" class="qr-format-item">
+                        <div class="qf-head">
+                            <span class="qf-num">03</span>
+                            <i class="fas fa-file-arrow-up qf-icon"></i>
+                        </div>
+                        <h3>Yerel .M3U Dosyası</h3>
+                        <p>Telefonunuzdaki veya bilgisayarınızdaki M3U dosyasını seçip kablosuz olarak TV'ye yükleyin.</p>
+                        <span class="qf-action">Dosya Yükle <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="qr.html?tab=profile" class="qr-format-item">
+                        <div class="qf-head">
+                            <span class="qf-num">04</span>
+                            <i class="fas fa-cloud-arrow-up qf-icon"></i>
+                        </div>
+                        <h3>.pusu Bulut Profil</h3>
+                        <p>Tüm hesaplarınızı, favori sıralamanızı ve PIN ayarlarınızı tek paketle tüm cihazlara kopyalayın.</p>
+                        <span class="qf-action">Profil Eşle <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 1.5 ANIMATED SOCIAL MEDIA & COMMUNITY HUB (TOP SECTION) -->
-    <section class="section-social-community" id="topluluk">
+    <!-- ==========================================================================
+         02 // ARCHITECTURAL BENTO — KINETIC PLAYER & ENGINE CAPABILITIES
+         ========================================================================== -->
+    <section class="ds-section ds-section-bento" id="mimari">
         <div class="container">
-            <div class="section-header text-center reveal-fade-up">
-                <span class="section-tag"><i class="fas fa-users"></i> RESMİ TOPLULUK</span>
-                <h2 class="section-title">Püsü IPTV Ailesine Katılın</h2>
+            <div class="ds-section-head reveal-fade-up">
+                <div class="ds-head-left">
+                    <span class="ds-index">02 // STÜDYO MİMARİSİ</span>
+                    <h2 class="ds-title">Sıfır Gecikme.<br>Saf Donanım Gücü.</h2>
+                </div>
+                <div class="ds-head-right">
+                    <p class="ds-subtitle">
+                        Püsü IPTV, sıradan web tabanlı oynatıcıların aksine doğrudan GPU donanım hızlandırmalı <strong>LibVLC / ExoPlayer</strong> çekirdeğiyle çalışır.
+                    </p>
+                </div>
             </div>
 
-            <div class="social-community-grid">
-                <!-- Animated Telegram Group Card -->
-                <a href="https://t.me/pusuiptv" target="_blank" rel="noopener noreferrer" class="social-hub-card hub-telegram reveal-fade-up">
-                    <div class="social-visual-stage stage-telegram">
-                        <div class="social-radar-wave sw-1"></div>
-                        <div class="social-radar-wave sw-2"></div>
-
-                        <!-- Center 3D Animated Telegram Orb -->
-                        <div class="social-center-orb orb-tg">
-                            <i class="fab fa-telegram"></i>
-                            <span class="orb-brand-mini"><img src="pusu_logo.png?v=19.3.0" alt="Püsü"></span>
-                        </div>
-
-                        <!-- Animated Floating Chat & Status Bubbles -->
-                        <div class="social-float-bubble sfb-tg-1">
-                            <span class="bubble-dot-live"></span>
-                            <span>Win 19.3.0 &amp; Android Yayında</span>
-                        </div>
-                        <div class="social-float-bubble sfb-tg-2">
-                            <i class="fas fa-bolt"></i>
-                            <span>Anlık Duyuru</span>
-                        </div>
-                        <div class="social-float-bubble sfb-tg-3">
-                            <i class="fas fa-comments"></i>
-                            <span>@pusuiptv • 7/24 Canlı Grup</span>
-                        </div>
-                    </div>
-
-                    <div class="social-card-body">
-                        <div class="social-card-info">
-                            <div class="social-badge-row">
-                                <span class="social-live-pill pill-tg"><span class="pulse-dot-white"></span> TELEGRAM</span>
-                                <span class="social-handle">t.me/pusuiptv</span>
+            <!-- Editorial Bento Grid -->
+            <div class="ds-bento-grid">
+                <!-- Large Featured Visual Card: Isometric 4K HDR Cinema Player & Recording -->
+                <div class="bento-box bento-span-8 reveal-fade-up">
+                    <div class="bento-visual-wrap">
+                        <img src="cinema_player_showcase.jpg" alt="4K HDR Canlı Kayıt ve PIP Stüdyosu" class="bento-cover-img">
+                        <div class="bento-hud-overlay">
+                            <div class="rec-live-badge">
+                                <span class="rec-dot-pulse"></span>
+                                <span>REC 4K • 60 FPS</span>
+                                <span class="rec-timer">00:14:28</span>
                             </div>
-                            <h3>Telegram Grubu</h3>
-                        </div>
-                        <div class="social-cta-btn cta-tg">
-                            <i class="fab fa-telegram"></i>
-                            <span>Katıl</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Animated Facebook Group Card -->
-                <a href="https://www.facebook.com/share/g/18oyWEzKzU/" target="_blank" rel="noopener noreferrer" class="social-hub-card hub-facebook reveal-fade-up">
-                    <div class="social-visual-stage stage-facebook">
-                        <div class="social-radar-wave sw-fb-1"></div>
-                        <div class="social-radar-wave sw-fb-2"></div>
-
-                        <!-- Center 3D Animated Facebook Orb -->
-                        <div class="social-center-orb orb-fb">
-                            <i class="fab fa-facebook-f"></i>
-                            <span class="orb-brand-mini"><img src="pusu_logo.png?v=19.3.0" alt="Püsü"></span>
-                        </div>
-
-                        <!-- Animated Floating Community & Reaction Bubbles -->
-                        <div class="social-float-bubble sfb-fb-1">
-                            <i class="fas fa-thumbs-up"></i>
-                            <span>Yardımlaşma &amp; Paylaşım</span>
-                        </div>
-                        <div class="social-float-bubble sfb-fb-2">
-                            <i class="fas fa-tv"></i>
-                            <span>Kurulum İpuçları</span>
-                        </div>
-                        <div class="social-float-bubble sfb-fb-3">
-                            <i class="fas fa-users"></i>
-                            <span>Resmi Facebook Topluluğu</span>
-                        </div>
-                    </div>
-
-                    <div class="social-card-body">
-                        <div class="social-card-info">
-                            <div class="social-badge-row">
-                                <span class="social-live-pill pill-fb"><span class="pulse-dot-white"></span> FACEBOOK</span>
-                                <span class="social-handle">facebook.com/groups</span>
-                            </div>
-                            <h3>Facebook Grubu</h3>
-                        </div>
-                        <div class="social-cta-btn cta-fb">
-                            <i class="fab fa-facebook"></i>
-                            <span>Katıl</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. ANIMATED VISUAL BENTO SHOWCASE (PURE KINETIC SIMULATION) -->
-    <section class="section-visual-bento" id="canli-vitrin">
-        <div class="container">
-            <div class="section-header text-center reveal-fade-up">
-                <span class="section-tag"><i class="fas fa-wand-magic-sparkles"></i> CANLI SİMÜLASYON</span>
-                <h2 class="section-title">Hareket Halinde Deneyim</h2>
-            </div>
-
-            <div class="bento-simulation-grid">
-
-                <!-- Visual Card 1: Live Screen Recording & Shutter -->
-                <div class="sim-card sim-card-rec reveal-fade-up">
-                    <div class="sim-visual-stage">
-                        <div class="rec-player-mock">
-                            <img src="windows_screen.png" alt="Canlı Kayıt" class="rec-bg-img">
-                            <div class="shutter-flash-overlay"></div>
-
-                            <!-- Top HUD -->
-                            <div class="rec-hud-top">
-                                <div class="rec-pill-live">
-                                    <span class="rec-dot"></span>
-                                    <span>REC</span>
-                                    <span class="rec-timer">00:14:28</span>
-                                </div>
-                                <div class="rec-fps-tag">4K • 60 FPS</div>
-                            </div>
-
-                            <!-- Animated Capture Polaroid Popup -->
-                            <div class="captured-frame-toast">
-                                <i class="fas fa-camera"></i>
-                                <span>Kare Yakalandı ✓</span>
-                            </div>
-
-                            <!-- Bottom Controls -->
-                            <div class="rec-hud-bottom">
-                                <div class="rec-Action-btn btn-record-active">
-                                    <i class="fas fa-circle"></i> Kayıt
-                                </div>
-                                <div class="rec-Action-btn btn-shutter-anim">
-                                    <i class="fas fa-camera"></i> Ekran Görüntüsü
-                                </div>
-                                <div class="rec-Action-btn">
-                                    <i class="fas fa-clone"></i> PIP
-                                </div>
+                            <div class="pip-mode-tag">
+                                <i class="fas fa-clone"></i> PIP ÇİFT EKRAN AKTİF
                             </div>
                         </div>
                     </div>
-                    <div class="sim-card-footer">
-                        <div class="sim-icon-badge badge-mono"><i class="fas fa-video"></i></div>
-                        <div>
-                            <h3>Ekran Kaydı &amp; Anlık Kare</h3>
-                        </div>
+                    <div class="bento-body">
+                        <span class="bento-tag">DONANIM HIZLANDIRMALI KAYIT &amp; PIP</span>
+                        <h3>Canlı Yayını 4K Kaydet, Anlık Kare Yakala</h3>
+                        <p>İzlediğiniz canlı maçı veya filmi kayıpsız olarak diskinize kaydedin, tek tuşla yüksek çözünürlüklü ekran görüntüsü alın veya Picture-in-Picture (PIP) ile pencereyi küçültüp çalışmanıza devam edin.</p>
                     </div>
                 </div>
 
-                <!-- Visual Card 2: Live EPG Timeline & Reminder Animation -->
-                <div class="sim-card sim-card-epg reveal-fade-up">
-                    <div class="sim-visual-stage">
-                        <div class="epg-timeline-mock">
-                            <div class="epg-time-ruler">
-                                <span>20:00</span>
-                                <span class="time-now">● CANLI AKIŞ</span>
-                                <span>22:00</span>
+                <!-- Right Card: Live EPG & Smart Reminders -->
+                <div class="bento-box bento-span-4 reveal-fade-up">
+                    <div class="bento-epg-stage">
+                        <div class="epg-header-bar">
+                            <span class="mono-sm">EPG // CANLI ZAMAN ÇİZELGESİ</span>
+                            <span class="epg-live-pill">● AKIŞ</span>
+                        </div>
+                        <div class="epg-track-card active">
+                            <div class="epg-track-top">
+                                <span class="ch-tag">SPOR 4K</span>
+                                <span class="ch-time">20:45 - 23:00</span>
                             </div>
-
-                            <!-- Animated Moving Playhead -->
-                            <div class="epg-playhead-line"></div>
-
-                            <div class="epg-track-row">
-                                <div class="epg-ch-badge">SPOR 1</div>
-                                <div class="epg-prog-block active-prog">
-                                    <div class="prog-info">
-                                        <strong>Şampiyonlar Ligi</strong>
-                                        <span>Canlı • 4K UHD</span>
-                                    </div>
-                                    <div class="prog-bar"><div class="prog-fill fill-anim-1"></div></div>
-                                </div>
+                            <strong>UEFA Şampiyonlar Ligi Finali</strong>
+                            <div class="epg-progress"><div class="epg-bar" style="width: 68%;"></div></div>
+                        </div>
+                        <div class="epg-track-card">
+                            <div class="epg-track-top">
+                                <span class="ch-tag">SİNEMA</span>
+                                <span class="ch-time">23:15 Başlıyor</span>
                             </div>
-
-                            <div class="epg-track-row">
-                                <div class="epg-ch-badge">SİNEMA</div>
-                                <div class="epg-prog-block upcoming-prog">
-                                    <div class="prog-info">
-                                        <strong>Galaksi Koruyucuları</strong>
-                                        <span>21:45 Başlıyor</span>
-                                    </div>
-                                    <div class="reminder-bell-pill">
-                                        <i class="fas fa-bell bell-ring-anim"></i> Hatırlatıcı
-                                    </div>
-                                </div>
+                            <strong>Oppenheimer (IMAX 4K)</strong>
+                            <span class="epg-remind-badge"><i class="fas fa-bell"></i> Hatırlatıcı Kuruldu</span>
+                        </div>
+                        <div class="epg-track-card">
+                            <div class="epg-track-top">
+                                <span class="ch-tag">BELGESEL</span>
+                                <span class="ch-time">Dolby Atmos</span>
                             </div>
-
-                            <div class="epg-track-row">
-                                <div class="epg-ch-badge">BELGESEL</div>
-                                <div class="epg-prog-block">
-                                    <div class="prog-info">
-                                        <strong>Gezegenimiz II</strong>
-                                        <span>Dolby Audio</span>
-                                    </div>
-                                    <div class="prog-bar"><div class="prog-fill fill-anim-2"></div></div>
-                                </div>
-                            </div>
+                            <strong>KozmikHarikalar: Karanlık Madde</strong>
+                            <div class="epg-progress"><div class="epg-bar" style="width: 42%;"></div></div>
                         </div>
                     </div>
-                    <div class="sim-card-footer">
-                        <div class="sim-icon-badge badge-mono"><i class="fas fa-calendar-check"></i></div>
-                        <div>
-                            <h3>Canlı EPG &amp; Hatırlatıcı</h3>
-                        </div>
+                    <div class="bento-body">
+                        <span class="bento-tag">AKILLI YAYIN AKIŞI</span>
+                        <h3>Canlı EPG &amp; Program Hatırlatıcı</h3>
+                        <p>Hangi kanalda ne var anında görün, kaçırmak istemediğiniz yayınlara bildirim kurun.</p>
                     </div>
                 </div>
 
-                <!-- Visual Card 3: Unlimited Accounts Stack Animation -->
-                <div class="sim-card sim-card-accounts reveal-fade-up">
-                    <div class="sim-visual-stage">
-                        <div class="accounts-carousel-stage">
-                            <div class="portal-floating-card p-card-1">
-                                <div class="p-card-left">
-                                    <div class="p-avatar av-mono"><i class="fas fa-satellite"></i></div>
-                                    <div>
-                                        <strong>Ulusal &amp; Spor HD</strong>
-                                        <span>Xtream API</span>
-                                    </div>
+                <!-- Bottom Left Card: Unlimited Accounts -->
+                <div class="bento-box bento-span-6 reveal-fade-up">
+                    <div class="bento-accounts-visual">
+                        <div class="acc-pill-row">
+                            <div class="acc-item active-acc">
+                                <i class="fas fa-satellite-dish"></i>
+                                <div>
+                                    <strong>Ulusal &amp; Avrupa Spor 4K</strong>
+                                    <span>Xtream API • 54.200 Kanal</span>
                                 </div>
-                                <span class="p-status-active">● Aktif</span>
+                                <span class="acc-state">AKTİF</span>
                             </div>
-
-                            <div class="portal-floating-card p-card-2">
-                                <div class="p-card-left">
-                                    <div class="p-avatar av-mono"><i class="fas fa-film"></i></div>
-                                    <div>
-                                        <strong>4K Sinema &amp; VOD</strong>
-                                        <span>M3U Plus</span>
-                                    </div>
+                            <div class="acc-item">
+                                <i class="fas fa-film"></i>
+                                <div>
+                                    <strong>Sinema &amp; VOD Arşivi</strong>
+                                    <span>M3U Plus • 18.000 Film/Dizi</span>
                                 </div>
-                                <span class="p-status-switch">Hazır ✓</span>
-                            </div>
-
-                            <div class="portal-floating-card p-card-3">
-                                <div class="p-card-left">
-                                    <div class="p-avatar av-mono"><i class="fas fa-futbol"></i></div>
-                                    <div>
-                                        <strong>Avrupa Spor Paketi</strong>
-                                        <span>Xtream API</span>
-                                    </div>
-                                </div>
-                                <span class="p-status-switch">Hazır ✓</span>
-                            </div>
-
-                            <div class="unlimited-counter-pill">
-                                <i class="fas fa-infinity"></i> Sınırsız Hesap &amp; Favori Sıralama
+                                <span class="acc-state">HAZIR</span>
                             </div>
                         </div>
                     </div>
-                    <div class="sim-card-footer">
-                        <div class="sim-icon-badge badge-mono"><i class="fas fa-infinity"></i></div>
-                        <div>
-                            <h3>Sınırsız IPTV Hesabı</h3>
-                        </div>
+                    <div class="bento-body">
+                        <span class="bento-tag">ÇOKLU PORTAL YÖNETİCİSİ</span>
+                        <h3>Sınırsız IPTV Hesabı &amp; Özel Favori Sıralama</h3>
+                        <p>İstediğiniz kadar Xtream ve M3U hesabını aynı anda ekleyin, hesaplar arasında beklemeden geçiş yapın ve favori kanallarınızı sürükle-bırak ile sıralayın.</p>
                     </div>
                 </div>
 
-                <!-- Visual Card 4: Cloud Sync & .pusu Orbit -->
-                <div class="sim-card sim-card-cloud reveal-fade-up">
-                    <div class="sim-visual-stage">
-                        <div class="cloud-sync-stage">
-                            <div class="cloud-wave cw-1"></div>
-                            <div class="cloud-wave cw-2"></div>
-
-                            <div class="cloud-center-hub">
-                                <img src="pusu_logo_dark.png?v=19.3.0" alt=".pusu" class="cloud-hub-logo">
+                <!-- Bottom Right Card: .pusu Cloud Ecosystem -->
+                <div class="bento-box bento-span-6 reveal-fade-up">
+                    <div class="bento-cloud-visual">
+                        <div class="cloud-node-diagram">
+                            <div class="c-node"><i class="fas fa-desktop"></i><span>Windows PC</span></div>
+                            <div class="c-line"></div>
+                            <div class="c-hub">
+                                <img src="pusu_logo.png?v=19.4.0" alt=".pusu">
                                 <span>.pusu</span>
                             </div>
-
-                            <div class="sync-device-node s-node-tv">
-                                <i class="fas fa-tv"></i>
-                                <span>Android TV</span>
-                            </div>
-
-                            <div class="sync-device-node s-node-pc">
-                                <i class="fas fa-desktop"></i>
-                                <span>Windows PC</span>
-                            </div>
-
-                            <div class="sync-device-node s-node-mob">
-                                <i class="fas fa-mobile-screen"></i>
-                                <span>Mobil &amp; Tablet</span>
-                            </div>
+                            <div class="c-line"></div>
+                            <div class="c-node"><i class="fas fa-tv"></i><span>Android TV</span></div>
                         </div>
                     </div>
-                    <div class="sim-card-footer">
-                        <div class="sim-icon-badge badge-mono"><i class="fas fa-cloud-arrow-up"></i></div>
-                        <div>
-                            <h3>.pusu Bulut Senkronizasyon</h3>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. WINDOWS 19.3.0 STUDIO SHOWCASE -->
-    <section class="section-device-showcase" id="indir">
-        <div class="container">
-            <div class="device-showcase-box reveal-fade-up">
-                <div class="device-showcase-header">
-                    <div>
-                        <span class="section-tag"><i class="fab fa-windows"></i> WINDOWS 10 &amp; 11 (64-BİT)</span>
-                        <h2>Püsü IPTV Windows <span class="ver-highlight">19.3.0</span></h2>
-                    </div>
-                    <a href="https://github.com/Okan707/pusu.iptv/releases/download/19.3.0/Pusu_IPTV_Setup.exe"
-                        class="btn-win-hero-dl">
-                        <i class="fab fa-windows"></i>
-                        <div class="btn-text-col">
-                            <span class="btn-main-label">Win 19.3.0 İndir</span>
-                            <span class="btn-sub-label">Pusu_IPTV_Setup.exe</span>
-                        </div>
-                        <i class="fas fa-download dl-bounce"></i>
-                    </a>
-                </div>
-
-                <!-- Large Visual Studio Frame -->
-                <div class="studio-monitor-wrap">
-                    <div class="studio-monitor-frame">
-                        <div class="studio-titlebar">
-                            <div class="studio-dots">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <div class="studio-title">
-                                <img src="pusu_logo_dark.png?v=19.3.0" alt="Logo">
-                                <span>Püsü IPTV Win 19.3.0 — Mat Siyah &amp; Mat Beyaz</span>
-                            </div>
-                            <div class="studio-live-tag"><span class="rec-dot"></span> 4K GPU</div>
-                        </div>
-                        <div class="studio-screen-body">
-                            <img src="windows_screen.png" alt="Püsü IPTV Windows" class="studio-main-img">
-
-                            <!-- Floating Animated Badges on Screen -->
-                            <div class="screen-float-chip chip-top-left">
-                                <i class="fas fa-microchip"></i> LibVLC GPU Motoru
-                            </div>
-                            <div class="screen-float-chip chip-bottom-left">
-                                <i class="fas fa-video"></i> Canlı Kayıt &amp; Kare
-                            </div>
-                            <div class="screen-float-chip chip-bottom-right">
-                                <i class="fas fa-clone"></i> PIP Mini Ekran
-                            </div>
-                        </div>
+                    <div class="bento-body">
+                        <span class="bento-tag">ŞİFRELİ YEDEKLEME MİMARİSİ</span>
+                        <h3>.pusu Bulut Senkronizasyonu</h3>
+                        <p>Bilgisayarınızda hazırladığınız kanal listesini, gizli kategorileri ve ebeveyn PIN kilidini tek bir <code>.pusu</code> paketiyle televizyonunuza ve telefonunuza aktarın.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. ANDROID TV & MOBILE SHOWCASE -->
-    <section class="section-android-stage" id="android">
+    <!-- ==========================================================================
+         03 // WINDOWS 19.3.0 FLAGSHIP SHOWCASE
+         ========================================================================== -->
+    <section class="ds-section ds-section-platform" id="indir">
         <div class="container">
-            <div class="device-showcase-box android-theme-box reveal-fade-up">
-                <div class="device-showcase-header">
-                    <div>
-                        <span class="section-tag"><i class="fab fa-android"></i> ANDROID TV • GOOGLE TV • MOBİL</span>
-                        <h2>Kumanda &amp; Dokunmatik <span class="ver-highlight">Çift Mod</span></h2>
+            <div class="platform-showcase-card reveal-fade-up">
+                <div class="platform-top-bar">
+                    <div class="platform-meta">
+                        <span class="ds-index">03 // MASAÜSTÜ AMİRAL GEMİSİ</span>
+                        <h2>Püsü IPTV Windows <span class="ver-pill">v19.3.0</span></h2>
+                        <p>Windows 10 ve Windows 11 (64-Bit) için özel olarak derlenmiş yüksek performanslı masaüstü medya stüdyosu. Mat Siyah ve Mat Beyaz çift tema motoruyla birlikte gelir.</p>
                     </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.pusu.iptv&hl=tr" target="_blank"
-                        class="btn-android-hero-dl">
-                        <i class="fab fa-google-play"></i>
-                        <div class="btn-text-col">
-                            <span class="btn-main-label">Google Play'den Yükle</span>
-                            <span class="btn-sub-label">com.pusu.iptv</span>
+                    <div class="platform-cta-box">
+                        <a href="https://github.com/Okan707/pusu.iptv/releases/download/19.3.0/Pusu_IPTV_Setup.exe" class="btn-ds-primary btn-lg-dl">
+                            <i class="fab fa-windows"></i>
+                            <div class="dl-btn-txt">
+                                <strong>Win 19.3.0 İndir</strong>
+                                <small>Pusu_IPTV_Setup.exe • Doğrudan Kurulum</small>
+                            </div>
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Dual Theme Split Visual (Matte Black & Matte White Interfaces) -->
+                <div class="platform-screens-grid">
+                    <div class="screen-card">
+                        <div class="screen-bar">
+                            <div class="frame-dots"><span></span><span></span><span></span></div>
+                            <span class="mono-xs">WIN 19.3.0 // MAT SİYAH STÜDYO ARAYÜZÜ</span>
                         </div>
+                        <div class="screen-img-wrap">
+                            <img src="windows_screen.png" alt="Püsü IPTV Windows 19.3.0 Mat Siyah Arayüz">
+                        </div>
+                    </div>
+
+                    <div class="screen-card">
+                        <div class="screen-bar">
+                            <div class="frame-dots"><span></span><span></span><span></span></div>
+                            <span class="mono-xs">WIN 19.3.0 // MAT BEYAZ MİNİMAL ARAYÜZ</span>
+                        </div>
+                        <div class="screen-img-wrap">
+                            <img src="android_screen.png" alt="Püsü IPTV Mat Beyaz Arayüz">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Spec Chips -->
+                <div class="platform-specs-row">
+                    <div class="spec-chip"><i class="fas fa-microchip"></i> LibVLC 64-Bit Donanım Motoru</div>
+                    <div class="spec-chip"><i class="fas fa-video"></i> Canlı Yayın Kaydı (.mp4 / .ts)</div>
+                    <div class="spec-chip"><i class="fas fa-camera"></i> Anlık Kare Yakalama</div>
+                    <div class="spec-chip"><i class="fas fa-clone"></i> Her Zaman Üstte PIP Modu</div>
+                    <div class="spec-chip"><i class="fas fa-gauge-high"></i> Dahili Yayın Hız Testi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         04 // ANDROID TV & MOBILE ECOSYSTEM
+         ========================================================================== -->
+    <section class="ds-section ds-section-android" id="android">
+        <div class="container">
+            <div class="android-showcase-grid reveal-fade-up">
+                <div class="android-info-col">
+                    <span class="ds-index">04 // SALON &amp; MOBİL EKOSİSTEMİ</span>
+                    <h2 class="ds-title">Android TV, Google TV, Stick &amp; Telefonlarda Tek Uygulama.</h2>
+                    <p class="ds-subtitle">
+                        Cihazınızı otomatik tanıyan hibrit arayüz: Televizyonda <strong>D-Pad kumanda odak hafızası</strong> ile pürüzsüz gezinme, telefon ve tablette ise <strong>dokunmatik jest kontrolleri</strong>.
+                    </p>
+
+                    <ul class="ds-feature-list">
+                        <li>
+                            <i class="fas fa-gamepad"></i>
+                            <div>
+                                <strong>D-Pad Kumanda Odak Hafızası</strong>
+                                <span>Kanallar ve kategoriler arasında gezinirken kaldığınız satırı asla kaybetmez.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-qrcode"></i>
+                            <div>
+                                <strong>TV Ekranında Anında QR Eşleşme</strong>
+                                <span>TV'de uygulamayı açın, telefonunuzla kodu okutun ve saniyeler içinde koltuğunuzdan yayına başlayın.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-shield-halved"></i>
+                            <div>
+                                <strong>Google Play Protect Onaylı</strong>
+                                <span>Resmi Google Play Store üzerinden tek tıkla güvenli kurulum ve otomatik güncelleme.</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="android-actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.pusu.iptv&hl=tr" target="_blank" rel="noopener noreferrer" class="btn-ds-primary btn-google-play">
+                            <i class="fab fa-google-play"></i>
+                            <div class="dl-btn-txt">
+                                <strong>Google Play'den İndir</strong>
+                                <small>com.pusu.iptv • Android TV &amp; Mobil</small>
+                            </div>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: TV Mockup + Direct QR Card for Mobile Scan -->
+                <div class="android-visual-col">
+                    <div class="tv-studio-card">
+                        <div class="tv-bezel-frame">
+                            <img src="hero_studio_showcase.jpg" alt="Püsü IPTV Android TV" class="tv-studio-img">
+                            <div class="tv-badge-overlay">
+                                <i class="fab fa-android"></i> ANDROID TV &amp; GOOGLE TV UYUMLU
+                            </div>
+                        </div>
+
+                        <!-- Scan to Install on Phone / TV Box -->
+                        <div class="play-qr-card">
+                            <div class="play-qr-img-wrap">
+                                <img src="android_qr.png" alt="Google Play QR Kodu">
+                            </div>
+                            <div class="play-qr-text">
+                                <span class="mono-xs">KAMERAYLA OKUT //</span>
+                                <strong>Google Play'de Aç</strong>
+                                <p>Telefonunuzun kamerasını okutarak Püsü IPTV Google Play sayfasına doğrudan gidebilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         05 // FOUR CORE MODULES — EDITORIAL INDEX GRID
+         ========================================================================== -->
+    <section class="ds-section ds-section-modules" id="moduller">
+        <div class="container">
+            <div class="ds-section-head reveal-fade-up">
+                <div class="ds-head-left">
+                    <span class="ds-index">05 // ÇEKİRDEK MODÜLLER</span>
+                    <h2 class="ds-title">Dört Ana Modül.<br>Sıfır Karmaşa.</h2>
+                </div>
+                <div class="ds-head-right">
+                    <p class="ds-subtitle">
+                        Aradığınız içeriğe saniyeler içinde ulaşmanız için tasarlanmış yüksek kontrastlı 4 ana medya modülü.
+                    </p>
+                </div>
+            </div>
+
+            <div class="ds-modules-grid">
+                <!-- Module 01 -->
+                <div class="ds-module-card reveal-fade-up">
+                    <div class="mod-top">
+                        <span class="mod-num">01 // LIVE</span>
+                        <span class="mod-pill">&lt;100ms Zapping</span>
+                    </div>
+                    <div class="mod-art">
+                        <img src="module_tv.png" alt="Canlı TV">
+                    </div>
+                    <h3>Canlı TV</h3>
+                    <p>50.000+ canlı kanal listesinde sıfır takılmayla anında arama, kategori filtreleme, canlı EPG ve 4K yayın kaydı.</p>
+                    <div class="mod-tags">
+                        <span>EPG</span>
+                        <span>4K Kayıt</span>
+                        <span>PIP</span>
+                    </div>
+                </div>
+
+                <!-- Module 02 -->
+                <div class="ds-module-card reveal-fade-up">
+                    <div class="mod-top">
+                        <span class="mod-num">02 // CINEMA</span>
+                        <span class="mod-pill">IMDb &amp; Fragman</span>
+                    </div>
+                    <div class="mod-art">
+                        <img src="module_movies.png" alt="Sinema ve VOD">
+                    </div>
+                    <h3>Sinema &amp; VOD</h3>
+                    <p>Film afişleri, IMDb puanları, oyuncu kadrosu, özet bilgileri, çoklu altyazı/ses seçimi ve kaldığın saniyeden devam etme.</p>
+                    <div class="mod-tags">
+                        <span>IMDb Künye</span>
+                        <span>Altyazı</span>
+                        <span>Devam Et</span>
+                    </div>
+                </div>
+
+                <!-- Module 03 -->
+                <div class="ds-module-card reveal-fade-up">
+                    <div class="mod-top">
+                        <span class="mod-num">03 // SERIES</span>
+                        <span class="mod-pill">Oto-Bölüm</span>
+                    </div>
+                    <div class="mod-art">
+                        <img src="module_series.png" alt="Diziler">
+                    </div>
+                    <h3>Diziler</h3>
+                    <p>Sezon ve bölüm ağacı, izlenen bölümleri otomatik işaretleme ve bölüm bittiğinde tek tıkla sonraki bölüme geçiş.</p>
+                    <div class="mod-tags">
+                        <span>Sezon Ağacı</span>
+                        <span>İzleme Takibi</span>
+                    </div>
+                </div>
+
+                <!-- Module 04 -->
+                <div class="ds-module-card reveal-fade-up">
+                    <div class="mod-top">
+                        <span class="mod-num">04 // VAULT</span>
+                        <span class="mod-pill">PIN &amp; Bulut</span>
+                    </div>
+                    <div class="mod-art">
+                        <img src="module_favorites.png" alt="Favori ve Güvenlik">
+                    </div>
+                    <h3>Favori &amp; Güvenlik</h3>
+                    <p>Özel favori sıralama, istenmeyen kategorileri gizleme, ebeveyn PIN kilidi, hız testi ve .pusu bulut yedekleme.</p>
+                    <div class="mod-tags">
+                        <span>PIN Kilidi</span>
+                        <span>.pusu Yedek</span>
+                        <span>Hız Testi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         06 // COMMUNITY, MASCOT STORY & DEVELOPER SUPPORT
+         ========================================================================== -->
+    <section class="ds-section ds-section-community" id="topluluk">
+        <div class="container">
+            <div class="ds-section-head reveal-fade-up">
+                <div class="ds-head-left">
+                    <span class="ds-index">06 // RESMİ TOPLULUK &amp; HİKAYE</span>
+                    <h2 class="ds-title">Püsü Ailesine Katılın.</h2>
+                </div>
+                <div class="ds-head-right">
+                    <p class="ds-subtitle">
+                        Yeni sürüm duyuruları, kurulum yardımlaşması ve özellik önerileri için resmi Telegram ve Facebook topluluklarımızdayız.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Community Hub Cards -->
+            <div class="ds-community-grid">
+                <a href="https://t.me/pusuiptv" target="_blank" rel="noopener noreferrer" class="ds-social-card social-tg-card reveal-fade-up">
+                    <div class="sc-header">
+                        <div class="sc-icon-wrap tg-glow">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <span class="sc-live-tag"><span class="status-led"></span> 7/24 AKTİF GRUP</span>
+                    </div>
+                    <div class="sc-body">
+                        <span class="mono-xs">TELEGRAM // t.me/pusuiptv</span>
+                        <h3>Resmi Telegram Topluluğu</h3>
+                        <p>Win 19.3.0 &amp; Android güncellemeleri, anlık duyurular ve geliştiriciyle doğrudan iletişim.</p>
+                    </div>
+                    <div class="sc-footer">
+                        <span>Telegram Grubuna Katıl</span>
                         <i class="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                </div>
-
-                <!-- Smart TV + Floating PIP Visual -->
-                <div class="tv-cinema-stage">
-                    <div class="smart-tv-bezel">
-                        <img src="android_screen.png" alt="Püsü IPTV Android TV" class="tv-main-img">
-
-                        <!-- Animated Remote Focus Indicator -->
-                        <div class="dpad-focus-pill">
-                            <i class="fas fa-gamepad"></i> D-Pad Kumanda Odak Hafızası
-                        </div>
-
-                        <!-- Simulated Floating PIP Mini Player -->
-                        <div class="pip-floating-preview">
-                            <img src="windows_screen.png" alt="PIP" class="pip-img">
-                            <div class="pip-label"><i class="fas fa-compress-alt"></i> PIP</div>
-                        </div>
                     </div>
-                    <div class="tv-metallic-stand"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+                </a>
 
-    <!-- 5. VISUAL MODULES SHOWCASE (MINIMAL TEXT, KINETIC CARDS) -->
-    <section class="section-visual-modules" id="moduller">
-        <div class="container">
-            <div class="section-header text-center reveal-fade-up">
-                <span class="section-tag"><i class="fas fa-layer-group"></i> DÖRT MODÜL</span>
-                <h2 class="section-title">TV, Sinema ve Bulut</h2>
+                <a href="https://www.facebook.com/share/g/18oyWEzKzU/" target="_blank" rel="noopener noreferrer" class="ds-social-card social-fb-card reveal-fade-up">
+                    <div class="sc-header">
+                        <div class="sc-icon-wrap fb-glow">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <span class="sc-live-tag"><span class="status-led"></span> RESMİ TOPLULUK</span>
+                    </div>
+                    <div class="sc-body">
+                        <span class="mono-xs">FACEBOOK // RESMİ GRUP</span>
+                        <h3>Facebook Yardımlaşma Grubu</h3>
+                        <p>Kullanıcı deneyimleri, Android TV &amp; PC kurulum ipuçları ve topluluk paylaşımları.</p>
+                    </div>
+                    <div class="sc-footer">
+                        <span>Facebook Grubuna Katıl</span>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+                    </div>
+                </a>
             </div>
 
-            <div class="visual-modules-grid">
-                <!-- Module 1: Canlı TV -->
-                <div class="v-module-card reveal-fade-up">
-                    <div class="vm-visual-header">
-                        <div class="vm-orb"></div>
-                        <img src="module_tv.png" alt="Canlı TV" class="vm-art-img">
-                        <span class="vm-floating-tag tag-1"><i class="fas fa-bolt"></i> &lt;100ms</span>
-                        <span class="vm-floating-tag tag-2"><i class="fas fa-tv"></i> 50K+ Kanal</span>
+            <!-- Püskül Story & Coffee Support Split Row -->
+            <div class="ds-story-coffee-grid">
+                <!-- Püskül'ün Hikayesi -->
+                <div class="ds-story-card reveal-fade-up" id="hikaye">
+                    <div class="story-img-col">
+                        <img src="puskul_waiting.png?v=19.4.0" alt="Maskotumuz Püskül" class="story-cat-photo">
+                        <span class="story-badge"><i class="fas fa-paw"></i> Maskotumuz Püskül</span>
                     </div>
-                    <div class="vm-info">
-                        <h3>Canlı TV</h3>
-                        <div class="vm-Visual-pills">
-                            <span>EPG</span>
-                            <span>Kayıt</span>
-                            <span>PIP</span>
+                    <div class="story-text-col">
+                        <span class="mono-xs">İLHAM KAYNAĞIMIZ //</span>
+                        <h3>Püskül'ün Hikayesi</h3>
+                        <p>
+                            Püsü IPTV, adını ve çevikliğini sevimli dostumuz <strong>Püskül</strong>'den alıyor. Bir pati darbesi kadar hızlı kanal geçişleri, keskin bakışlı metalik amblemimiz ve ev konforu onun enerjisiyle tasarlandı.
+                        </p>
+                        <div class="story-traits">
+                            <span><i class="fas fa-bolt"></i> Pati Hızında Zapping</span>
+                            <span><i class="fas fa-eye"></i> Keskin Kontrast</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Module 2: Filmler -->
-                <div class="v-module-card reveal-fade-up">
-                    <div class="vm-visual-header">
-                        <div class="vm-orb"></div>
-                        <img src="module_movies.png" alt="Filmler" class="vm-art-img">
-                        <span class="vm-floating-tag tag-1"><i class="fas fa-star"></i> IMDb</span>
-                        <span class="vm-floating-tag tag-2"><i class="fas fa-play"></i> Fragman</span>
+                <!-- Kahve Ismarla -->
+                <div class="ds-coffee-card reveal-fade-up" id="kahve">
+                    <div class="coffee-top">
+                        <span class="mono-xs">BAĞIMSIZ GELİŞTİRİCİ DESTEĞİ //</span>
+                        <h3>Okan Bayındır'a Kahve Ismarla ☕</h3>
+                        <p>Püsü IPTV tamamen reklamsız ve bağımsız olarak geliştirilmektedir. Projeye güç katmak için bir kahve ısmarlayabilirsiniz.</p>
                     </div>
-                    <div class="vm-info">
-                        <h3>Sinema &amp; VOD</h3>
-                        <div class="vm-Visual-pills">
-                            <span>Künye</span>
-                            <span>4K UHD</span>
-                            <span>Devam Et</span>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Module 3: Diziler -->
-                <div class="v-module-card reveal-fade-up">
-                    <div class="vm-visual-header">
-                        <div class="vm-orb"></div>
-                        <img src="module_series.png" alt="Diziler" class="vm-art-img">
-                        <span class="vm-floating-tag tag-1"><i class="fas fa-check-circle"></i> Takip</span>
-                        <span class="vm-floating-tag tag-2"><i class="fas fa-forward-step"></i> Oto-Bölüm</span>
+                    <div class="coffee-tiers-row">
+                        <a href="kahve.html?t=150" class="c-tier">
+                            <span class="c-emoji">☕</span>
+                            <span class="c-name">Küçük</span>
+                            <strong class="c-price">150 TL</strong>
+                        </a>
+                        <a href="kahve.html?t=300" class="c-tier featured">
+                            <span class="c-pop">POPÜLER</span>
+                            <span class="c-emoji">☕☕</span>
+                            <span class="c-name">Orta</span>
+                            <strong class="c-price">300 TL</strong>
+                        </a>
+                        <a href="kahve.html?t=450" class="c-tier">
+                            <span class="c-emoji">☕☕☕</span>
+                            <span class="c-name">Büyük</span>
+                            <strong class="c-price">450 TL</strong>
+                        </a>
                     </div>
-                    <div class="vm-info">
-                        <h3>Diziler</h3>
-                        <div class="vm-Visual-pills">
-                            <span>Sezon Ağacı</span>
-                            <span>Özet</span>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Module 4: Hesap & Güvenlik -->
-                <div class="v-module-card reveal-fade-up">
-                    <div class="vm-visual-header">
-                        <div class="vm-orb"></div>
-                        <img src="module_favorites.png" alt="Favoriler ve Güvenlik" class="vm-art-img">
-                        <span class="vm-floating-tag tag-1"><i class="fas fa-lock"></i> PIN</span>
-                        <span class="vm-floating-tag tag-2"><i class="fas fa-sort"></i> Sıralama</span>
-                    </div>
-                    <div class="vm-info">
-                        <h3>Favori &amp; Güvenlik</h3>
-                        <div class="vm-Visual-pills">
-                            <span>Sınırsız</span>
-                            <span>.pusu</span>
-                            <span>Hız Testi</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. PÜSKÜL'ÜN HİKAYESİ -->
-    <section class="section-puskul-story" id="hikaye">
-        <div class="container">
-            <div class="puskul-showcase-card reveal-fade-up">
-                <div class="puskul-visual-side">
-                    <div class="puskul-glow-ring"></div>
-                    <img src="puskul_waiting.png?v=2" alt="Püskül" class="puskul-photo">
-
-                    <!-- Animated Floating Badges -->
-                    <div class="puskul-float-pill pf-1">
-                        <i class="fas fa-paw"></i> Pati Hızında
-                    </div>
-                    <div class="puskul-float-pill pf-2">
-                        <i class="fas fa-cat"></i> Maskotumuz Püskül
-                    </div>
-                </div>
-
-                <div class="puskul-story-side">
-                    <span class="section-tag"><i class="fas fa-cat"></i> İLHAM KAYNAĞIMIZ</span>
-                    <h2>Püskül'ün Hikayesi</h2>
-                    <p class="puskul-lead">
-                        Püsü IPTV, adını ve çevikliğini sevimli dostumuz <strong>Püskül</strong>'den alıyor. Bir pati darbesi kadar hızlı geçişler ve sade ev sıcaklığı onun enerjisiyle tasarlandı.
-                    </p>
-
-                    <div class="puskul-trait-pills">
-                        <div class="trait-item">
-                            <i class="fas fa-bolt"></i>
-                            <span>Anında Zapping</span>
-                        </div>
-                        <div class="trait-item">
-                            <i class="fas fa-eye"></i>
-                            <span>Keskin Bakış</span>
-                        </div>
-                        <div class="trait-item">
-                            <i class="fas fa-couch"></i>
-                            <span>Ev Konforu</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6.5 GELİŞTİRİCİYE KAHVE ISMARLA -->
-    <section class="section-coffee-support" id="kahve">
-        <div class="container">
-            <div class="coffee-showcase-card reveal-fade-up">
-                <div class="coffee-info-side">
-                    <span class="section-tag tag-coffee"><i class="fas fa-mug-hot"></i> DESTEK OL</span>
-                    <h2>Okan Bayındır'a Kahve Ismarla ☕</h2>
-                    <p>
-                        Püsü IPTV'nin gelişimine güç katmak için tek dokunuşla kahve ısmarlayabilirsiniz.
-                    </p>
-                    <a href="kahve.html" class="btn-coffee-cta">
+                    <a href="kahve.html" class="btn-ds-outline btn-coffee-full">
                         <i class="fas fa-mug-hot"></i>
-                        <span>Kahve Ismarla</span>
+                        <span>Kahve Sayfasına Git</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
-
-                <div class="coffee-tiers-side">
-                    <a href="kahve.html?t=150" class="coffee-tier-card">
-                        <span class="coffee-cups">☕</span>
-                        <span class="coffee-tier-title">Küçük</span>
-                        <strong class="coffee-tier-price">150 TL</strong>
-                        <span class="coffee-tier-action">Seç →</span>
-                    </a>
-                    <a href="kahve.html?t=300" class="coffee-tier-card tier-popular">
-                        <span class="coffee-popular-badge">Popüler</span>
-                        <span class="coffee-cups">☕☕</span>
-                        <span class="coffee-tier-title">Orta</span>
-                        <strong class="coffee-tier-price">300 TL</strong>
-                        <span class="coffee-tier-action">Seç →</span>
-                    </a>
-                    <a href="kahve.html?t=450" class="coffee-tier-card">
-                        <span class="coffee-cups">☕☕☕</span>
-                        <span class="coffee-tier-title">Büyük</span>
-                        <strong class="coffee-tier-price">450 TL</strong>
-                        <span class="coffee-tier-action">Seç →</span>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. OTHER PROJECTS SECTION -->
-    <section class="section-other-apps" id="diger-projeler">
+    <!-- ==========================================================================
+         07 // OTHER PROJECTS PORTFOLIO ARCHIVE
+         ========================================================================== -->
+    <section class="ds-section ds-section-portfolio" id="diger-projeler">
         <div class="container">
-            <div class="section-header text-center reveal-fade-up">
-                <span class="section-tag">PORTFÖY</span>
-                <h2 class="section-title">Diğer Projeler</h2>
+            <div class="ds-section-head reveal-fade-up">
+                <div class="ds-head-left">
+                    <span class="ds-index">07 // YAZILIM ARŞİVİ</span>
+                    <h2 class="ds-title">Diğer Projeler.</h2>
+                </div>
             </div>
 
-            <div class="other-apps-grid">
-                <article class="other-app-card reveal-fade-up">
-                    <div class="other-app-icon-wrap">
-                        <img src="kelime_avcisi_icon_final.svg" alt="Kelime Avcısı">
-                    </div>
-                    <div class="other-app-content">
-                        <div class="other-app-header">
-                            <h3>Kelime Avcısı</h3>
-                            <span class="app-ver-badge">v1.6</span>
+            <div class="ds-portfolio-grid">
+                <article class="ds-project-row reveal-fade-up">
+                    <div class="proj-left">
+                        <img src="kelime_avcisi_icon_final.svg" alt="Kelime Avcısı" class="proj-icon">
+                        <div>
+                            <div class="proj-title-line">
+                                <h3>Kelime Avcısı</h3>
+                                <span class="proj-ver">v1.6</span>
+                            </div>
+                            <p>1000+ seviyeli, çevrimdışı oynanabilen modern Türkçe kelime bulmaca oyunu.</p>
                         </div>
-                        <p>1000+ seviyeli Türkçe kelime oyunu.</p>
-                        <a href="https://github.com/Okan707/Kelime_Avcisi/releases/download/1.6/Kelime_Avcisi_Setup.exe"
-                            class="btn-glass-sm">
-                            <i class="fas fa-download"></i> İndir
-                        </a>
                     </div>
+                    <a href="https://github.com/Okan707/Kelime_Avcisi/releases/download/1.6/Kelime_Avcisi_Setup.exe" class="btn-ds-outline btn-sm">
+                        <i class="fas fa-download"></i> İndir (.exe)
+                    </a>
                 </article>
 
-                <article class="other-app-card reveal-fade-up">
-                    <div class="other-app-icon-wrap">
-                        <img src="dil_hazinesi_icon_final.svg" alt="Dil Hazinesi">
-                    </div>
-                    <div class="other-app-content">
-                        <div class="other-app-header">
-                            <h3>Dil Hazinesi</h3>
-                            <span class="app-ver-badge">v1.0</span>
+                <article class="ds-project-row reveal-fade-up">
+                    <div class="proj-left">
+                        <img src="dil_hazinesi_icon_final.svg" alt="Dil Hazinesi" class="proj-icon">
+                        <div>
+                            <div class="proj-title-line">
+                                <h3>Dil Hazinesi</h3>
+                                <span class="proj-ver">v1.0</span>
+                            </div>
+                            <p>Türkçe atasözleri ve deyimler sözlüğü, interaktif kültür ve eğitim projesi.</p>
                         </div>
-                        <p>Atasözü ve deyimler kültür projesi.</p>
-                        <a href="https://github.com/Okan707/Dil_Hazinesi/releases/download/1.0/Dil_Hazinesi.exe"
-                            class="btn-glass-sm">
-                            <i class="fas fa-download"></i> İndir
-                        </a>
                     </div>
+                    <a href="https://github.com/Okan707/Dil_Hazinesi/releases/download/1.0/Dil_Hazinesi.exe" class="btn-ds-outline btn-sm">
+                        <i class="fas fa-download"></i> İndir (.exe)
+                    </a>
                 </article>
 
-                <article class="other-app-card reveal-fade-up">
-                    <div class="other-app-icon-wrap">
-                        <img src="okul707_icon.svg" alt="Okul707">
-                    </div>
-                    <div class="other-app-content">
-                        <div class="other-app-header">
-                            <h3>Okul707</h3>
-                            <span class="app-ver-badge">v1.0</span>
+                <article class="ds-project-row reveal-fade-up">
+                    <div class="proj-left">
+                        <img src="okul707_icon.svg" alt="Okul707" class="proj-icon">
+                        <div>
+                            <div class="proj-title-line">
+                                <h3>Okul707</h3>
+                                <span class="proj-ver">v1.0</span>
+                            </div>
+                            <p>Okul yönetim, öğrenci takip ve performans analiz masaüstü sistemi.</p>
                         </div>
-                        <p>Okul yönetim ve analiz sistemi.</p>
-                        <a href="https://github.com/Okan707/Okul707/releases/download/1.0/Okul707_Setup.exe"
-                            class="btn-glass-sm">
-                            <i class="fas fa-download"></i> İndir
-                        </a>
                     </div>
+                    <a href="https://github.com/Okan707/Okul707/releases/download/1.0/Okul707_Setup.exe" class="btn-ds-outline btn-sm">
+                        <i class="fas fa-download"></i> İndir (.exe)
+                    </a>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <img src="pusu_logo.png?v=19.3.0" alt="Püsü IPTV" class="footer-logo-img">
-                    <span>Püsü <strong>IPTV</strong></span>
+    <!-- ==========================================================================
+         ARCHITECTURAL FOOTER
+         ========================================================================== -->
+    <footer class="ds-footer">
+        <div class="container">
+            <div class="ds-footer-top">
+                <div class="footer-col-brand">
+                    <a href="#" class="brand-logo">
+                        <div class="brand-emblem">
+                            <img src="pusu_logo.png?v=19.4.0" alt="Püsü IPTV" class="brand-icon">
+                        </div>
+                        <div class="brand-meta">
+                            <span class="brand-name">PÜSÜ<span class="brand-dot">.</span>IPTV</span>
+                            <span class="brand-ver">WINDOWS 19.3.0 &amp; ANDROID TV</span>
+                        </div>
+                    </a>
+                    <p class="footer-desc">
+                        Sade, keskin ve yüksek performanslı 4K medya oynatıcı. Telefonunuzdan QR kod okutarak yayın listenizi saniyeler içinde tüm ekranlarınıza taşıyın.
+                    </p>
                 </div>
-                <p>Win 19.3.0 • Mat Beyaz &amp; Mat Siyah Tasarım</p>
-            </div>
 
-            <div class="footer-links">
-                <h4>Hızlı Erişim</h4>
-                <ul>
-                    <li><a href="qr.html"><i class="fas fa-qrcode"></i> QR Kodla Tek Tıkla Giriş</a></li>
-                    <li><a href="#topluluk"><i class="fas fa-users"></i> Sosyal Medya &amp; Topluluk</a></li>
-                    <li><a href="kahve.html"><i class="fas fa-mug-hot"></i> Kahve Ismarla</a></li>
-                    <li><a href="https://github.com/Okan707/pusu.iptv/releases/download/19.3.0/Pusu_IPTV_Setup.exe"><i class="fab fa-windows"></i> Win 19.3.0 İndir</a></li>
-                    <li><a href="#android">Android TV &amp; Mobil</a></li>
-                    <li><a href="gizlilik.html" class="privacy-modal-btn"><i class="fas fa-shield-alt"></i> Gizlilik Politikası</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-social">
-                <h4>Topluluk &amp; İletişim</h4>
-                <div class="social-icons">
-                    <a href="https://t.me/pusuiptv" target="_blank" rel="noopener noreferrer" aria-label="Telegram Grubu"><i class="fab fa-telegram"></i></a>
-                    <a href="https://www.facebook.com/share/g/18oyWEzKzU/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Grubu"><i class="fab fa-facebook"></i></a>
-                    <a href="https://github.com/okan707" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.x.com/okan707" target="_blank" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
-                    <a href="https://www.instagram.com/okan707" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <div class="footer-col-links">
+                    <h4>HIZLI ERİŞİM</h4>
+                    <ul>
+                        <li><a href="qr.html"><i class="fas fa-qrcode"></i> QR Kodla Tek Tıkla Giriş</a></li>
+                        <li><a href="https://github.com/Okan707/pusu.iptv/releases/download/19.3.0/Pusu_IPTV_Setup.exe"><i class="fab fa-windows"></i> Windows 19.3.0 İndir (.exe)</a></li>
+                        <li><a href="https://play.google.com/store/apps/details?id=com.pusu.iptv&hl=tr" target="_blank" rel="noopener noreferrer"><i class="fab fa-google-play"></i> Google Play (Android TV &amp; Mobil)</a></li>
+                        <li><a href="kahve.html"><i class="fas fa-mug-hot"></i> Geliştiriciye Kahve Ismarla</a></li>
+                        <li><a href="gizlilik.html"><i class="fas fa-shield-halved"></i> Gizlilik Politikası</a></li>
+                    </ul>
                 </div>
-                <p class="copyright">&copy; 2026 Okan Bayındır. Tüm hakları saklıdır.</p>
-            </div>
-        </div>
 
-        <div class="container footer-bottom-bar">
-            <span class="footer-bottom-note">Püsü IPTV • Mat Siyah &amp; Mat Beyaz</span>
-            <a href="gizlilik.html" class="privacy-modal-btn" style="font-size: 0.88rem;">
-                <i class="fas fa-user-shield"></i> Gizlilik Politikası
-            </a>
+                <div class="footer-col-social">
+                    <h4>TOPLULUK &amp; İLETİŞİM</h4>
+                    <div class="footer-social-pills">
+                        <a href="https://t.me/pusuiptv" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i> Telegram</a>
+                        <a href="https://www.facebook.com/share/g/18oyWEzKzU/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i> Facebook</a>
+                        <a href="https://github.com/okan707" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://www.x.com/okan707" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i> X / Twitter</a>
+                        <a href="https://www.instagram.com/okan707" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ds-footer-bottom">
+                <span>&copy; 2026 Okan Bayındır. Tüm hakları saklıdır.</span>
+                <div class="footer-bottom-links">
+                    <span>WIN 19.3.0 • ANDROID TV</span>
+                    <a href="gizlilik.html">Gizlilik Politikası</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script src="main.js?v=19.3.0"></script>
+    <script src="main.js?v=19.4.0"></script>
 </body>
 
 </html>
