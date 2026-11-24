@@ -10,12 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const themeToggleLabel = document.getElementById('themeToggleLabel');
 
-    // 0. Dark / Light Theme Switcher
+    // 0. Smokin (Dark) / Angora (Light) Theme Switcher
+    const heroThemeImage = document.getElementById('heroThemeImage');
     const applyTheme = (theme) => {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('pusu_theme', theme);
         if (themeToggleLabel) {
-            themeToggleLabel.textContent = theme === 'dark' ? 'Aydınlık' : 'Karanlık';
+            themeToggleLabel.textContent = theme === 'dark' ? 'Angora' : 'Smokin';
+        }
+        if (heroThemeImage) {
+            heroThemeImage.src = theme === 'dark' ? 'windows_screen.png?v=20.0.0' : 'android_screen.png?v=20.0.0';
         }
     };
 
