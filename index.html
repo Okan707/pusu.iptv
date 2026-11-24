@@ -9,7 +9,7 @@
     <meta http-equiv="Expires" content="0">
     <title>PÜSÜ IPTV — 4K Medya Stüdyosu • Windows &amp; Android TV</title>
     <meta name="description" content="Püsü IPTV — QR kodla anında eşleşme, 4K medya oynatıcı. Windows ve Android TV.">
-    <link rel="icon" type="image/png" href="pusu_logo.png?v=20.0.0">
+    <link rel="icon" type="image/png" href="pusu_logo.png?v=20.1.0">
     <script>
         (function () {
             var params = new URLSearchParams(window.location.search);
@@ -36,8 +36,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preload" href="Canada.otf" as="font" type="font/otf" crossorigin>
-    <link rel="stylesheet" href="style.css?v=20.0.0">
-    <link rel="stylesheet" href="css/style.css?v=20.0.0">
+    <link rel="stylesheet" href="style.css?v=20.1.0">
+    <link rel="stylesheet" href="css/style.css?v=20.1.0">
 </head>
 
 <body>
@@ -162,7 +162,7 @@
     </section>
 
     <!-- ==========================================================================
-         03 // STÜDYO GÜCÜ (GÖRSEL BENTO VİTRİNİ)
+         03 // STÜDYO GÜCÜ (ANİMASYONLU ÖZELLİK TANITIM VİTRİNİ)
          ========================================================================== -->
     <section class="ds-section" id="studyo">
         <div class="container">
@@ -171,78 +171,192 @@
                 <h2 class="ds-title">4K Kayıt. Canlı EPG. Bulut Senkron.</h2>
             </div>
 
-            <div class="ds-bento-grid">
-                <!-- 4K Kayıt & PIP Görsel Kartı -->
-                <div class="bento-box bento-span-8 reveal-fade-up">
-                    <div class="bento-visual-wrap bento-visual-tall">
-                        <img src="cinema_player_showcase.jpg" alt="4K Kayıt ve PIP" class="bento-cover-img">
-                        <div class="bento-hud-overlay">
-                            <div class="rec-live-badge">
-                                <span class="rec-dot-pulse"></span>
-                                <span>REC 4K • 60 FPS</span>
-                                <span class="rec-timer">00:14:28</span>
+            <div class="anim-showcase-wrap reveal-fade-up" id="animShowcase">
+                <!-- Sol: Canlı Animasyon Sahnesi (5 Özellik Otomatik & Tıklamalı Geçiş) -->
+                <div class="anim-stage-card">
+                    <!-- Sahne 0: QR Kodla Anında Erişim -->
+                    <div class="anim-scene active" data-scene="0">
+                        <div class="scene-visual scene-qr-visual">
+                            <div class="qr-anim-device qr-phone">
+                                <i class="fas fa-mobile-screen-button"></i>
+                                <span>TELEFON</span>
                             </div>
-                            <div class="pip-mode-tag">
-                                <i class="fas fa-clone"></i> PIP ÇİFT EKRAN
+                            <div class="qr-anim-bridge">
+                                <div class="qr-laser-box">
+                                    <i class="fas fa-qrcode"></i>
+                                    <span class="qr-laser-line"></span>
+                                </div>
+                                <div class="qr-data-stream">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <strong class="qr-speed-tag">0.2 SN AKTARIM</strong>
+                            </div>
+                            <div class="qr-anim-device qr-tv">
+                                <i class="fas fa-tv"></i>
+                                <span>TV &amp; PC</span>
                             </div>
                         </div>
-                        <div class="bento-caption-overlay">
+                        <div class="scene-caption">
+                            <span class="bento-tag">SIFIR KLAVYE • BULUT KÖPRÜSÜ</span>
+                            <h3>QR Kodla Anında Erişim</h3>
+                        </div>
+                    </div>
+
+                    <!-- Sahne 1: 4K Yayın Kaydı & Anlık Kare Yakalama -->
+                    <div class="anim-scene" data-scene="1">
+                        <div class="scene-visual scene-rec-visual">
+                            <img src="cinema_player_showcase.jpg" alt="4K Yayın Kaydı" class="scene-bg-img">
+                            <div class="bento-hud-overlay">
+                                <div class="rec-live-badge">
+                                    <span class="rec-dot-pulse"></span>
+                                    <span>REC 4K • 60 FPS</span>
+                                    <span class="rec-timer">00:14:28</span>
+                                </div>
+                                <div class="pip-mode-tag">
+                                    <i class="fas fa-camera"></i> ANLIK KARE &amp; PIP
+                                </div>
+                            </div>
+                            <div class="rec-wave-bars">
+                                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="scene-caption">
                             <span class="bento-tag">GPU DONANIM MOTORU</span>
                             <h3>4K Yayın Kaydı &amp; Anlık Kare Yakalama</h3>
                         </div>
                     </div>
-                </div>
 
-                <!-- Canlı EPG Akışı -->
-                <div class="bento-box bento-span-4 reveal-fade-up">
-                    <div class="bento-epg-stage">
-                        <div class="epg-header-bar">
-                            <span class="mono-sm">CANLI EPG AKIŞI</span>
-                            <span class="epg-live-pill">● CANLI</span>
-                        </div>
-                        <div class="epg-track-card active">
-                            <div class="epg-track-top">
-                                <span class="ch-tag">SPOR 4K</span>
-                                <span class="ch-time">20:45</span>
+                    <!-- Sahne 2: Sınırsız Hesap Girme (Xtream & M3U) -->
+                    <div class="anim-scene" data-scene="2">
+                        <div class="scene-visual scene-acc-visual">
+                            <div class="acc-stack-anim">
+                                <div class="acc-card-floating acc-f-1">
+                                    <div class="acc-f-icon"><i class="fas fa-satellite-dish"></i></div>
+                                    <div class="acc-f-info">
+                                        <strong>Ulusal &amp; Spor 4K Paketi</strong>
+                                        <span>Xtream Codes API • 54.000+ Kanal</span>
+                                    </div>
+                                    <span class="acc-f-badge">AKTİF</span>
+                                </div>
+                                <div class="acc-card-floating acc-f-2">
+                                    <div class="acc-f-icon"><i class="fas fa-film"></i></div>
+                                    <div class="acc-f-info">
+                                        <strong>Sinema &amp; Dizi VOD Arşivi</strong>
+                                        <span>M3U8 URL • 22.000+ İçerik</span>
+                                    </div>
+                                    <span class="acc-f-badge">HAZIR</span>
+                                </div>
+                                <div class="acc-card-floating acc-f-3">
+                                    <div class="acc-f-icon"><i class="fas fa-plus"></i></div>
+                                    <div class="acc-f-info">
+                                        <strong>Sınırsız Yeni Profil Ekle</strong>
+                                        <span>Tek Tıkla Hesaplar Arası Geçiş</span>
+                                    </div>
+                                    <span class="acc-f-badge">&infin; HESAP</span>
+                                </div>
                             </div>
-                            <strong>Şampiyonlar Ligi Finali</strong>
-                            <div class="epg-progress"><div class="epg-bar" style="width: 68%;"></div></div>
                         </div>
-                        <div class="epg-track-card">
-                            <div class="epg-track-top">
-                                <span class="ch-tag">SİNEMA</span>
-                                <span class="ch-time">23:15</span>
-                            </div>
-                            <strong>Oppenheimer (IMAX 4K)</strong>
-                            <span class="epg-remind-badge"><i class="fas fa-bell"></i> Hatırlatıcı Aktif</span>
+                        <div class="scene-caption">
+                            <span class="bento-tag">ÇOKLU PORTAL YÖNETİCİSİ</span>
+                            <h3>Sınırsız Xtream &amp; M3U Hesap Girme</h3>
                         </div>
-                        <div class="epg-track-card">
-                            <div class="epg-track-top">
-                                <span class="ch-tag">BELGESEL</span>
-                                <span class="ch-time">Dolby 4K</span>
+                    </div>
+
+                    <!-- Sahne 3: Canlı EPG & Program Hatırlatıcı -->
+                    <div class="anim-scene" data-scene="3">
+                        <div class="scene-visual scene-epg-visual">
+                            <div class="epg-anim-list">
+                                <div class="epg-track-card active">
+                                    <div class="epg-track-top">
+                                        <span class="ch-tag">SPOR 4K • CANLI</span>
+                                        <span class="ch-time">20:45 - 23:00</span>
+                                    </div>
+                                    <strong>UEFA Şampiyonlar Ligi Finali</strong>
+                                    <div class="epg-progress"><div class="epg-bar epg-bar-anim"></div></div>
+                                </div>
+                                <div class="epg-track-card">
+                                    <div class="epg-track-top">
+                                        <span class="ch-tag">SİNEMA 4K</span>
+                                        <span class="ch-time">23:15</span>
+                                    </div>
+                                    <strong>Oppenheimer (IMAX UHD)</strong>
+                                    <span class="epg-remind-badge"><i class="fas fa-bell fa-shake"></i> Hatırlatıcı Aktif</span>
+                                </div>
                             </div>
-                            <strong>Kozmik Harikalar</strong>
-                            <div class="epg-progress"><div class="epg-bar" style="width: 45%;"></div></div>
+                        </div>
+                        <div class="scene-caption">
+                            <span class="bento-tag">AKILLI ZAMAN ÇİZELGESİ</span>
+                            <h3>Canlı EPG Akışı &amp; Yayın Hatırlatıcı</h3>
+                        </div>
+                    </div>
+
+                    <!-- Sahne 4: .pusu Bulut Yedek & Kumanda Odak Hafızası -->
+                    <div class="anim-scene" data-scene="4">
+                        <div class="scene-visual scene-cloud-visual">
+                            <div class="cloud-orbit-hub">
+                                <div class="orbit-node"><i class="fas fa-desktop"></i><span>Windows PC</span></div>
+                                <div class="orbit-beam"><span></span></div>
+                                <div class="orbit-center">
+                                    <img src="pusu_logo.png?v=20.1.0" alt=".pusu">
+                                    <strong>.pusu</strong>
+                                </div>
+                                <div class="orbit-beam"><span></span></div>
+                                <div class="orbit-node"><i class="fas fa-tv"></i><span>Android TV</span></div>
+                            </div>
+                        </div>
+                        <div class="scene-caption">
+                            <span class="bento-tag">CİHAZLAR ARASI TAM EŞLEŞME</span>
+                            <h3>.pusu Bulut Yedek &amp; Kumanda Odak Hafızası</h3>
                         </div>
                     </div>
                 </div>
 
-                <!-- Alt Özellik Barı: 3 Net Başlık -->
-                <div class="bento-box bento-span-12 reveal-fade-up">
-                    <div class="studio-specs-strip">
-                        <div class="spec-pill-item">
-                            <i class="fas fa-infinity"></i>
-                            <strong>Sınırsız Xtream &amp; M3U Hesabı</strong>
+                <!-- Sağ: İnteraktif Animasyonlu Özellik Seçici Liste -->
+                <div class="anim-triggers-col">
+                    <button class="anim-trigger-btn active" data-target="0">
+                        <div class="at-icon"><i class="fas fa-qrcode"></i></div>
+                        <div class="at-text">
+                            <span class="mono-xs">01 // 0.2 SN BULUT AKTARIM</span>
+                            <strong>QR Kodla Anında Erişim</strong>
                         </div>
-                        <div class="spec-pill-item">
-                            <i class="fas fa-cloud-arrow-up"></i>
-                            <strong>.pusu Cihazlar Arası Bulut Yedek</strong>
+                        <div class="at-progress"><span class="at-bar"></span></div>
+                    </button>
+
+                    <button class="anim-trigger-btn" data-target="1">
+                        <div class="at-icon"><i class="fas fa-video"></i></div>
+                        <div class="at-text">
+                            <span class="mono-xs">02 // 4K 60FPS &amp; PIP</span>
+                            <strong>Canlı Yayın Kaydı &amp; Ekran Yakalama</strong>
                         </div>
-                        <div class="spec-pill-item">
-                            <i class="fas fa-gamepad"></i>
-                            <strong>Android TV Kumanda Odak Hafızası</strong>
+                        <div class="at-progress"><span class="at-bar"></span></div>
+                    </button>
+
+                    <button class="anim-trigger-btn" data-target="2">
+                        <div class="at-icon"><i class="fas fa-infinity"></i></div>
+                        <div class="at-text">
+                            <span class="mono-xs">03 // XTREAM &amp; M3U</span>
+                            <strong>Sınırsız Hesap Girme &amp; Hızlı Geçiş</strong>
                         </div>
-                    </div>
+                        <div class="at-progress"><span class="at-bar"></span></div>
+                    </button>
+
+                    <button class="anim-trigger-btn" data-target="3">
+                        <div class="at-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div class="at-text">
+                            <span class="mono-xs">04 // ZAMAN ÇİZELGESİ</span>
+                            <strong>Canlı EPG &amp; Program Hatırlatıcı</strong>
+                        </div>
+                        <div class="at-progress"><span class="at-bar"></span></div>
+                    </button>
+
+                    <button class="anim-trigger-btn" data-target="4">
+                        <div class="at-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+                        <div class="at-text">
+                            <span class="mono-xs">05 // SENKRON &amp; KUMANDA</span>
+                            <strong>.pusu Bulut Yedek &amp; TV Odak Hafızası</strong>
+                        </div>
+                        <div class="at-progress"><span class="at-bar"></span></div>
+                    </button>
                 </div>
             </div>
         </div>
@@ -348,7 +462,7 @@
         </div>
     </footer>
 
-    <script src="main.js?v=20.0.0"></script>
+    <script src="main.js?v=20.1.0"></script>
 </body>
 
 </html>

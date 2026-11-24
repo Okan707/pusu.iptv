@@ -634,47 +634,193 @@ img {
 }
 
 /* ==========================================================================
-   03 // STÜDYO DONANIM BENTO
+   03 // STÜDYO DONANIM — ANİMASYONLU ÖZELLİK TANITIM VİTRİNİ
    ========================================================================== */
 
-.ds-bento-grid {
+.anim-showcase-wrap {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: 1.35fr 0.95fr;
     gap: 1.25rem;
+    align-items: stretch;
 }
 
-.bento-box {
-    background: var(--bg-card);
+.anim-stage-card {
+    position: relative;
+    background: #09090D;
     border: 1px solid var(--border-strong);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    min-height: 410px;
     box-shadow: var(--shadow-studio);
 }
 
-.bento-span-8 { grid-column: span 8; }
-.bento-span-4 { grid-column: span 4; }
-.bento-span-12 { grid-column: span 12; }
-
-.bento-visual-wrap.bento-visual-tall {
-    position: relative;
-    height: 100%;
-    min-height: 360px;
-    overflow: hidden;
-    background: #060608;
+.anim-scene {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.97);
+    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.bento-cover-img {
+.anim-scene.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    z-index: 2;
+}
+
+.scene-visual {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2rem;
+    background: radial-gradient(circle at 50% 40%, rgba(56, 189, 248, 0.14), rgba(9, 9, 13, 0.96) 75%);
+}
+
+.scene-caption {
+    position: relative;
+    z-index: 3;
+    padding: 1.35rem 1.65rem;
+    background: rgba(8, 8, 11, 0.92);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bento-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #38BDF8;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.25rem;
+}
+
+.scene-caption h3 {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #FAFAFA;
+}
+
+/* Sahne 0: QR Kodla Anında Erişim Animasyonu */
+.scene-qr-visual {
+    gap: 1.75rem;
+}
+
+.qr-anim-device {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-md);
+    color: #FAFAFA;
+}
+
+.qr-anim-device i {
+    font-size: 2.2rem;
+    color: #38BDF8;
+}
+
+.qr-anim-device span {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.qr-anim-bridge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.qr-laser-box {
+    position: relative;
+    width: 78px;
+    height: 78px;
+    border-radius: 14px;
+    background: #FAFAFA;
+    color: #08080A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.6rem;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.45);
+}
+
+.qr-laser-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #EF4444;
+    box-shadow: 0 0 10px #EF4444;
+    animation: qrLaserScan 1.6s ease-in-out infinite;
+}
+
+@keyframes qrLaserScan {
+    0%, 100% { top: 10%; }
+    50% { top: 88%; }
+}
+
+.qr-data-stream {
+    display: flex;
+    gap: 6px;
+}
+
+.qr-data-stream span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #38BDF8;
+    animation: streamDots 1.2s infinite ease-in-out;
+}
+
+.qr-data-stream span:nth-child(2) { animation-delay: 0.2s; }
+.qr-data-stream span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes streamDots {
+    0%, 100% { opacity: 0.25; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.3); }
+}
+
+.qr-speed-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: #10B981;
+    background: rgba(16, 185, 129, 0.14);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    padding: 3px 10px;
+    border-radius: 99px;
+}
+
+/* Sahne 1: 4K Yayın Kaydı & PIP Animasyonu */
+.scene-rec-visual {
+    padding: 0;
+}
+
+.scene-bg-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    animation: subtleZoom 8s ease-in-out infinite alternate;
 }
 
-.bento-box:hover .bento-cover-img {
-    transform: scale(1.03);
+@keyframes subtleZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.06); }
 }
 
 .bento-hud-overlay {
@@ -686,32 +832,6 @@ img {
     align-items: center;
     justify-content: space-between;
     pointer-events: none;
-}
-
-.bento-caption-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 2.5rem 1.75rem 1.5rem;
-    background: linear-gradient(to top, rgba(8, 8, 10, 0.95) 15%, rgba(8, 8, 10, 0.5) 65%, transparent 100%);
-}
-
-.bento-tag {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: #38BDF8;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.3rem;
-}
-
-.bento-caption-overlay h3 {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #FAFAFA;
 }
 
 .rec-live-badge {
@@ -752,39 +872,116 @@ img {
     color: #38BDF8;
 }
 
-/* Right Bento Column: EPG */
-.bento-epg-stage {
-    padding: 1.4rem;
+.rec-wave-bars {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 26px;
+    padding: 6px 10px;
+    background: rgba(10, 10, 14, 0.84);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+}
+
+.rec-wave-bars span {
+    width: 3px;
+    height: 10px;
+    background: #38BDF8;
+    border-radius: 2px;
+    animation: soundWave 0.9s ease-in-out infinite alternate;
+}
+
+.rec-wave-bars span:nth-child(2n) { animation-duration: 0.6s; background: #10B981; }
+.rec-wave-bars span:nth-child(3n) { animation-duration: 1.1s; }
+
+@keyframes soundWave {
+    0% { height: 5px; }
+    100% { height: 18px; }
+}
+
+/* Sahne 2: Sınırsız Hesap Girme Animasyonu */
+.acc-stack-anim {
+    width: 100%;
+    max-width: 460px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    gap: 0.75rem;
+}
+
+.acc-card-floating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.95rem 1.15rem;
+    background: rgba(18, 18, 24, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-md);
+    color: #FAFAFA;
+    animation: floatSlide 2.6s ease-in-out infinite alternate;
+}
+
+.acc-f-1 { border-color: rgba(16, 185, 129, 0.5); }
+.acc-f-2 { animation-delay: 0.4s; }
+.acc-f-3 { border-color: rgba(56, 189, 248, 0.5); animation-delay: 0.8s; }
+
+@keyframes floatSlide {
+    0% { transform: translateX(-4px); }
+    100% { transform: translateX(6px); }
+}
+
+.acc-f-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 9px;
+    background: rgba(56, 189, 248, 0.14);
+    color: #38BDF8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.acc-f-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.acc-f-info strong { font-size: 0.92rem; color: #FAFAFA; }
+.acc-f-info span { font-size: 0.75rem; color: #A1A1AA; }
+
+.acc-f-badge {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #10B981;
+    background: rgba(16, 185, 129, 0.12);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+/* Sahne 3: Canlı EPG & Hatırlatıcı Animasyonu */
+.epg-anim-list {
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
     gap: 0.85rem;
 }
 
-.epg-header-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.epg-live-pill {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--accent-emerald);
-    font-weight: 700;
-}
-
 .epg-track-card {
-    padding: 0.95rem 1rem;
-    background: var(--bg-obsidian);
-    border: 1px solid var(--border-hairline);
+    padding: 1rem 1.15rem;
+    background: rgba(18, 18, 24, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: var(--radius-md);
 }
 
 .epg-track-card.active {
-    border-color: rgba(56, 189, 248, 0.45);
-    background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), var(--bg-obsidian));
+    border-color: rgba(56, 189, 248, 0.5);
 }
 
 .epg-track-top {
@@ -798,71 +995,227 @@ img {
     font-family: var(--font-mono);
     font-size: 0.65rem;
     font-weight: 700;
-    color: var(--accent-cyan);
-    background: rgba(56, 189, 248, 0.14);
-    padding: 2px 6px;
+    color: #38BDF8;
+    background: rgba(56, 189, 248, 0.15);
+    padding: 2px 7px;
     border-radius: 4px;
 }
 
 .ch-time {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--text-dim);
+    font-size: 0.7rem;
+    color: #A1A1AA;
 }
 
 .epg-track-card strong {
     display: block;
-    font-size: 0.92rem;
-    color: var(--text-white);
-    margin-bottom: 0.45rem;
+    font-size: 0.95rem;
+    color: #FAFAFA;
+    margin-bottom: 0.5rem;
 }
 
 .epg-progress {
     width: 100%;
-    height: 4px;
-    background: var(--border-hairline);
+    height: 5px;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 99px;
     overflow: hidden;
 }
 
 .epg-bar {
     height: 100%;
-    background: var(--accent-cyan);
+    background: #38BDF8;
+}
+
+.epg-bar-anim {
+    animation: epgFill 3s ease-in-out infinite alternate;
+}
+
+@keyframes epgFill {
+    0% { width: 45%; }
+    100% { width: 82%; }
 }
 
 .epg-remind-badge {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    font-size: 0.72rem;
-    color: var(--accent-amber);
-    font-weight: 600;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: #F59E0B;
+    font-weight: 700;
 }
 
-/* Spec Pills Bar (3 Columns) */
-.studio-specs-strip {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.spec-pill-item {
+/* Sahne 4: .pusu Bulut Yedek Animasyonu */
+.cloud-orbit-hub {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    padding: 1.25rem 1.4rem;
-    border-right: 1px solid var(--border-hairline);
-    font-size: 0.92rem;
-    color: var(--text-white);
+    gap: 1.1rem;
+    width: 100%;
+    max-width: 460px;
 }
 
-.spec-pill-item:last-child {
-    border-right: none;
+.orbit-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 1.1rem 1.35rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-md);
+    color: #FAFAFA;
+    font-size: 0.78rem;
+    font-weight: 700;
 }
 
-.spec-pill-item i {
-    font-size: 1.2rem;
+.orbit-node i {
+    font-size: 1.7rem;
+    color: #38BDF8;
+}
+
+.orbit-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 1rem 1.25rem;
+    background: rgba(56, 189, 248, 0.14);
+    border: 1px solid #38BDF8;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.35);
+    animation: pulseCenter 2s ease-in-out infinite;
+}
+
+@keyframes pulseCenter {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.07); }
+}
+
+.orbit-center img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.orbit-center strong {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: #38BDF8;
+}
+
+.orbit-beam {
+    flex: 1;
+    height: 2px;
+    background: rgba(56, 189, 248, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.orbit-beam span {
+    position: absolute;
+    top: 0;
+    left: -30%;
+    width: 40%;
+    height: 100%;
+    background: #38BDF8;
+    animation: beamMove 1.4s linear infinite;
+}
+
+@keyframes beamMove {
+    0% { left: -40%; }
+    100% { left: 100%; }
+}
+
+/* Sağ: Özellik Seçici Butonlar */
+.anim-triggers-col {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 0.65rem;
+}
+
+.anim-trigger-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.85rem 1.15rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    text-align: left;
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transition-fast);
+    box-shadow: var(--shadow-studio);
+}
+
+.anim-trigger-btn:hover {
+    border-color: var(--accent-cyan);
+    transform: translateX(3px);
+}
+
+.anim-trigger-btn.active {
+    border-color: var(--accent-cyan);
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), var(--bg-card));
+}
+
+.at-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 9px;
+    background: rgba(56, 189, 248, 0.12);
     color: var(--accent-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
+}
+
+.anim-trigger-btn.active .at-icon {
+    background: var(--accent-cyan);
+    color: #FFFFFF;
+}
+
+.at-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.at-text strong {
+    font-family: var(--font-display);
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: var(--text-white);
+    margin-top: 2px;
+}
+
+.at-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: transparent;
+}
+
+.at-bar {
+    display: block;
+    width: 0%;
+    height: 100%;
+    background: var(--accent-cyan);
+}
+
+.anim-trigger-btn.active .at-bar {
+    animation: triggerTimer 4.2s linear forwards;
+}
+
+@keyframes triggerTimer {
+    0% { width: 0%; }
+    100% { width: 100%; }
 }
 
 /* ==========================================================================
@@ -1088,26 +1441,13 @@ img {
    ========================================================================== */
 
 @media (max-width: 1080px) {
-    .bento-span-8,
-    .bento-span-4 {
-        grid-column: span 12;
-    }
-
-    .studio-specs-strip {
-        grid-template-columns: 1fr;
-    }
-
-    .spec-pill-item {
-        border-right: none;
-        border-bottom: 1px solid var(--border-hairline);
-    }
-
-    .spec-pill-item:last-child {
-        border-bottom: none;
-    }
-
+    .anim-showcase-wrap,
     .ecosystem-grid {
         grid-template-columns: 1fr;
+    }
+
+    .anim-stage-card {
+        min-height: 360px;
     }
 
     .eco-mascot-card {

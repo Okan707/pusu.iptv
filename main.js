@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animateOnScroll.observe(el);
     });
 
-    // 5. Live Recording Timer Simulation
+    // 5. Live Recording Timer Simulation & Animated Feature Showcase
     const recTimerEl = document.querySelector('.rec-timer');
     if (recTimerEl) {
         let totalSeconds = 14 * 60 + 28;
@@ -139,6 +139,44 @@ document.addEventListener('DOMContentLoaded', () => {
             const secs = String(totalSeconds % 60).padStart(2, '0');
             recTimerEl.textContent = `00:${mins}:${secs}`;
         }, 1000);
+    }
+
+    const triggerBtns = document.querySelectorAll('.anim-trigger-btn');
+    const animScenes = document.querySelectorAll('.anim-scene');
+    if (triggerBtns.length > 0 && animScenes.length > 0) {
+        let currentSceneIdx = 0;
+        let sceneInterval = null;
+
+        const activateScene = (idx) => {
+            currentSceneIdx = idx;
+            triggerBtns.forEach((btn, i) => {
+                btn.classList.toggle('active', i === idx);
+            });
+            animScenes.forEach((scene, i) => {
+                scene.classList.toggle('active', i === idx);
+            });
+        };
+
+        const startAutoCycle = () => {
+            clearInterval(sceneInterval);
+            sceneInterval = setInterval(() => {
+                const nextIdx = (currentSceneIdx + 1) % triggerBtns.length;
+                activateScene(nextIdx);
+            }, 4200);
+        };
+
+        triggerBtns.forEach((btn, idx) => {
+            btn.addEventListener('click', () => {
+                activateScene(idx);
+                startAutoCycle();
+            });
+            btn.addEventListener('mouseenter', () => {
+                activateScene(idx);
+                startAutoCycle();
+            });
+        });
+
+        startAutoCycle();
     }
 
     // 6. Active Nav Link on Scroll
