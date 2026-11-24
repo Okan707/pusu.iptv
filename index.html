@@ -9,7 +9,7 @@
     <meta http-equiv="Expires" content="0">
     <title>PÜSÜ IPTV — 4K Medya Stüdyosu • Windows &amp; Android TV</title>
     <meta name="description" content="Püsü IPTV — QR kodla anında eşleşme, 4K medya oynatıcı. Windows ve Android TV.">
-    <link rel="icon" type="image/png" href="pusu_logo.png?v=20.1.0">
+    <link rel="icon" type="image/png" href="pusu_logo.png?v=20.2.0">
     <script>
         (function () {
             var params = new URLSearchParams(window.location.search);
@@ -36,8 +36,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preload" href="Canada.otf" as="font" type="font/otf" crossorigin>
-    <link rel="stylesheet" href="style.css?v=20.1.0">
-    <link rel="stylesheet" href="css/style.css?v=20.1.0">
+    <link rel="stylesheet" href="style.css?v=20.2.0">
+    <link rel="stylesheet" href="css/style.css?v=20.2.0">
 </head>
 
 <body>
@@ -65,26 +65,50 @@
                     <li><a href="#destek">Destek</a></li>
                     <li><a href="kahve.html">Kahve</a></li>
                 </ul>
+
+                <!-- Sadece Mobil Menüde Açılan Hızlı Bağlantı Izgarası -->
+                <div class="mobile-nav-actions">
+                    <a href="https://play.google.com/store/apps/details?id=com.pusu.iptv&hl=tr" target="_blank" rel="noopener noreferrer" class="btn-header-uniform">
+                        <i class="fab fa-google-play"></i>
+                        <span>Google Play</span>
+                    </a>
+                    <a href="qr.html" class="btn-header-uniform">
+                        <i class="fas fa-qrcode"></i>
+                        <span>QR Girişi</span>
+                    </a>
+                    <a href="https://t.me/pusuiptv" target="_blank" rel="noopener noreferrer" class="btn-header-uniform">
+                        <i class="fab fa-telegram"></i>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="https://www.facebook.com/share/g/18oyWEzKzU/" target="_blank" rel="noopener noreferrer" class="btn-header-uniform">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://github.com/Okan707/pusu.iptv/releases/download/19.3.0/Pusu_IPTV_Setup.exe" class="btn-header-uniform btn-header-download mobile-span-2">
+                        <i class="fab fa-windows"></i>
+                        <span>Windows 19.3 İndir (.exe)</span>
+                    </a>
+                </div>
             </nav>
 
             <div class="header-actions">
-                <a href="https://www.facebook.com/share/g/18oyWEzKzU/" target="_blank" rel="noopener noreferrer" class="btn-header-uniform">
+                <a href="https://www.facebook.com/share/g/18oyWEzKzU/" target="_blank" rel="noopener noreferrer" class="btn-header-uniform hide-on-mobile" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
                     <span>Facebook</span>
                 </a>
-                <a href="https://t.me/pusuiptv" target="_blank" rel="noopener noreferrer" class="btn-header-uniform">
+                <a href="https://t.me/pusuiptv" target="_blank" rel="noopener noreferrer" class="btn-header-uniform hide-on-mobile" aria-label="Telegram">
                     <i class="fab fa-telegram"></i>
                     <span>Telegram</span>
                 </a>
-                <a href="https://play.google.com/store/apps/details?id=com.pusu.iptv&hl=tr" target="_blank" rel="noopener noreferrer" class="btn-header-uniform">
+                <a href="https://play.google.com/store/apps/details?id=com.pusu.iptv&hl=tr" target="_blank" rel="noopener noreferrer" class="btn-header-uniform" aria-label="Google Play">
                     <i class="fab fa-google-play"></i>
                     <span>Google Play</span>
                 </a>
-                <a href="qr.html" class="btn-header-uniform">
+                <a href="qr.html" class="btn-header-uniform" aria-label="QR Girişi">
                     <i class="fas fa-qrcode"></i>
                     <span>QR Girişi</span>
                 </a>
-                <a href="https://github.com/Okan707/pusu.iptv/releases/download/19.3.0/Pusu_IPTV_Setup.exe" class="btn-header-uniform btn-header-download">
+                <a href="https://github.com/Okan707/pusu.iptv/releases/download/19.3.0/Pusu_IPTV_Setup.exe" class="btn-header-uniform btn-header-download hide-on-mobile" aria-label="Windows 19.3">
                     <i class="fab fa-windows"></i>
                     <span>Win 19.3</span>
                 </a>
@@ -462,7 +486,7 @@
         </div>
     </footer>
 
-    <script src="main.js?v=20.1.0"></script>
+    <script src="main.js?v=20.2.0"></script>
 </body>
 
 </html>
